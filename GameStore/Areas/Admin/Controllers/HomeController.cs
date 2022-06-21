@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Threading.Tasks;
+
 using System;
 
 namespace GameStore.Areas.Admin.Controllers
@@ -19,7 +20,8 @@ namespace GameStore.Areas.Admin.Controllers
     [Area("admin")]
     public class HomeController : Controller
     {
-
+       
+     
 
         private readonly UserManager<IdentityUser> userManager;
         private readonly DataManager dataManager;
@@ -28,7 +30,8 @@ namespace GameStore.Areas.Admin.Controllers
         {
             this.dataManager = dataManager;
             _db = db;
-            userManager = userMgr;         
+            userManager = userMgr;
+       
         }
 
         public IActionResult Index()
@@ -66,6 +69,7 @@ namespace GameStore.Areas.Admin.Controllers
                 Name = name
             };
             return View(viewModel);
+
         }
         public IActionResult Ganres(string name)
         {

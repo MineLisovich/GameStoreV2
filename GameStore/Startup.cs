@@ -19,6 +19,7 @@ using GameStore.Domain.Repositories.Abstract;
 using GameStore.Domain.Repositories.EntityFramework;
 using GameStore.Service;
 
+
 namespace GameStore
 {
     public class Startup
@@ -39,6 +40,8 @@ namespace GameStore
             services.AddTransient<IGameKeyRepository, EFGameKeyRepository>();   
             //services.AddTransient<IUsersRepository, EFUsersRepository>();
             services.AddTransient<DataManager>();
+   
+
 
             // подключение БД
             services.AddDbContext<AppDbContext>(x => x.UseSqlServer(Config.ConnectionString));

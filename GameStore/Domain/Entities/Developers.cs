@@ -7,11 +7,8 @@ using System.Linq;
 namespace GameStore.Domain.Entities
 {
     public class Developers
-    {
-        [Required]
-        public int id { get; set; }
-
-        [Required(ErrorMessage = "Введите Наименование разработчиков")]
+    {    
+        public int id { get; set; } 
         public string nameDeveloper { get; set; }
 
         public IList<AllGames> AllGames { get; set; }
