@@ -1,0 +1,25 @@
+﻿@model GameKey
+<div class="container">
+     <h1>Добавить новый ключ от игры (или изменить данные)</h1>      
+         <form asp-controller="GameKey" asp-action="Edit" method="post">
+          <div class="form-group">
+                <label class="control-label">Наименование игры:</label>
+                <select asp-for="AllGames.nameGame" class="form-control">
+                    @foreach (SelectListItem option in ViewBag.AllGamesDropList)
+                      {
+                        <option value="@option.Value">@option.Text</option>
+                      }
+            </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Ключ от игры:</label>
+                <input asp-for="Key_game" class="form-control" />
+                <span asp-validation-for="Key_game" class="text-danger"></span>
+            </div>
+           
+          
+            <div class="form-group">
+                <input type="submit" value="Принять" class="btn btn-primary" />
+            </div>
+        </form>  
+ </div>

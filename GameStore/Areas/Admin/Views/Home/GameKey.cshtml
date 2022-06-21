@@ -1,0 +1,46 @@
+﻿@model GameStore.Models.GameKeyViewModel
+<div class="container">
+  
+           
+          
+         
+         <div class = "single-shop-product">
+              <h1>Ключи от игр</h1>
+             <a class="add_to_cart_button"asp-area="Admin" asp-controller="GameKey" asp-action="Edit" >Добавить новый ключ</a>
+         </div>
+              <form method="get">
+            <div class="form-group">
+                <input name="name" class="form-control" placeholder="Введите наименование игры"/>
+            </div>
+        </form>
+            <table>
+               <thead>
+                 <tr class = "tableDev">
+                    <td class = "tableDev"><b>ID:</b></td>
+                    <td class = "tableDev"><b>ID игры:</b></td>
+                    <td class = "tableDev"><b>Наименование игры:</b></td>
+                    <td class = "tableDev"><b>Ключ от игры:</b></td>
+                 </tr>
+             </thead>
+             <tbody> 
+             @if (Model.gameKey.Count() > 0)
+             {
+                 @foreach (var obj in Model.gameKey)
+                 {
+                     <tr class = "tableDev">
+                         <td class = "tableDev">@obj.id</td>
+                         <td class = "tableDev">@obj.AllGamesid</td>
+                         <td class = "tableDev">@obj.AllGames.nameGame</td>
+                         <td class = "tableDev">@obj.Key_game</td>
+
+                         <td class = "tableDev">
+                             <a class="add_to_cart_button"asp-area="Admin" asp-controller="GameKey" asp-action="Edit" asp-route-id=@obj.id >Изменить</a>
+                             <a class="add_to_cart_button"asp-area="Admin" asp-controller="GameKey" asp-action="Delete" asp-route-id=@obj.id >Удалить</a>
+                         </td>
+                     </tr>
+                 }
+             }          
+            </tbody>
+            </table>
+ </div>
+ 

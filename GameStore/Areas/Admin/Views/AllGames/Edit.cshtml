@@ -1,0 +1,83 @@
+﻿@model AllGames
+
+<div class="container">
+     <h1>Добавить игру(измениеть информацию о игре)</h1>      
+         <form asp-controller="AllGames" asp-action="Edit" method="post" enctype="multipart/form-data">
+           <div class="form-group">
+                <label asp-for="nameGame" class="control-label">Название игры</label>
+                <input asp-for="nameGame" class="form-control" />
+                <span asp-validation-for="nameGame" class="text-danger"></span>
+           </div>  
+            <div class="form-group">
+               <label class="control-label">Жанр</label>
+               <select asp-for="Ganres.nameGanres" class="form-control">
+                   @foreach (SelectListItem option in ViewBag.GanresList)
+                   {
+                         <option value="@option.Value">@option.Text</option>
+                        
+                   }   
+            </select>
+            </div>
+              <div class="form-group">
+                <label asp-for="descriptionG" class="control-label">Описание</label>
+                <textarea asp-for="descriptionG" class="form-control" ></textarea>
+                <span asp-validation-for="descriptionG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="releaseDate" class="control-label">Дата релиза</label>
+                <input type="date" value="today" asp-for="releaseDate" class="form-control" />
+                <span asp-validation-for="releaseDate" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label class="control-label">Разработчик</label>
+                
+                <select asp-for="Developers.nameDeveloper" class="form-control">
+                    @foreach (SelectListItem option in ViewBag.DevelopersList)
+                      {
+                          <option value="@option.Value" >@option.Text</option>
+                      }
+            </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label">Цена за одну копию игры</label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="amount" class="control-label"> Количество поступивших копий игры</label>
+                <input asp-for="amount" class="form-control" />
+                <span asp-validation-for="amount" class="text-danger"></span>
+           </div>
+         
+
+            <div>
+                <label class="control-label">Выберите файл</label>
+                <input name="imageFile" id="imageFile" type="file" class="form-control" accept=".png" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Poster" class="control-label">Имя картинки</label>
+                <input asp-for="Poster" class="form-control" />
+                <span asp-validation-for="Poster" class="text-danger"></span>
+            </div>
+
+              <div class="form-group">
+                <label asp-for="dateAddedSite" class="control-label">Дата добавления на сайт</label>
+                <input type="date" value="today" asp-for="dateAddedSite" class="form-control" />
+                <span asp-validation-for="dateAddedSite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Платформа</label>
+              
+                <select asp-for="Platforms.namePlatform" class="form-control">
+                    @foreach (SelectListItem option in ViewBag.PlatformsList)
+                     {
+                           <option value="@option.Value">@option.Text</option>
+                     }
+            </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Принять" class="btn btn-primary" />
+            </div>
+        </form>  
+ </div>

@@ -1,0 +1,33 @@
+﻿@model GameStore.Models.CreateUserViewModel
+<div class="container">
+     <h1>Добавить нового пользователя</h1>      
+         <form asp-controller="Users" asp-action="Create" method="post">
+           <div class="form-group">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Name" class="control-label">Логин</label>
+                <input asp-for="Name" class="form-control" />
+              
+                 <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="Email" class="control-label">Почта</label>
+                <input asp-for="Email" class="form-control" />
+               
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <label asp-for="Password" class="control-label">Пароль</label>
+                <input asp-for="Password" class="form-control" />
+
+                <span asp-validation-for="RoleID" class="text-danger"></span>
+                <label asp-for="RoleID" class="control-label">id Роли (601-admin, 602-user) </label>
+                <input asp-for="RoleID" class="form-control" />
+
+                 <span asp-validation-for="Role" class="text-danger"></span>
+                <label asp-for="Role" class="control-label">Наименование Роли (ADMIN, USER)</label>
+                <input asp-for="Role" class="form-control" />
+                
+           </div>
+           
+          
+            <div class="form-group">
+                <input type="submit" value="Принять" class="btn btn-primary" />
+            </div>
+        </form>  
+ </div>

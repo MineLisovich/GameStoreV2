@@ -1,0 +1,167 @@
+﻿ @model IEnumerable<GameStore.Domain.Entities.AllGames>
+ @await Html.PartialAsync("SliderPartial")
+
+    <!-- promo area -->
+    <div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo1">
+                        <i class="fa fa-key"></i>
+                        <p>Лицензионные ключи </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo2">
+                        <i class="fa fa-gear"></i>
+                        <p>Гарантированная техподдержка</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo3">
+                        <i class="fa fa-ticket"></i>
+                        <p>Регулярные акции, скидки и бонусы</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo4">
+                        <i class="fa fa-money"></i>
+                        <p>Удобное пополнение счёта</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- End promo area -->
+
+    <!-- product widget area -->
+    <div class="product-widget-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">Лидеры продаж</h2>
+                        <a asp-controller="Home" asp-action="AllGame" class="wid-view-more">Смотреть все</a>
+            
+                     @if (Model.Count() > 0)
+                     {
+                       @foreach (var obj in Model.Take(3))
+                       {
+                            <div class="single-wid-product">
+                            <img src="~/images/product/@obj.Poster"  alt="" />
+                            <h2><a class="product-name" asp-controller="" asp-action="" asp-route-id=@obj.id >@obj.nameGame</a></h2>
+                            <div class="product-wid-rating">
+                                <p class="descriptionInfo"><b>Жанр:</b> @obj.Ganres.nameGanres</p>
+                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.Developers.nameDeveloper </p>
+                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.releaseDate </p>        
+                                <p class="descriptionInfo"><b>Описание:</b> @obj.descriptionG</p>
+                                <p class="descriptionInfo"><b>Платформа:</b> @obj.Platforms.namePlatform</p>
+                                   
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>@obj.price BYN</ins>
+                                <a asp-area="user" asp-controller="" asp-action="" asp-route-id=@obj.id class="add_to_cart_button" >В корзину</a> 
+                            </div>                            
+                            </div>               
+                       }
+                     }  
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">Популярные</h2>
+                        <a asp-controller="Home" asp-action="AllGame" class="wid-view-more">Смотреть все</a>
+
+                    @if (Model.Count() > 0)
+                     {
+                       @foreach (var obj in Model.OrderBy(a=>a.price).Take(3))
+                       {
+                            
+                            <div class="single-wid-product">
+                            <img src="~/images/product/@obj.Poster"  alt="" />
+                            <h2><a class="product-name" asp-controller="" asp-action="" asp-route-id=@obj.id >@obj.nameGame</a></h2>
+                            <div class="product-wid-rating">
+                                <p class="descriptionInfo"><b>Жанр:</b> @obj.Ganres.nameGanres</p>
+                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.Developers.nameDeveloper </p>
+                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.releaseDate </p>  
+                                <p class="descriptionInfo"><b>Описание:</b> @obj.descriptionG</p>
+                                <p class="descriptionInfo"><b>Платформа:</b> @obj.Platforms.namePlatform</p>
+                                   
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>@obj.price BYN</ins>
+                                <a asp-area="user" asp-controller="" asp-action="" asp-route-id=@obj.id class="add_to_cart_button" >В корзину</a> 
+                            </div>                            
+                            </div>                   
+                       }
+                     } 
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">Новинки</h2>
+                        <a asp-controller="Home" asp-action="AllGame" class="wid-view-more">Смотреть все</a>
+
+
+                    @if (Model.Count() > 0)
+                     {
+                       @foreach (var obj in Model.OrderByDescending(s => s.dateAddedSite).Take(3))
+                       {
+                            
+                            <div class="single-wid-product">
+                            <img src="~/images/product/@obj.Poster"  alt="" />
+                            <h2><a class="product-name" asp-controller="" asp-action="" asp-route-id=@obj.id >@obj.nameGame</a></h2>
+                            <div class="product-wid-rating">
+                                <p class="descriptionInfo"><b>Жанр:</b> @obj.Ganres.nameGanres</p>
+                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.Developers.nameDeveloper </p>
+                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.releaseDate </p>  
+                                <p class="descriptionInfo"><b>Описание:</b> @obj.descriptionG</p>
+                                <p class="descriptionInfo"><b>Платформа:</b> @obj.Platforms.namePlatform</p>
+                                   
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>@obj.price BYN</ins>
+                                <a asp-area="user" asp-controller="" asp-action="" asp-route-id=@obj.id class="add_to_cart_button" >В корзину</a> 
+                            </div>                            
+                            </div>                
+                       }
+                     } 
+
+
+                    </div>
+                </div>     
+            </div>
+        </div>
+    </div> 
+    <!-- End product widget area -->
+
+    <!--brands area -->
+    <div class="brands-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="brand-wrapper">
+                        <div class="brand-list">
+                            <img src="~/images/brand/cdpr.png" alt="">
+                            <img src="~/images/brand/rockstar.png" alt="">
+                            <img src="~/images/brand/Bethesda.png" alt="">
+                            <img src="~/images/brand/ubisoft.png" alt="">
+                            <img src="~/images/brand/ea.png" alt="">
+                            <img src="~/images/brand/Bethesda.png" alt="">
+                            <img src="~/images/brand/valve.png" alt="">
+                            <img src="~/images/brand/Square.png" alt="">                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END brands area -->

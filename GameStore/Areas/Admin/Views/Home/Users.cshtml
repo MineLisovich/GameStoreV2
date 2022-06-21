@@ -1,0 +1,50 @@
+﻿@model GameStore.Models.UserViewModel
+<div class="container">
+  
+           
+          
+         
+         <div class = "single-shop-product">
+             <a class="add_to_cart_button"asp-area="Admin" asp-controller="Users" asp-action="Create">Добавить Нового пользователя</a>
+         </div>
+           <form method="get">
+            <div class="form-group">
+                <input name="name" class="form-control" placeholder="Введите логин пользователя"/>
+            </div>
+        </form>
+            <table>
+               <thead>
+                 <tr class = "tableDev">
+                    <td class = "tableDev"><b>ID:</b></td>
+                    <td class = "tableDev"><b>Логин:</b></td>
+                    <td class = "tableDev"><b>Email:</b></td>
+                    
+                    <td class = "tableDev"><b>Управление</b></td>
+                 </tr>
+             </thead>
+             <tbody> 
+             @if (Model.user.Count() > 0)
+             {
+                 @foreach (var obj in Model.user)
+                 {
+                     <form asp-area="Admin" asp-controller="Users" asp-action="Delete" asp-route-id="@obj.Id" method="post">
+                     <tr class = "tableDev">
+                         <td class = "tableDev">@obj.Id</td>
+                         <td class = "tableDev">@obj.UserName</td>
+                         <td class = "tableDev">@obj.Email</td>
+                        
+                         <td class = "tableDev">
+                             <a class="add_to_cart_button"asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id=@obj.Id >Изменить</a>
+                             <button type="submit" value="Удалить" >Удалить</button>
+                             
+                         </td>
+                     </tr>
+                     </form>
+
+                    
+                 }
+             }          
+            </tbody>
+            </table>
+ </div>
+ 

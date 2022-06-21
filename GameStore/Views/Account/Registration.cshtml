@@ -1,0 +1,38 @@
+﻿@model RegistrationViewModel
+
+<section class="login spad">
+       <div class="container">
+<div class="col-lg-6">
+    <div class="login__form">
+        <h3>Регистрация</h3>
+        <form method="post"  asp-controller="Account" asp-action="Registration" >
+            
+            
+            <div class="input__item">
+                <input asp-for="UserName" placeholder="Укажите свой login"/>
+                <span class="icon_mail"><i class="fa fa-envelope"></i></span>
+            </div>
+            <div class="input__item">
+                <input asp-for="PasswordHash" placeholder="Введите пароль"/>
+                <span class="icon_lock"><i class="fa fa-key"></i></span>
+            </div>           
+             <div class="input__item">
+                <input asp-for="Email" placeholder="Укажите свой Email"/>
+                <span class="icon_mail"><i class="fa fa-user"></i></span>
+            </div>
+            
+            <button type="submit" class="site-btn">Зарегистрировать</button>
+            
+        </form>
+        <span asp-validation-for="UserName" class = "spanErr"></span><br>
+        <span asp-validation-for="PasswordHash" class = "spanErr"></span><br>
+        <span asp-validation-for="Email" class = "spanErr"></span>
+    </div> 
+</div>
+<div class="col-lg-6">
+<div class="login__form">
+<h3>Есть учётная запись? <a asp-area="" asp-controller="Account" asp-action="Login"> Так войди же в неё!</a> </h3>
+</div>
+</div>
+</div>
+</section>

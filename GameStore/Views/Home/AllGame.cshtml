@@ -1,0 +1,77 @@
+﻿  @model GameStore.Models.AllGamesViewModel
+<!-- product-big-title-area -->
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2><b>Каталог</b></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- End product-big-title-area -->
+     
+    
+    <!-- single-product-area -->
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+
+        <div class="container">
+              <form method="get">
+                 <div class="form-group"> 
+                      <input name="name" class="form-control" placeholder="Поиск"  />
+                 </div>
+               </form>
+                               <form method="get" class="sort_form">
+          <div class="form-inline form-group">  
+            <select name="ganre" asp-items="Model.GanresList" class="selectList"> </select>  
+            <select name ="platfoms" asp-items="Model.PlatfomsList" class="selectList"></select>
+            <select name ="developres" asp-items ="Model.DevelopersList" class="selectList"></select>
+ 
+         <button type ="submit" class="form__button">Cортировать</button>
+       
+    </div>
+</form>
+        <div class="row">
+                
+      
+
+                <!-- начала цикла -->
+           @if (Model.allGames.Count() > 0)
+            {
+                @foreach (var obj in Model.allGames)
+                {
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-shop-product">
+                            <div class="product-upper">
+                               <img src="~/images/product/@obj.Poster"  alt="" />
+                            </div>
+                           <h2><a class="product-name" asp-controller="" asp-action="" asp-route-id=@obj.id >@obj.nameGame</a></h2>
+                            <div class="product-wid-rating">
+                                <p class="descriptionInfo"><b>Жанр:</b> @obj.Ganres.nameGanres</p>
+                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.Developers.nameDeveloper </p>
+                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.releaseDate </p>  
+                                <p class="descriptionInfo"><b>Описание:</b> @obj.descriptionG</p>
+                                <p class="descriptionInfo"><b>Платформа:</b> @obj.Platforms.namePlatform</p>
+                                   
+                            </div>
+                            <div class="product-carousel-price">
+                              <ins>@obj.price BYN</ins>
+                            </div>  
+
+                            <div class="product-option-shop">
+                                <a asp-area="user" asp-controller="" asp-action="" asp-route-id=@obj.id class="add_to_cart_button" >В корзину</a>
+                            </div>                       
+                        </div>
+                    </div>
+                }
+            }
+          
+            <!-- конец цикла -->
+            </div>
+        </div>
+    </div>
+    <!-- End product-big-title-area -->

@@ -1,0 +1,15 @@
+﻿@model Platforms
+<div class="container">
+     <h1>Добавить платформу(измениеть информацию о платформе)</h1>      
+         <form asp-controller="Platforms" asp-action="Edit" method="post">
+           <div class="form-group">
+                <label asp-for="namePlatform" class="control-label">Наименование</label>
+                <input asp-for="namePlatform" class="form-control" />
+                <span asp-validation-for="namePlatform" class="text-danger"></span>
+           </div>
+            <div class="form-group">
+                <input type="submit" value="Принять" class="btn btn-primary" />
+            </div>
+        </form>  
+ </div>
+

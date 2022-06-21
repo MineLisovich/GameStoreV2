@@ -1,0 +1,42 @@
+﻿@model GameStore.Models.GanresViewModel
+<div class="container">
+  
+           
+           
+         
+         <div class = "single-shop-product">
+              <h1>Жанры</h1>
+             <a class="add_to_cart_button"asp-area="Admin" asp-controller="Ganres" asp-action="Edit" >Добавить жанр</a>
+         </div>
+           <form method="get">
+            <div class="form-group">
+                <input name="name" class="form-control" placeholder="Введите наименование жанра"/>
+            </div>
+        </form>
+            <table>
+               <thead>
+                 <tr class = "tableDev">
+                    <td class = "tableDev"><b>ID:</b></td>
+                    <td class = "tableDev"><b>Наименование:</b></td>
+                    <td class = "tableDev"><b>Управление</b></td>
+                 </tr>
+             </thead>
+             <tbody> 
+             @if (Model.ganres.Count() > 0)
+             {
+                 @foreach (var obj in Model.ganres)
+                 {
+                     <tr class = "tableDev">
+                         <td class = "tableDev">@obj.id</td>
+                         <td class = "tableDev">@obj.nameGanres</td>
+                         <td class = "tableDev">
+                             <a class="add_to_cart_button"asp-area="Admin" asp-controller="Ganres" asp-action="Edit" asp-route-id=@obj.id >Изменить</a>
+                             <a class="add_to_cart_button"asp-area="Admin" asp-controller="Ganres" asp-action="Delete" asp-route-id=@obj.id >Удалить</a>
+                         </td>
+                     </tr>
+                 }
+             }          
+            </tbody>
+            </table>
+ </div>
+ 

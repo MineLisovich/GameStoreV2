@@ -1,0 +1,45 @@
+﻿
+@model LoginViewModel
+
+    <!-- Login Section Begin -->
+    <section class="login spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login__form">
+                        <h3>Вход</h3>
+                        <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+                           
+                            <div class="input__item">
+                             <input asp-for="UserName" placeholder="Введите логин"/><span class="icon_mail"><i class="fa fa-user"></i></span>
+                            
+                            </div>
+                          
+                            <div class="input__item"> 
+                               <input asp-for="Password" placeholder="Введите пароль"/><span class="icon_lock"><i class="fa fa-key"></i></span>
+                            </div>
+                            <span asp-validation-for="UserName" class = "spanErr"></span><br>
+                            <span asp-validation-for="Password" class = "spanErr"></span>
+                           
+                             <div class=""> 
+                            <label asp-for="RememberMe">Запомнить меня ?</label>
+                            <input asp-for="RememberMe" />
+                            <span asp-validation-for="RememberMe"></span>
+                            </div>
+                            <button type="submit" class="site-btn">ВХОД</button>
+                            
+                        </form>
+                         
+                        <a href="#" class="forget_pass">Забыли Ваш пароль?</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="login__form">
+                        <h3>Нет учетной записи? <a asp-controller="Account" asp-action="Registration">Создай её!</a> </h3>
+                   
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </section>

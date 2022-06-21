@@ -1,0 +1,49 @@
+﻿
+@model GameStore.Models.AllGamesViewModel
+
+<div class="container">
+    <div class = "single-shop-product">
+             <h1>Все игры</h1>
+             <a class="add_to_cart_button"asp-area="Admin" asp-controller="AllGames" asp-action="Edit" >Добавить новую игру</a>
+         </div>
+         <form method="get">
+            <div class="form-group">
+                <input name="name" class="form-control" placeholder="Введите наименование игры"/>
+            </div>
+        </form>
+         @foreach (var obj in Model.allGames)
+        {
+
+          
+              <div class="col-md-3 col-sm-6">
+                    <div class="single-shop-product">
+                        <div class="product-upper">
+                            <img src="~/images/product/@obj.Poster"  alt="" />
+                        </div>
+                       <b>Наименование:</b> @obj.nameGame <br>
+                       <b>Описание:</b> @obj.descriptionG <br>
+                       <b>Жанр:</b> @obj.Ganres.nameGanres<br>
+                       <b>Разработчик:</b>@obj.Developers.nameDeveloper<br>
+                       <b>Дата выхода:</b>@obj.releaseDate<br>
+                       <b>Цена:</b> @obj.price BYN<br> 
+                       <b>Количество копий игры:</b> @obj.amount <br>
+                       <b>Платформа:</b> @obj.Platforms.namePlatform <br>
+                       <b>Наименование картинки:</b> @obj.Poster<br>
+                       <b>Дата добавление на сайт:</b>@obj.dateAddedSite<br>               
+                        <div class="product-option-shop">
+                            <a class="add_to_cart_button"asp-area="Admin" asp-controller="AllGames" asp-action="Edit" asp-route-id=@obj.id >Изменить</a>
+                            <a class="add_to_cart_button"asp-area="Admin" asp-controller="AllGames" asp-action="Delete" asp-route-id=@obj.id >Удалить</a>
+                        </div>                       
+                    </div>
+                </div>
+
+
+        } 
+
+
+       
+
+
+
+ </div>
+ 

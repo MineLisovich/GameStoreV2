@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    @await Html.PartialAsync("MetatagsPartial")
+    @await Html.PartialAsync("cssPartial")
+  </head>
+  <body>
+
+   <!--header area -->
+    @await Html.PartialAsync("HeaderPartialAdmin")
+  
+    @await Html.PartialAsync("MainMenuAreaAdmin")
+    <!-- End header area -->
+    @RenderBody()
+    <!-- footer top area -->
+    @await Html.PartialAsync("FooterPartialAdmin")
+    <!-- End footer bottom area -->
+   @await Html.PartialAsync("ScriptsPartial")
+  
+  </body>
+</html>

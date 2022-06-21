@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GameStore.Domain.Entities.Basket>
+<div class="container">
+  
+         
+         
+         <div class = "single-shop-product">
+              <h1>История всех покупок</h1>
+         </div>
+            
+            <table>
+               <thead>
+                 <tr class = "tableDev">
+                    <td class = "tableDev"><b>ID:</b></td>
+                    <td class = "tableDev"><b>ID игры:</b></td>
+                    <td class = "tableDev"><b>Наименование игры:</b></td>
+                    <td class = "tableDev"><b>ID Пользователя:</b></td>
+                    <td class = "tableDev"><b>Пользователь</b></td>
+                    <td class = "tableDev"><b>Количество</b></td>
+                    <td class = "tableDev"><b>Цена</b></td>
+                 </tr>
+             </thead>
+             <tbody> 
+             @if (Model.Count() > 0)
+             {
+                 @foreach (var obj in Model)
+                 {
+                     <tr class = "tableDev">
+                         <td class = "tableDev">@obj.id</td>
+                         <td class = "tableDev">@obj.AllGamesid</td>
+                         <td class = "tableDev">@obj.AllGames.nameGame</td>
+                         <td class = "tableDev">@obj.UserId</td>
+                         <td class = "tableDev">@obj.User.UserName</td>
+                         <td class = "tableDev">@obj.amount</td>
+                         <td class = "tableDev">@obj.finalPrice</td>      
+                     </tr>
+                 }
+             }          
+            </tbody>
+            </table>
+ </div>
+ 

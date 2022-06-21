@@ -1,0 +1,24 @@
+[
+  {
+    "outputFileName": "wwwroot/js/script.js",
+    "inputFiles": [
+      "wwwroot/js/main.js",
+      "wwwroot/js/jquery.sticky.js",
+      "wwwroot/js/bxslider.min.js",
+      "wwwroot/js/jquery.easing.1.3.min.js",
+      "wwwroot/js/owl.carousel.min.js",
+      "wwwroot/js/slider.js",
+      "wwwroot/js/jquery.maskedinput.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/main.css",
+    "inputFiles": [
+      "wwwroot/css/bootstrap.min.css",
+      "wwwroot/css/font-awesome.min.css",
+      "wwwroot/css/owl.carousel.css",
+      "wwwroot/css/responsive.css",
+      "wwwroot/css/style.css"
+    ]
+  }
+]
