@@ -52,6 +52,7 @@ namespace GameStore.Controllers
                 allgames = allgames.Where(a => a.nameGame.Contains(name));
             }
 
+
             List<Ganres> ganres = _db.Ganres.ToList();
             List<Platforms> platforms = _db.Platforms.ToList();
             List<Developers> developers = _db.Developers.ToList();
@@ -69,11 +70,7 @@ namespace GameStore.Controllers
             };
             return View(viewModel);
         }
-        public IActionResult Action()
-        {
-            IEnumerable<AllGames> games = _db.AllGames;
-            return View(games);
-        }
+    
         public IActionResult Support()
         {
             return View();
