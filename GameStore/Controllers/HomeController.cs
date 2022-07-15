@@ -81,6 +81,15 @@ namespace GameStore.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult SinglePageGame(int id)
+        {
+            var allGames = id == default ? new AllGames() : dataManager.AllGames.GetAllGamesByid(id);
+            var developers = dataManager.Developers.GetDevelopersByid(allGames.Developersid);
+            var platforms = dataManager.Platforms.GetPlatformsByid(allGames.Platformsid);
+            var ganres = dataManager.Ganres.GetGanresByid(allGames.Ganresid);
+            return View(allGames);
+        }
 
     }
 }
