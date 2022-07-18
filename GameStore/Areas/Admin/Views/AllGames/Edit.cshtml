@@ -19,7 +19,7 @@
             </select>
             </div>
               <div class="form-group">
-                <label asp-for="descriptionG" class="control-label">Описание</label>
+                <label asp-for="descriptionG" class="control-label">Краткое описание</label>
                 <textarea asp-for="descriptionG" class="form-control" ></textarea>
                 <span asp-validation-for="descriptionG" class="text-danger"></span>
             </div>
@@ -50,8 +50,8 @@
            </div>
          
 
-            <div>
-                <label class="control-label">Выберите файл</label>
+            <div class="form-group">
+                <label class="control-label">Выберите файл постера</label>
                 <input name="imageFile" id="imageFile" type="file" class="form-control" accept=".png" />
             </div>
 
@@ -75,6 +75,56 @@
                            <option value="@option.Value">@option.Text</option>
                      }
             </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Выберите файл скриншота игры</label>
+                <input name="screenshotGame1" id="screenshotGame1" type="file" class="form-control" accept=".png" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="screenshotGame_1" class="control-label">Имя картинки</label>
+                <input asp-for="screenshotGame_1" class="form-control" />
+                <span asp-validation-for="screenshotGame_1" class="text-danger"></span>
+            </div>
+                 <div class="form-group">
+                <label class="control-label">Выберите файл скриншота игры</label>
+                <input name="screenshotGame2" id="screenshotGame2" type="file" class="form-control" accept=".png" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="screenshotGame_2" class="control-label">Имя картинки</label>
+                <input asp-for="screenshotGame_2" class="form-control" />
+                <span asp-validation-for="screenshotGame_2" class="text-danger"></span>
+            </div>
+                 <div class="form-group">
+                <label class="control-label">Выберите файл скриншота игры</label>
+                <input name="screenshotGame3" id="screenshotGame3" type="file" class="form-control" accept=".png" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="screenshotGame_3" class="control-label">Имя картинки</label>
+                <input asp-for="screenshotGame_3" class="form-control" />
+                <span asp-validation-for="screenshotGame_3" class="text-danger"></span>
+            </div>
+                 <div class="form-group">
+                <label class="control-label">Выберите файл скриншота игры</label>
+                <input name="screenshotGame4" id="screenshotGame4" type="file" class="form-control" accept=".png" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="screenshotGame_4" class="control-label">Имя картинки</label>
+                <input asp-for="screenshotGame_4" class="form-control" />
+                <span asp-validation-for="screenshotGame_4" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="fullDescriptionGame" class="control-label">Полное описание игры</label>
+                <textarea asp-for="fullDescriptionGame" class="form-control" ></textarea>
+                <span asp-validation-for="fullDescriptionGame" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="linkTrailerGame" class="control-label">Введите сокращённую youtube ссылку на трейлер игры</label>
+                <input asp-for="linkTrailerGame" class="form-control" />
+                <span asp-validation-for="linkTrailerGame" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Принять" class="btn btn-primary" />

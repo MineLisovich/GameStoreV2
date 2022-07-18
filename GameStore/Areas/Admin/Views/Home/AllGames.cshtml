@@ -29,7 +29,13 @@
                        <b>Количество копий игры:</b> @obj.amount <br>
                        <b>Платформа:</b> @obj.Platforms.namePlatform <br>
                        <b>Наименование картинки:</b> @obj.Poster<br>
-                       <b>Дата добавление на сайт:</b>@obj.dateAddedSite<br>               
+                       <b>Дата добавление на сайт:</b>@obj.dateAddedSite<br>  
+                       <b>Имя скриншота игры1:</b>@obj.screenshotGame_1<br>
+                       <b>Имя скриншота игры2:</b>@obj.screenshotGame_2<br>
+                       <b>Имя скриншота игры3:</b>@obj.screenshotGame_3<br>
+                       <b>Имя скриншота игры4:</b>@obj.screenshotGame_4<br>
+                       <b>Полное описание:</b> @obj.fullDescriptionGame<br>
+                       <b>Сокр. ссылка на ютуб:</b> @obj.linkTrailerGame<br>
                         <div class="product-option-shop">
                             <a class="add_to_cart_button"asp-area="Admin" asp-controller="AllGames" asp-action="Edit" asp-route-id=@obj.id >Изменить</a>
                             <a class="add_to_cart_button"asp-area="Admin" asp-controller="AllGames" asp-action="Delete" asp-route-id=@obj.id >Удалить</a>

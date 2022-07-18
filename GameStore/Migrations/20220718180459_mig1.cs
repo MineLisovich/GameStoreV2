@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GameStore.Migrations
 {
-    public partial class _bdV14 : Migration
+    public partial class mig1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,7 +52,7 @@ namespace GameStore.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nameDeveloper = table.Column<string>(nullable: false)
+                    nameDeveloper = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -204,6 +204,12 @@ namespace GameStore.Migrations
                     amount = table.Column<int>(nullable: false),
                     Poster = table.Column<string>(nullable: false),
                     dateAddedSite = table.Column<DateTime>(nullable: false),
+                    screenshotGame_1 = table.Column<string>(nullable: false),
+                    screenshotGame_2 = table.Column<string>(nullable: false),
+                    screenshotGame_3 = table.Column<string>(nullable: false),
+                    screenshotGame_4 = table.Column<string>(nullable: false),
+                    fullDescriptionGame = table.Column<string>(nullable: false),
+                    linkTrailerGame = table.Column<string>(nullable: false),
                     Ganresid = table.Column<int>(nullable: false),
                     Developersid = table.Column<int>(nullable: false),
                     Platformsid = table.Column<int>(nullable: false)
@@ -304,8 +310,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "602", "9802e0d9-e5db-429e-8bd9-98a059ce0a67", "user", "USER" },
-                    { "601", "3532a74b-ef26-4b8c-acc8-304c109f499f", "admin", "ADMIN" }
+                    { "602", "44929608-26fd-4939-9bdb-9100c65b9c9c", "user", "USER" },
+                    { "601", "42d53616-eecf-41c7-995a-52d2ebe403bd", "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -313,8 +319,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "702", 0, "0264894a-5637-4427-ab57-85f49bb31a55", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAEAEbCs0NYY8wUXoHJ/c9rs3cHA8lUjr8//AvoABZGSDGK0rRmggI09nsxdZAyE/UzA==", null, false, "", false, "Stepashka" },
-                    { "701", 0, "14cfa550-4dc7-46f0-8b32-0d180849a77c", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEPi4XqNOKfQGZFRwqAwGSDfWtZ4YtPzqLAd2MjK+46dRgTQdB3AXNce8XQg2TJ28qQ==", null, false, "", false, "deeLimpay" }
+                    { "702", 0, "953c3b4b-19dc-4206-a1f5-ccd79ba9c4a9", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAEKe0BOEcVjDM4bHs+5ZrrWl+fmahPn55KldLeZW4fT13vS+Z+XxX1oMsCUtSaaVtDg==", null, false, "", false, "Stepashka" },
+                    { "701", 0, "25647755-4c50-4147-9afa-b6593aecd6ed", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEIT6jTmUR5xMWwkOFaiPWom3AJFZhpUYuHtfqvysqOmBE+0XF5sShRSSzE2cJDsv2A==", null, false, "", false, "deeLimpay" }
                 });
 
             migrationBuilder.InsertData(
@@ -368,13 +374,13 @@ namespace GameStore.Migrations
 
             migrationBuilder.InsertData(
                 table: "AllGames",
-                columns: new[] { "id", "Developersid", "Ganresid", "Platformsid", "Poster", "amount", "dateAddedSite", "descriptionG", "nameGame", "price", "releaseDate" },
+                columns: new[] { "id", "Developersid", "Ganresid", "Platformsid", "Poster", "amount", "dateAddedSite", "descriptionG", "fullDescriptionGame", "linkTrailerGame", "nameGame", "price", "releaseDate", "screenshotGame_1", "screenshotGame_2", "screenshotGame_3", "screenshotGame_4" },
                 values: new object[,]
                 {
-                    { 401, 201, 101, 301, "2077.png", 29, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), " Cyberpunk 2077 — компьютерная игра в жанре экшен в открытом мире, разработанная и изданная польской студией CD Projekt. Действие игры происходит в 2077 году в Найт-Сити, вымышленном североамериканском городе из вселенной Cyberpunk.", "Cyberpunk 2077", 34, new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 402, 201, 101, 301, "GTA5.png", 10, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "GTA V — компьютерная игра в жанре action-adventure с открытым миром, разработанная компанией Rockstar North и изданная компанией Rockstar Games.", "Grand Theft Auto V", 25, new DateTime(2013, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 403, 201, 101, 301, "Valheim.png", 4, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Valheim — компьютерная игра в жанре симулятора выживания в открытом мире, разрабатываемая шведской компанией Iron Gate и изданная компанией Coffee Stain.", "Valheim", 10, new DateTime(2021, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 404, 201, 101, 301, "Assassin1.png", 22, new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.", "Assassin’s Creed", 13, new DateTime(2007, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 401, 201, 101, 301, "2077.png", 29, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), " Cyberpunk 2077 — компьютерная игра в жанре экшен в открытом мире, разработанная и изданная польской студией CD Projekt. Действие игры происходит в 2077 году в Найт-Сити, вымышленном североамериканском городе из вселенной Cyberpunk.", "Тут будет полное описание игры Cyberpunk", "aSrFWinrkeQ", "Cyberpunk 2077", 34, new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cyberpunk_screenshotGame_1.png", "Cyberpunk_screenshotGame_2.png", "Cyberpunk_screenshotGame_3.png", "Cyberpunk_screenshotGame_4.png" },
+                    { 402, 201, 101, 301, "GTA5.png", 10, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "GTA V — компьютерная игра в жанре action-adventure с открытым миром, разработанная компанией Rockstar North и изданная компанией Rockstar Games.", "Тут будет полное описание игры GTAV", "QkkoHAzjnUs", "Grand Theft Auto V", 25, new DateTime(2013, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "GTAV_screenshotGame_1.png", "GTAV_screenshotGame_2.png", "GTAV_screenshotGame_3.png", "GTAV_screenshotGame_4.png" },
+                    { 403, 201, 101, 301, "Valheim.png", 4, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Valheim — компьютерная игра в жанре симулятора выживания в открытом мире, разрабатываемая шведской компанией Iron Gate и изданная компанией Coffee Stain.", "Тут будет полное описание игры Valheim", "5mHRJ1KFe20", "Valheim", 10, new DateTime(2021, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Valheim_screenshotGame_1.png", "Valheim_screenshotGame_2.png", "Valheim_screenshotGame_3.png", "Valheim_screenshotGame_4.png" },
+                    { 404, 201, 101, 301, "Assassin1.png", 22, new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.", "Тут будет полное описание игры Assassin1", "RjQ6ZtyXoA0", "Assassin’s Creed", 13, new DateTime(2007, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "Assassin1_screenshotGame_1.png", "Assassin1_screenshotGame_2.png", "Assassin1_screenshotGame_3.png", "Assassin1_screenshotGame_4.png" }
                 });
 
             migrationBuilder.InsertData(

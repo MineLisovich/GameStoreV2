@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220612163024__bdV14")]
-    partial class _bdV14
+    [Migration("20220718180459_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,6 +51,14 @@ namespace GameStore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("fullDescriptionGame")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("linkTrailerGame")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("nameGame")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -60,6 +68,22 @@ namespace GameStore.Migrations
 
                     b.Property<DateTime>("releaseDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("screenshotGame_1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("screenshotGame_2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("screenshotGame_3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("screenshotGame_4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -82,9 +106,15 @@ namespace GameStore.Migrations
                             amount = 29,
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = " Cyberpunk 2077 — компьютерная игра в жанре экшен в открытом мире, разработанная и изданная польской студией CD Projekt. Действие игры происходит в 2077 году в Найт-Сити, вымышленном североамериканском городе из вселенной Cyberpunk.",
+                            fullDescriptionGame = "Тут будет полное описание игры Cyberpunk",
+                            linkTrailerGame = "aSrFWinrkeQ",
                             nameGame = "Cyberpunk 2077",
                             price = 34,
-                            releaseDate = new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            releaseDate = new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            screenshotGame_1 = "Cyberpunk_screenshotGame_1.png",
+                            screenshotGame_2 = "Cyberpunk_screenshotGame_2.png",
+                            screenshotGame_3 = "Cyberpunk_screenshotGame_3.png",
+                            screenshotGame_4 = "Cyberpunk_screenshotGame_4.png"
                         },
                         new
                         {
@@ -96,9 +126,15 @@ namespace GameStore.Migrations
                             amount = 10,
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "GTA V — компьютерная игра в жанре action-adventure с открытым миром, разработанная компанией Rockstar North и изданная компанией Rockstar Games.",
+                            fullDescriptionGame = "Тут будет полное описание игры GTAV",
+                            linkTrailerGame = "QkkoHAzjnUs",
                             nameGame = "Grand Theft Auto V",
                             price = 25,
-                            releaseDate = new DateTime(2013, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            releaseDate = new DateTime(2013, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            screenshotGame_1 = "GTAV_screenshotGame_1.png",
+                            screenshotGame_2 = "GTAV_screenshotGame_2.png",
+                            screenshotGame_3 = "GTAV_screenshotGame_3.png",
+                            screenshotGame_4 = "GTAV_screenshotGame_4.png"
                         },
                         new
                         {
@@ -110,9 +146,15 @@ namespace GameStore.Migrations
                             amount = 4,
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "Valheim — компьютерная игра в жанре симулятора выживания в открытом мире, разрабатываемая шведской компанией Iron Gate и изданная компанией Coffee Stain.",
+                            fullDescriptionGame = "Тут будет полное описание игры Valheim",
+                            linkTrailerGame = "5mHRJ1KFe20",
                             nameGame = "Valheim",
                             price = 10,
-                            releaseDate = new DateTime(2021, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            releaseDate = new DateTime(2021, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            screenshotGame_1 = "Valheim_screenshotGame_1.png",
+                            screenshotGame_2 = "Valheim_screenshotGame_2.png",
+                            screenshotGame_3 = "Valheim_screenshotGame_3.png",
+                            screenshotGame_4 = "Valheim_screenshotGame_4.png"
                         },
                         new
                         {
@@ -124,9 +166,15 @@ namespace GameStore.Migrations
                             amount = 22,
                             dateAddedSite = new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.",
+                            fullDescriptionGame = "Тут будет полное описание игры Assassin1",
+                            linkTrailerGame = "RjQ6ZtyXoA0",
                             nameGame = "Assassin’s Creed",
                             price = 13,
-                            releaseDate = new DateTime(2007, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            releaseDate = new DateTime(2007, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            screenshotGame_1 = "Assassin1_screenshotGame_1.png",
+                            screenshotGame_2 = "Assassin1_screenshotGame_2.png",
+                            screenshotGame_3 = "Assassin1_screenshotGame_3.png",
+                            screenshotGame_4 = "Assassin1_screenshotGame_4.png"
                         });
                 });
 
@@ -176,7 +224,6 @@ namespace GameStore.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("nameDeveloper")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -449,14 +496,14 @@ namespace GameStore.Migrations
                         new
                         {
                             Id = "601",
-                            ConcurrencyStamp = "3532a74b-ef26-4b8c-acc8-304c109f499f",
+                            ConcurrencyStamp = "42d53616-eecf-41c7-995a-52d2ebe403bd",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "602",
-                            ConcurrencyStamp = "9802e0d9-e5db-429e-8bd9-98a059ce0a67",
+                            ConcurrencyStamp = "44929608-26fd-4939-9bdb-9100c65b9c9c",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -555,13 +602,13 @@ namespace GameStore.Migrations
                         {
                             Id = "701",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "14cfa550-4dc7-46f0-8b32-0d180849a77c",
+                            ConcurrencyStamp = "25647755-4c50-4147-9afa-b6593aecd6ed",
                             Email = "deeLimpay@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "deeLimpay@mail.ru",
                             NormalizedUserName = "deeLimpay",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPi4XqNOKfQGZFRwqAwGSDfWtZ4YtPzqLAd2MjK+46dRgTQdB3AXNce8XQg2TJ28qQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIT6jTmUR5xMWwkOFaiPWom3AJFZhpUYuHtfqvysqOmBE+0XF5sShRSSzE2cJDsv2A==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -571,13 +618,13 @@ namespace GameStore.Migrations
                         {
                             Id = "702",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0264894a-5637-4427-ab57-85f49bb31a55",
+                            ConcurrencyStamp = "953c3b4b-19dc-4206-a1f5-ccd79ba9c4a9",
                             Email = "stepa@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "stepa@gmail.com",
                             NormalizedUserName = "Stepashka",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAEbCs0NYY8wUXoHJ/c9rs3cHA8lUjr8//AvoABZGSDGK0rRmggI09nsxdZAyE/UzA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKe0BOEcVjDM4bHs+5ZrrWl+fmahPn55KldLeZW4fT13vS+Z+XxX1oMsCUtSaaVtDg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

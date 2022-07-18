@@ -55,7 +55,7 @@ namespace GameStore.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(AllGames model, IFormFile imageFile)
+        public IActionResult Edit(AllGames model, IFormFile imageFile , IFormFile screenshotGame1, IFormFile screenshotGame2, IFormFile screenshotGame3, IFormFile screenshotGame4)
         {
             if (ModelState.IsValid)
             {
@@ -67,6 +67,38 @@ namespace GameStore.Areas.Admin.Controllers
                         imageFile.CopyTo(stream);
                     }
                    
+                }
+                if (screenshotGame1 != null)
+                {
+                    model.screenshotGame_1 = screenshotGame1.FileName;
+                    using (var stream1 = new FileStream(Path.Combine(hostingEnvironment.WebRootPath, "images/product/screenshotGame", screenshotGame1.FileName), FileMode.Create))
+                    {
+                        screenshotGame1.CopyTo(stream1);
+                    }
+                }
+                if (screenshotGame2 != null)
+                {
+                    model.screenshotGame_2 = screenshotGame2.FileName;
+                    using (var stream2 = new FileStream(Path.Combine(hostingEnvironment.WebRootPath, "images/product/screenshotGame", screenshotGame2.FileName), FileMode.Create))
+                    {
+                        screenshotGame2.CopyTo(stream2);
+                    }
+                }
+                if (screenshotGame3 != null)
+                {
+                    model.screenshotGame_3 = screenshotGame3.FileName;
+                    using (var stream3 = new FileStream(Path.Combine(hostingEnvironment.WebRootPath, "images/product/screenshotGame", screenshotGame3.FileName), FileMode.Create))
+                    {
+                        screenshotGame3.CopyTo(stream3);
+                    }
+                }
+                if (screenshotGame4 != null)
+                {
+                    model.screenshotGame_4 = screenshotGame4.FileName;
+                    using (var stream4 = new FileStream(Path.Combine(hostingEnvironment.WebRootPath, "images/product/screenshotGame", screenshotGame4.FileName), FileMode.Create))
+                    {
+                        screenshotGame4.CopyTo(stream4);
+                    }
                 }
                 var DevelopersByCodeWord = dataManager.Developers.GetDevelopersByCodeWord(model.Developers.nameDeveloper);
                 var PlatformsByCodeWord = dataManager.Platforms.GetPlatformsByCodeWord(model.Platforms.namePlatform);

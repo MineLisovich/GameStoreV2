@@ -192,8 +192,14 @@ namespace GameStore.Domain
                 amount = 29,
                 Poster = "2077.png",
                 dateAddedSite = new DateTime(2022, 03, 03),
-                Platformsid = 301
-            }); ;
+                Platformsid = 301,
+                screenshotGame_1 ="Cyberpunk_screenshotGame_1.png",
+                screenshotGame_2 = "Cyberpunk_screenshotGame_2.png",
+                screenshotGame_3 = "Cyberpunk_screenshotGame_3.png",
+                screenshotGame_4 = "Cyberpunk_screenshotGame_4.png",
+                fullDescriptionGame = "Тут будет полное описание игры Cyberpunk",
+                linkTrailerGame= "aSrFWinrkeQ"
+            }); 
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {
                 id = 402,
@@ -206,7 +212,13 @@ namespace GameStore.Domain
                 amount = 10,
                 Poster = "GTA5.png",
                 dateAddedSite = new DateTime(2022, 03, 03),
-                Platformsid = 301
+                Platformsid = 301,
+                screenshotGame_1 = "GTAV_screenshotGame_1.png",
+                screenshotGame_2 = "GTAV_screenshotGame_2.png",
+                screenshotGame_3 = "GTAV_screenshotGame_3.png",
+                screenshotGame_4 = "GTAV_screenshotGame_4.png",
+                fullDescriptionGame = "Тут будет полное описание игры GTAV",
+                linkTrailerGame = "QkkoHAzjnUs"
             });
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {
@@ -220,7 +232,13 @@ namespace GameStore.Domain
                 amount = 4,
                 Poster = "Valheim.png",
                 dateAddedSite = new DateTime(2022, 03, 03),
-                Platformsid = 301
+                Platformsid = 301,
+                screenshotGame_1 = "Valheim_screenshotGame_1.png",
+                screenshotGame_2 = "Valheim_screenshotGame_2.png",
+                screenshotGame_3 = "Valheim_screenshotGame_3.png",
+                screenshotGame_4 = "Valheim_screenshotGame_4.png",
+                fullDescriptionGame = "Тут будет полное описание игры Valheim",
+                linkTrailerGame = "5mHRJ1KFe20"
             });
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {
@@ -234,7 +252,13 @@ namespace GameStore.Domain
                 amount = 22,
                 Poster = "Assassin1.png",
                 dateAddedSite = new DateTime(2022, 04, 03),
-                Platformsid = 301
+                Platformsid = 301,
+                screenshotGame_1 = "Assassin1_screenshotGame_1.png",
+                screenshotGame_2 = "Assassin1_screenshotGame_2.png",
+                screenshotGame_3 = "Assassin1_screenshotGame_3.png",
+                screenshotGame_4 = "Assassin1_screenshotGame_4.png",
+                fullDescriptionGame = "Тут будет полное описание игры Assassin1",
+                linkTrailerGame = "RjQ6ZtyXoA0"
             });
 
             //Заполение таблицы Shares

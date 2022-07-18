@@ -10,8 +10,8 @@ namespace GameStore.Domain.Entities
 {
     public class AllGames
     {
-       
-        
+
+
 
         [Required]
         public int id { get; set; }
@@ -36,6 +36,21 @@ namespace GameStore.Domain.Entities
 
         [Required]
         public DateTime dateAddedSite { get; set; }
+
+        [Required(ErrorMessage ="Введите Имя скриншота игры")]
+        public string screenshotGame_1 { get; set; }
+        [Required(ErrorMessage = "Введите Имя скриншота игры")]
+        public string screenshotGame_2 { get; set; }
+        [Required(ErrorMessage = "Введите Имя скриншота игры")]
+        public string screenshotGame_3 { get; set; }
+        [Required(ErrorMessage = "Введите Имя скриншота игры")]
+        public string screenshotGame_4 { get; set; }
+        [Required(ErrorMessage = "Введите полное описание игры")]
+        public string fullDescriptionGame { get; set; }
+        [Required(ErrorMessage = "Введите сокращённую youtube ссылку на трейлер игры")]
+        public string linkTrailerGame { get; set; }
+
+
 
         // связи с другими таблицами
         public Ganres Ganres { get; set; }
