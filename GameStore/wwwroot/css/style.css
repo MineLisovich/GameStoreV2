@@ -355,6 +355,8 @@ z-index: 999;}
     font-weight: 200;
     padding: 20px 10px;
     text-align: center;
+    width: 262px;
+    height:172px;
 }
 .single-promo i {
   font-size: 50px;
@@ -492,10 +494,11 @@ z-index: 999;}
 .maincontent-area {padding-bottom: 50px; padding-top:20px;}
 
 .product-wid-title {
-  font-family: raleway;
-  font-size: 30px;
-  font-weight: 100;
-  margin-bottom: 40px;
+    font-family: raleway;
+    font-size: 30px;
+    font-weight: 100;
+    margin-bottom: 40px;
+    
 }
 
 
