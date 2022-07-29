@@ -1,5 +1,33 @@
-﻿ @model IEnumerable<GameStore.Domain.Entities.AllGames>
- @await Html.PartialAsync("SliderPartial")
+﻿ @model GameStore.Models.AllGamesViewModel
+<!-- slider area -->
+    <div class="slider-area">
+        	<!-- Slider -->
+			<div class="block-slider block-slider4">
+				<ul class="" id="bxslider-home4">
+            @if (Model.shares.Count() > 0)
+            {
+                @foreach (var obj in Model.shares.Take(4))
+                {
+                    <li>
+						<img src="~/images/slider/@obj.nameImageSlider" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								@obj.AllGames.nameGame
+							</h2>
+							<h4 class="caption subtitle">@obj.AllGames.Ganres.nameGanres</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Купи сейчас от @obj.discountPrice BYN вместо <del>@obj.AllGames.price</del> BYN</a>
+						</div>
+					</li>
+                
+                }
+            }
+           
+				
+				</ul>
+			</div>
+			<!-- ./Slider -->
+    </div> 
+    <!-- End slider area -->
 
     <!-- promo area -->
     <div class="promo-area">
@@ -45,9 +73,9 @@
                         <h2 class="product-wid-title">Лидеры продаж</h2>
                         <a asp-controller="Home" asp-action="AllGame" class="wid-view-more">Смотреть все</a>
             
-                     @if (Model.Count() > 0)
+                     @if (Model.allGames.Count() > 0)
                      {
-                       @foreach (var obj in Model.Take(3))
+                       @foreach (var obj in Model.allGames.Take(3))
                        {
                             <div class="single-wid-product">
                             <img src="~/images/product/@obj.Poster"  alt="" />
@@ -76,9 +104,9 @@
                         <h2 class="product-wid-title">Популярные</h2>
                         <a asp-controller="Home" asp-action="AllGame" class="wid-view-more">Смотреть все</a>
 
-                    @if (Model.Count() > 0)
+                    @if (Model.allGames.Count() > 0)
                      {
-                       @foreach (var obj in Model.OrderBy(a=>a.price).Take(3))
+                       @foreach (var obj in Model.allGames.OrderBy(a=>a.price).Take(3))
                        {
                             
                             <div class="single-wid-product">
@@ -110,9 +138,9 @@
                         <a asp-controller="Home" asp-action="AllGame" class="wid-view-more">Смотреть все</a>
 
 
-                    @if (Model.Count() > 0)
+                    @if (Model.allGames.Count() > 0)
                      {
-                       @foreach (var obj in Model.OrderByDescending(s => s.dateAddedSite).Take(3))
+                       @foreach (var obj in Model.allGames.OrderByDescending(s => s.dateAddedSite).Take(3))
                        {
                             
                             <div class="single-wid-product">

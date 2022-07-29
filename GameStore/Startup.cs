@@ -37,7 +37,8 @@ namespace GameStore
             services.AddTransient<IGanresRepository, EFGanresRepository>();
             services.AddTransient<IPlatformsRepository, EFPlatformsRepository>();
             services.AddTransient<ISharesRepository, EFSharesRepository>();
-            services.AddTransient<IGameKeyRepository, EFGameKeyRepository>();   
+            services.AddTransient<IGameKeyRepository, EFGameKeyRepository>();
+            services.AddTransient<IChequeRepository, EFChequeRepository>();
             //services.AddTransient<IUsersRepository, EFUsersRepository>();
             services.AddTransient<DataManager>();
    

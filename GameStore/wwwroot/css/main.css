@@ -1239,6 +1239,7 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
 .product-inner-price > ins {
     color: #5a88ca;
     font-weight: 700;
+    font-size:20px;
     margin-right: 10px;
     text-decoration: none;
 }
@@ -1797,3 +1798,35 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     width: 100%;
     height: 50px;
 }
+
+
+
+
+/*---------------------
+  everything related to discounts
+-----------------------*/
+
+
+
+/*
+    other
+*/
+
+.control_buttons {
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 6px 25px;
+    display: block;
+    text-align:center;
+    width: 120px;
+    height:40px;
+  
+    margin: 10px;
+}
+
+    .control_buttons:hover {
+        background-color: #222;
+        color: #fff;
+        text-decoration: none
+    }

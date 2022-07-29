@@ -14,6 +14,9 @@ namespace GameStore.Domain.Entities
         [Required(ErrorMessage = "Введите новую цену")]
         public int discountPrice { get; set; }
 
+        [Required(ErrorMessage = "Введите имя картинки")]
+        public string nameImageSlider { get; set; }
+
         // связи с другими таблицами
         public AllGames AllGames { get; set; }
         public int AllGamesid { get; set; }

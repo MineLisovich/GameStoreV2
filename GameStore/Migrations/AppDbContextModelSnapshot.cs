@@ -183,7 +183,10 @@ namespace GameStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AllGamesid")
+                    b.Property<int?>("AllGamesid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GameKeyid")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -199,6 +202,8 @@ namespace GameStore.Migrations
 
                     b.HasIndex("AllGamesid");
 
+                    b.HasIndex("GameKeyid");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Basket");
@@ -207,10 +212,38 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 801,
-                            AllGamesid = 401,
+                            GameKeyid = 901,
                             UserId = "702",
                             amount = 1,
                             finalPrice = 3
+                        });
+                });
+
+            modelBuilder.Entity("GameStore.Domain.Entities.Cheque", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Basketid")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("dateAddedCheque")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Basketid");
+
+                    b.ToTable("Cheque");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1001,
+                            Basketid = 801,
+                            dateAddedCheque = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -449,6 +482,9 @@ namespace GameStore.Migrations
                     b.Property<int>("discountPrice")
                         .HasColumnType("int");
 
+                    b.Property<string>("nameImageSlider")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("id");
 
                     b.HasIndex("AllGamesid");
@@ -460,7 +496,8 @@ namespace GameStore.Migrations
                         {
                             id = 501,
                             AllGamesid = 401,
-                            discountPrice = 3
+                            discountPrice = 3,
+                            nameImageSlider = "name1.png"
                         });
                 });
 
@@ -494,14 +531,14 @@ namespace GameStore.Migrations
                         new
                         {
                             Id = "601",
-                            ConcurrencyStamp = "42d53616-eecf-41c7-995a-52d2ebe403bd",
+                            ConcurrencyStamp = "21579449-6110-410e-b758-471d5b10abe7",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "602",
-                            ConcurrencyStamp = "44929608-26fd-4939-9bdb-9100c65b9c9c",
+                            ConcurrencyStamp = "1812ec5f-3180-4bce-94e3-c4b2b925fa7e",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -600,13 +637,13 @@ namespace GameStore.Migrations
                         {
                             Id = "701",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "25647755-4c50-4147-9afa-b6593aecd6ed",
+                            ConcurrencyStamp = "4748ec29-abdb-400b-9905-092c5db2d90c",
                             Email = "deeLimpay@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "deeLimpay@mail.ru",
                             NormalizedUserName = "deeLimpay",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIT6jTmUR5xMWwkOFaiPWom3AJFZhpUYuHtfqvysqOmBE+0XF5sShRSSzE2cJDsv2A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOuMvxiFOhIavy2d2AY70j6OhEC06rHlrOBWGH/fBmhabdvSES1gY5HC0hFjKZew9Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -616,13 +653,13 @@ namespace GameStore.Migrations
                         {
                             Id = "702",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "953c3b4b-19dc-4206-a1f5-ccd79ba9c4a9",
+                            ConcurrencyStamp = "511d448e-2030-49fc-9774-d9533148fac9",
                             Email = "stepa@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "stepa@gmail.com",
                             NormalizedUserName = "Stepashka",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKe0BOEcVjDM4bHs+5ZrrWl+fmahPn55KldLeZW4fT13vS+Z+XxX1oMsCUtSaaVtDg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELZflz7X6lfezWFBnkkTeIAPWdWSkrR0vouvncINCwgGDmmRNKj35RiyxAADa6/U+Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -745,15 +782,28 @@ namespace GameStore.Migrations
 
             modelBuilder.Entity("GameStore.Domain.Entities.Basket", b =>
                 {
-                    b.HasOne("GameStore.Domain.Entities.AllGames", "AllGames")
+                    b.HasOne("GameStore.Domain.Entities.AllGames", null)
                         .WithMany("Basket")
-                        .HasForeignKey("AllGamesid")
+                        .HasForeignKey("AllGamesid");
+
+                    b.HasOne("GameStore.Domain.Entities.GameKey", "GameKey")
+                        .WithMany()
+                        .HasForeignKey("GameKeyid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("GameStore.Domain.Entities.Cheque", b =>
+                {
+                    b.HasOne("GameStore.Domain.Entities.Basket", "Basket")
+                        .WithMany("Cheque")
+                        .HasForeignKey("Basketid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GameStore.Domain.Entities.GameKey", b =>

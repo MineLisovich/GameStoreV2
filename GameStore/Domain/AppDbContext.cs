@@ -23,8 +23,8 @@ namespace GameStore.Domain
         public DbSet<Ganres> Ganres { get; set; }   
         public DbSet<Platforms> Platforms { get; set; }
         public DbSet<Shares> Shares { get; set; }
-
         public DbSet<GameKey> GameKey { get; set; }
+        public DbSet<Cheque> Cheque { get; set; }
        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -266,7 +266,8 @@ namespace GameStore.Domain
             {
                 id = 501,
                 AllGamesid = 401,
-                discountPrice = 3
+                discountPrice = 3,
+                nameImageSlider = "name1.png"
             });
 
             //
@@ -326,15 +327,7 @@ namespace GameStore.Domain
 
             });
 
-            //Заполение таблицы Basket
-            modelBuilder.Entity<Basket>().HasData(new Basket
-            {
-                id = 801,
-                AllGamesid = 401,
-                UserId = "702",
-                amount = 1,
-                finalPrice = 3
-            });
+         
 
             //
 
@@ -344,8 +337,25 @@ namespace GameStore.Domain
                 Key_game = "XXXX-XXXX-XXXX",
                 AllGamesid = 401
 
-            }); 
-            
+            });
+
+            //Заполение таблицы Basket
+            modelBuilder.Entity<Basket>().HasData(new Basket
+            {
+                id = 801,
+                GameKeyid = 901,
+                UserId = "702",
+                amount = 1,
+                finalPrice = 3
+            });
+
+            //Заполение таблицы Cheque
+            modelBuilder.Entity<Cheque>().HasData(new Cheque
+            {
+                id = 1001,
+                dateAddedCheque = new DateTime(2022, 07, 29),
+                Basketid = 801
+            });
         }
 
 

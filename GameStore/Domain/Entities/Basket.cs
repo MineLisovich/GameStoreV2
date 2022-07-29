@@ -23,14 +23,16 @@ namespace GameStore.Domain.Entities
 
         // связи с другими таблицами
 
-        public AllGames AllGames { get; set; }
-        public int AllGamesid { get; set; }
+        //public AllGames AllGames { get; set; }
+        //public int AllGamesid { get; set; }
 
+        public GameKey GameKey { get; set; }
+        public int GameKeyid { get; set; }
 
         public IdentityUser User { get; set; }
         public string UserId { get; set; }
-       
 
+        public IList<Cheque> Cheque { get; set; }
 
 
     }

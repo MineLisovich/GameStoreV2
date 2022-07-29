@@ -94,6 +94,7 @@ jQuery(document).ready(function($){
   ga('create', 'UA-10146041-21', 'auto');
   ga('send', 'pageview');
 
+
 // Sticky Plugin v1.0.0 for jQuery
 // =============
 // Author: Anthony Garand

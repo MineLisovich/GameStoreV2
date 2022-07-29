@@ -30,25 +30,38 @@ namespace GameStore.Areas.Admin.Controllers
         {
 
             var shares = id == default ? new Shares() : dataManager.Shares.GetSharesByid(id);
-            SelectList AllGamesList = new SelectList(_db.AllGames, "nameGame", "nameGame");
-            ViewBag.AllGamesDropList = AllGamesList;
+            SelectList AllGamesList = new SelectList(_db.AllGames, "nameGame", "price");
+            ViewBag.AllGamesDropList = AllGamesList;  
+            var allGames = dataManager.AllGames.GetAllGamesByid(shares.AllGamesid);
+          
             return View(shares);
         }
         [HttpPost]
-        public IActionResult Edit(Shares model)
+        public IActionResult Edit(Shares model,IFormFile sliderImage)
         {
+            
+                if (sliderImage != null)
+                {
+                    model.nameImageSlider = sliderImage.FileName;
+                    using (var stream = new FileStream(Path.Combine(hostingEnvironment.WebRootPath, "images/slider", sliderImage.FileName), FileMode.Create))
+                    {
+                        sliderImage.CopyTo(stream);
+                    }
 
-
+                }
+               
+     
             var AllGamesByCodeWord = dataManager.AllGames.GetAllGamesByCodeWord(model.AllGames.nameGame);
-         
+
             if (AllGamesByCodeWord != null)
             {
                 model.AllGamesid = AllGamesByCodeWord.id;
-              
+
 
                 dataManager.Shares.SaveShares(model);
                 return RedirectToAction(nameof(HomeController.Shares), nameof(HomeController).CutController());
             }
+
             return View(model);
         }
 

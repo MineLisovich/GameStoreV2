@@ -1,4 +1,6 @@
-﻿<!-- product-big-title-area -->
+﻿@model GameStore.Models.AllGamesViewModel
+
+<!-- product-big-title-area -->
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -17,10 +19,38 @@
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
-            <div class="row">
-       
+        <div class="row">
                 <!-- начала цикла -->
-           <h1>В РАЗРАБОТКЕ ...</h1>
+           @if (Model.shares.Count() > 0)
+            {
+                @foreach (var obj in Model.shares)
+                {
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-shop-product">
+                            <div class="product-upper">
+                               <img src="~/images/product/@obj.AllGames.Poster"  alt="" />
+                            </div>
+                           <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.AllGames.id >@obj.AllGames.nameGame</a></h2>
+                            <div class="product-wid-rating">
+                                <p class="descriptionInfo"><b>Жанр:</b> @obj.AllGames.Ganres.nameGanres</p>
+                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.AllGames.Developers.nameDeveloper </p>
+                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.AllGames.releaseDate </p>  
+                                <p class="descriptionInfo"><b>Описание:</b> @obj.AllGames.descriptionG</p>
+                                <p class="descriptionInfo"><b>Платформа:</b> @obj.AllGames.Platforms.namePlatform</p>
+                                   
+                            </div>
+                            <div class="product-carousel-price">
+                              <ins>@obj.discountPrice BYN</ins> <del>@obj.AllGames.price</del>BYN
+                            </div>  
+
+                            <div class="product-option-shop">
+                                <a asp-area="user" asp-controller="" asp-action="" asp-route-id=@obj.AllGames.id class="add_to_cart_button" >В корзину</a>
+                            </div>                       
+                        </div>
+                    </div>
+                }
+            }
           
             <!-- конец цикла -->
             </div>

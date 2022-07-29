@@ -27,8 +27,15 @@ namespace GameStore.Controllers
 
         public IActionResult Index()
         {
-            var allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
-            return View(allgames.ToList());
+            IQueryable<AllGames> allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
+            IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
+            AllGamesViewModel viewModel = new AllGamesViewModel
+            {
+                allGames = allgames.ToList(),
+                shares = shares.ToList(),
+               
+            };
+            return View(viewModel);
         }
        
       
@@ -77,9 +84,45 @@ namespace GameStore.Controllers
         }
 
 
-        public IActionResult Shares()
+        public IActionResult Shares(string name, int? ganre, int? platfoms, int? developres)
         {
-            return View();
+            IQueryable<AllGames> allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
+            IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
+            if (ganre != null && ganre != 0)
+            {
+                allgames = allgames.Where(g => g.Ganresid == ganre);
+            }
+            if (platfoms != null && platfoms != 0)
+            {
+                allgames = allgames.Where(p => p.Platformsid == platfoms);
+            }
+            if (developres != null && developres != 0)
+            {
+                allgames = allgames.Where(d => d.Developersid == developres);
+            }
+            if (!String.IsNullOrEmpty(name))
+            {
+                allgames = allgames.Where(a => a.nameGame.Contains(name));
+            }
+
+
+            List<Ganres> ganres = _db.Ganres.ToList();
+            List<Platforms> platforms = _db.Platforms.ToList();
+            List<Developers> developers = _db.Developers.ToList();
+            ganres.Insert(0, new Ganres { nameGanres = "Жанр", id = 0 });
+            platforms.Insert(0, new Platforms { namePlatform = "Платформа", id = 0 });
+            developers.Insert(0, new Developers { nameDeveloper = "Разработчик", id = 0 });
+
+            AllGamesViewModel viewModel = new AllGamesViewModel
+            {
+                allGames = allgames.ToList(),
+                shares = shares.ToList(),
+                GanresList = new SelectList(ganres, "id", "nameGanres"),
+                PlatfomsList = new SelectList(platforms, "id", "namePlatform"),
+                DevelopersList = new SelectList(developers, "id", "nameDeveloper"),
+                Name = name
+            };
+            return View(viewModel);
         }
         [HttpGet]
         public IActionResult SinglePageGame(int id)

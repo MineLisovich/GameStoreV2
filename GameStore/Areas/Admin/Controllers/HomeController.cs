@@ -147,7 +147,7 @@ namespace GameStore.Areas.Admin.Controllers
 
         public IActionResult Basket()
         {
-            var basket = _db.Basket.Include(a => a.AllGames).Include(u => u.User);
+            var basket = _db.Basket.Include(a => a.GameKey).Include(u => u.User);
             return View(basket.ToList());   
         }
      
