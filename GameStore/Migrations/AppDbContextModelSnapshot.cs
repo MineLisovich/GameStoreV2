@@ -173,6 +173,26 @@ namespace GameStore.Migrations
                             screenshotGame_2 = "Assassin1_screenshotGame_2.png",
                             screenshotGame_3 = "Assassin1_screenshotGame_3.png",
                             screenshotGame_4 = "Assassin1_screenshotGame_4.png"
+                        },
+                        new
+                        {
+                            id = 405,
+                            Developersid = 201,
+                            Ganresid = 101,
+                            Platformsid = 301,
+                            Poster = "Fallout76.png",
+                            amount = 10,
+                            dateAddedSite = new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            descriptionG = "Fallout 76 — многопользовательская компьютерная игра в жанре Action/RPG, разработанная американской студией Bethesda Game Studios и выпущенная Bethesda Softworks.",
+                            fullDescriptionGame = "События игры происходят в 2102 году в Западной Виргинии. Игрок — житель Убежища 76 (Резидент), проспавший выход на поверхность. Находя голозаписи Смотрительницы Убежища, которая покинула его раньше всех, игрок понимает, что над регионом нависла опасность в виде горелых — людей, заражённых инфекцией, превращающихся со временем в неподвижные статуи, которые, распадаясь, разносят заразу, заражая как и других существ, так и людей. Как выясняется, источник той болезни — зверожоги. Это мутировавшие драконоподобные летучие мыши, обитавшие под землёй. По мере продвижения по сюжету и выполнению квестов игрок создаёт вакцину против чумы зверожогов. Далее Резиденту предстоит проникнуть в хорошо спрятанный бункер «Анклава» — бывшего правительства США. Там ему встречается МОДУС — суперкомпьютер, который убил всех членов Анклава в качестве мести за попытку уничтожить его. МОДУС рассказывает о ядерных ракетах и как их запустить. Игрок завладевает кодами запуска и, проведя бомбардировку главного разлома, откуда вылезают зверожоги, сталкивается с ещё более страшной угрозой — маткой зверожогов. В тяжёлом бою её удаётся убить, и зверожоги, оставшись без главы, разлетаются подобно муравьям, оставшимся без королевы.",
+                            linkTrailerGame = "RjQ6ZtyXoA0",
+                            nameGame = "Fallout 76",
+                            price = 55,
+                            releaseDate = new DateTime(2018, 10, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            screenshotGame_1 = "Fallout76Screenshot_1.png",
+                            screenshotGame_2 = "Fallout76Screenshot_2.png",
+                            screenshotGame_3 = "Fallout76Screenshot_3.png",
+                            screenshotGame_4 = "Fallout76Screenshot_4.png"
                         });
                 });
 
@@ -182,9 +202,6 @@ namespace GameStore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AllGamesid")
-                        .HasColumnType("int");
 
                     b.Property<int>("GameKeyid")
                         .HasColumnType("int");
@@ -199,8 +216,6 @@ namespace GameStore.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("id");
-
-                    b.HasIndex("AllGamesid");
 
                     b.HasIndex("GameKeyid");
 
@@ -229,12 +244,17 @@ namespace GameStore.Migrations
                     b.Property<int>("Basketid")
                         .HasColumnType("int");
 
+                    b.Property<int?>("GameKeyid")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("dateAddedCheque")
                         .HasColumnType("datetime2");
 
                     b.HasKey("id");
 
                     b.HasIndex("Basketid");
+
+                    b.HasIndex("GameKeyid");
 
                     b.ToTable("Cheque");
 
@@ -483,6 +503,7 @@ namespace GameStore.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("nameImageSlider")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -531,14 +552,14 @@ namespace GameStore.Migrations
                         new
                         {
                             Id = "601",
-                            ConcurrencyStamp = "21579449-6110-410e-b758-471d5b10abe7",
+                            ConcurrencyStamp = "705f06ac-4275-4f82-8b4b-63c1c0b21917",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "602",
-                            ConcurrencyStamp = "1812ec5f-3180-4bce-94e3-c4b2b925fa7e",
+                            ConcurrencyStamp = "0a9051a9-03b6-4878-ba81-09d709b5d831",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -637,13 +658,13 @@ namespace GameStore.Migrations
                         {
                             Id = "701",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4748ec29-abdb-400b-9905-092c5db2d90c",
+                            ConcurrencyStamp = "e58de454-d2b5-44da-bddd-b77acb843bfa",
                             Email = "deeLimpay@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "deeLimpay@mail.ru",
                             NormalizedUserName = "deeLimpay",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOuMvxiFOhIavy2d2AY70j6OhEC06rHlrOBWGH/fBmhabdvSES1gY5HC0hFjKZew9Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDrTAfxKRYEZI9MHsFYMRtLSBVd+3Xb/O88XBIUflX7qEgXpUu/uHWKc/JxtlhiXew==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -653,13 +674,13 @@ namespace GameStore.Migrations
                         {
                             Id = "702",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "511d448e-2030-49fc-9774-d9533148fac9",
+                            ConcurrencyStamp = "18d69232-fae4-480c-8ced-c1f4560f90d5",
                             Email = "stepa@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "stepa@gmail.com",
                             NormalizedUserName = "Stepashka",
-                            PasswordHash = "AQAAAAEAACcQAAAAELZflz7X6lfezWFBnkkTeIAPWdWSkrR0vouvncINCwgGDmmRNKj35RiyxAADa6/U+Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN9mEW+cvVlFUMwHVvEnOEhSi5dCzUh2kNz3A18k2ADu9H/SSHdsZlY+IOwW/xSqfg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -782,10 +803,6 @@ namespace GameStore.Migrations
 
             modelBuilder.Entity("GameStore.Domain.Entities.Basket", b =>
                 {
-                    b.HasOne("GameStore.Domain.Entities.AllGames", null)
-                        .WithMany("Basket")
-                        .HasForeignKey("AllGamesid");
-
                     b.HasOne("GameStore.Domain.Entities.GameKey", "GameKey")
                         .WithMany()
                         .HasForeignKey("GameKeyid")
@@ -804,6 +821,10 @@ namespace GameStore.Migrations
                         .HasForeignKey("Basketid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("GameStore.Domain.Entities.GameKey", null)
+                        .WithMany("Cheque")
+                        .HasForeignKey("GameKeyid");
                 });
 
             modelBuilder.Entity("GameStore.Domain.Entities.GameKey", b =>

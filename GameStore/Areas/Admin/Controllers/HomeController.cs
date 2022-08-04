@@ -40,7 +40,7 @@ namespace GameStore.Areas.Admin.Controllers
         }
        
         [HttpGet]
-        public  IActionResult AllGames( string name)
+        public  IActionResult AllGames(string name)
         {
             IQueryable<AllGames> allGames = _db.AllGames.Include(g => g.Ganres).Include(dev => dev.Developers).Include(p => p.Platforms);
             if (!String.IsNullOrEmpty(name))
@@ -147,7 +147,7 @@ namespace GameStore.Areas.Admin.Controllers
 
         public IActionResult Basket()
         {
-            var basket = _db.Basket.Include(a => a.GameKey).Include(u => u.User);
+            var basket = _db.Basket.Include(a => a.GameKey).ThenInclude(g=>g.AllGames).Include(u => u.User);
             return View(basket.ToList());   
         }
      

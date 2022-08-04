@@ -4,7 +4,7 @@
          
          
          <div class = "single-shop-product">
-              <h1>История всех покупок</h1>
+              <h1>Корзина пользователей</h1>
          </div>
             
             <table>
@@ -12,7 +12,7 @@
                  <tr class = "tableDev">
                     <td class = "tableDev"><b>ID:</b></td> 
                     <td class = "tableDev"><b>Наименование игры:</b></td>
-                    <td class = "tableDev"><b>Ключ от игры:</b></td>
+                    
                     <td class = "tableDev"><b>ID Пользователя:</b></td>
                     <td class = "tableDev"><b>Пользователь</b></td>
                     <td class = "tableDev"><b>Количество</b></td>
@@ -27,7 +27,6 @@
                      <tr class = "tableDev">
                          <td class = "tableDev">@obj.id</td>
                          <td class = "tableDev">@obj.GameKey.AllGames.nameGame</td>
-                          <td class = "tableDev">@obj.GameKey.Key_game</td>
                          <td class = "tableDev">@obj.UserId</td>
                          <td class = "tableDev">@obj.User.UserName</td>
                          <td class = "tableDev">@obj.amount</td>

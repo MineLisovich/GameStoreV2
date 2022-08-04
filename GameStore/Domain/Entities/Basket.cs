@@ -23,8 +23,7 @@ namespace GameStore.Domain.Entities
 
         // связи с другими таблицами
 
-        //public AllGames AllGames { get; set; }
-        //public int AllGamesid { get; set; }
+
 
         public GameKey GameKey { get; set; }
         public int GameKeyid { get; set; }

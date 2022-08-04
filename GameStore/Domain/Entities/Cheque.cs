@@ -18,6 +18,8 @@ namespace GameStore.Domain.Entities
         public Basket Basket { get; set; }
         public int Basketid { get; set; }
 
-       
+
+
+
     }
 }

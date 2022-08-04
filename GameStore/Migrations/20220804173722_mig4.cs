@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GameStore.Migrations
 {
-    public partial class mig2 : Migration
+    public partial class mig4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -264,7 +264,7 @@ namespace GameStore.Migrations
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     discountPrice = table.Column<int>(nullable: false),
-                    nameImageSlider = table.Column<string>(nullable: true),
+                    nameImageSlider = table.Column<string>(nullable: false),
                     AllGamesid = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -287,18 +287,11 @@ namespace GameStore.Migrations
                     amount = table.Column<int>(nullable: false),
                     finalPrice = table.Column<int>(nullable: false),
                     GameKeyid = table.Column<int>(nullable: false),
-                    UserId = table.Column<string>(nullable: true),
-                    AllGamesid = table.Column<int>(nullable: true)
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Basket", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Basket_AllGames_AllGamesid",
-                        column: x => x.AllGamesid,
-                        principalTable: "AllGames",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Basket_GameKey_GameKeyid",
                         column: x => x.GameKeyid,
@@ -320,7 +313,8 @@ namespace GameStore.Migrations
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     dateAddedCheque = table.Column<DateTime>(nullable: false),
-                    Basketid = table.Column<int>(nullable: false)
+                    Basketid = table.Column<int>(nullable: false),
+                    GameKeyid = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -331,6 +325,12 @@ namespace GameStore.Migrations
                         principalTable: "Basket",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Cheque_GameKey_GameKeyid",
+                        column: x => x.GameKeyid,
+                        principalTable: "GameKey",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -338,8 +338,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "602", "1812ec5f-3180-4bce-94e3-c4b2b925fa7e", "user", "USER" },
-                    { "601", "21579449-6110-410e-b758-471d5b10abe7", "admin", "ADMIN" }
+                    { "602", "0a9051a9-03b6-4878-ba81-09d709b5d831", "user", "USER" },
+                    { "601", "705f06ac-4275-4f82-8b4b-63c1c0b21917", "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -347,8 +347,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "702", 0, "511d448e-2030-49fc-9774-d9533148fac9", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAELZflz7X6lfezWFBnkkTeIAPWdWSkrR0vouvncINCwgGDmmRNKj35RiyxAADa6/U+Q==", null, false, "", false, "Stepashka" },
-                    { "701", 0, "4748ec29-abdb-400b-9905-092c5db2d90c", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEOuMvxiFOhIavy2d2AY70j6OhEC06rHlrOBWGH/fBmhabdvSES1gY5HC0hFjKZew9Q==", null, false, "", false, "deeLimpay" }
+                    { "702", 0, "18d69232-fae4-480c-8ced-c1f4560f90d5", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAEN9mEW+cvVlFUMwHVvEnOEhSi5dCzUh2kNz3A18k2ADu9H/SSHdsZlY+IOwW/xSqfg==", null, false, "", false, "Stepashka" },
+                    { "701", 0, "e58de454-d2b5-44da-bddd-b77acb843bfa", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEDrTAfxKRYEZI9MHsFYMRtLSBVd+3Xb/O88XBIUflX7qEgXpUu/uHWKc/JxtlhiXew==", null, false, "", false, "deeLimpay" }
                 });
 
             migrationBuilder.InsertData(
@@ -408,7 +408,8 @@ namespace GameStore.Migrations
                     { 401, 201, 101, 301, "2077.png", 29, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), " Cyberpunk 2077 — компьютерная игра в жанре экшен в открытом мире, разработанная и изданная польской студией CD Projekt. Действие игры происходит в 2077 году в Найт-Сити, вымышленном североамериканском городе из вселенной Cyberpunk.", "Тут будет полное описание игры Cyberpunk", "aSrFWinrkeQ", "Cyberpunk 2077", 34, new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cyberpunk_screenshotGame_1.png", "Cyberpunk_screenshotGame_2.png", "Cyberpunk_screenshotGame_3.png", "Cyberpunk_screenshotGame_4.png" },
                     { 402, 201, 101, 301, "GTA5.png", 10, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "GTA V — компьютерная игра в жанре action-adventure с открытым миром, разработанная компанией Rockstar North и изданная компанией Rockstar Games.", "Тут будет полное описание игры GTAV", "QkkoHAzjnUs", "Grand Theft Auto V", 25, new DateTime(2013, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "GTAV_screenshotGame_1.png", "GTAV_screenshotGame_2.png", "GTAV_screenshotGame_3.png", "GTAV_screenshotGame_4.png" },
                     { 403, 201, 101, 301, "Valheim.png", 4, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Valheim — компьютерная игра в жанре симулятора выживания в открытом мире, разрабатываемая шведской компанией Iron Gate и изданная компанией Coffee Stain.", "Тут будет полное описание игры Valheim", "5mHRJ1KFe20", "Valheim", 10, new DateTime(2021, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Valheim_screenshotGame_1.png", "Valheim_screenshotGame_2.png", "Valheim_screenshotGame_3.png", "Valheim_screenshotGame_4.png" },
-                    { 404, 201, 101, 301, "Assassin1.png", 22, new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.", "Тут будет полное описание игры Assassin1", "RjQ6ZtyXoA0", "Assassin’s Creed", 13, new DateTime(2007, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "Assassin1_screenshotGame_1.png", "Assassin1_screenshotGame_2.png", "Assassin1_screenshotGame_3.png", "Assassin1_screenshotGame_4.png" }
+                    { 404, 201, 101, 301, "Assassin1.png", 22, new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.", "Тут будет полное описание игры Assassin1", "RjQ6ZtyXoA0", "Assassin’s Creed", 13, new DateTime(2007, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "Assassin1_screenshotGame_1.png", "Assassin1_screenshotGame_2.png", "Assassin1_screenshotGame_3.png", "Assassin1_screenshotGame_4.png" },
+                    { 405, 201, 101, 301, "Fallout76.png", 10, new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fallout 76 — многопользовательская компьютерная игра в жанре Action/RPG, разработанная американской студией Bethesda Game Studios и выпущенная Bethesda Softworks.", "События игры происходят в 2102 году в Западной Виргинии. Игрок — житель Убежища 76 (Резидент), проспавший выход на поверхность. Находя голозаписи Смотрительницы Убежища, которая покинула его раньше всех, игрок понимает, что над регионом нависла опасность в виде горелых — людей, заражённых инфекцией, превращающихся со временем в неподвижные статуи, которые, распадаясь, разносят заразу, заражая как и других существ, так и людей. Как выясняется, источник той болезни — зверожоги. Это мутировавшие драконоподобные летучие мыши, обитавшие под землёй. По мере продвижения по сюжету и выполнению квестов игрок создаёт вакцину против чумы зверожогов. Далее Резиденту предстоит проникнуть в хорошо спрятанный бункер «Анклава» — бывшего правительства США. Там ему встречается МОДУС — суперкомпьютер, который убил всех членов Анклава в качестве мести за попытку уничтожить его. МОДУС рассказывает о ядерных ракетах и как их запустить. Игрок завладевает кодами запуска и, проведя бомбардировку главного разлома, откуда вылезают зверожоги, сталкивается с ещё более страшной угрозой — маткой зверожогов. В тяжёлом бою её удаётся убить, и зверожоги, оставшись без главы, разлетаются подобно муравьям, оставшимся без королевы.", "RjQ6ZtyXoA0", "Fallout 76", 55, new DateTime(2018, 10, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fallout76Screenshot_1.png", "Fallout76Screenshot_2.png", "Fallout76Screenshot_3.png", "Fallout76Screenshot_4.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -432,13 +433,13 @@ namespace GameStore.Migrations
 
             migrationBuilder.InsertData(
                 table: "Basket",
-                columns: new[] { "id", "AllGamesid", "GameKeyid", "UserId", "amount", "finalPrice" },
-                values: new object[] { 801, null, 901, "702", 1, 3 });
+                columns: new[] { "id", "GameKeyid", "UserId", "amount", "finalPrice" },
+                values: new object[] { 801, 901, "702", 1, 3 });
 
             migrationBuilder.InsertData(
                 table: "Cheque",
-                columns: new[] { "id", "Basketid", "dateAddedCheque" },
-                values: new object[] { 1001, 801, new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                columns: new[] { "id", "Basketid", "GameKeyid", "dateAddedCheque" },
+                values: new object[] { 1001, 801, null, new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AllGames_Developersid",
@@ -495,11 +496,6 @@ namespace GameStore.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Basket_AllGamesid",
-                table: "Basket",
-                column: "AllGamesid");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Basket_GameKeyid",
                 table: "Basket",
                 column: "GameKeyid");
@@ -513,6 +509,11 @@ namespace GameStore.Migrations
                 name: "IX_Cheque_Basketid",
                 table: "Cheque",
                 column: "Basketid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cheque_GameKeyid",
+                table: "Cheque",
+                column: "GameKeyid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GameKey_AllGamesid",

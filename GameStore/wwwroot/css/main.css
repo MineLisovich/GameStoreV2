@@ -1830,3 +1830,63 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
         color: #fff;
         text-decoration: none
     }
+/*
+Style Profile page
+*/
+
+.UserNameProfile {
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+.HederBasket {
+    font-size: 25px;
+    text-decoration: underline;
+    color: rgba(0,0,0,0.5);
+}
+
+.tableBasket {
+    border: 1px solid #eee;
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .tableBasket th {
+        font-weight: bold;
+        padding: 5px;
+        background: #5a89ca;
+        border: 1px solid #dddddd;
+    }
+
+    .tableBasket td {
+        padding: 5px 10px;
+        border: 1px solid #eee;
+        text-align: left;
+    }
+
+    .tableBasket tbody tr:nth-child(odd) {
+        background: #fff;
+    }
+
+    .tableBasket tbody tr:nth-child(even) {
+        background: #5a89ca8a;
+    }
+
+.PaymentArea {
+    text-align: right;
+}
+
+.finalPrise {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.EmptyBasket {
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+    align-items: center;
+    color: rgba(0,0,0,0.5);
+}

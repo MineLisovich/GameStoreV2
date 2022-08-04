@@ -19,7 +19,7 @@ namespace GameStore.Domain.Entities
         public AllGames AllGames { get; set; }
         public int AllGamesid { get; set; }
 
-      
+        public IList<Cheque> Cheque { get; set; }
 
     }
 }
