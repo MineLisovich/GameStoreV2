@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Collections.Generic;
 
+
 namespace GameStore.Areas.User.Controllers
 {
     [Area ("user")]
@@ -32,17 +33,24 @@ namespace GameStore.Areas.User.Controllers
         }
         public async Task<IActionResult> IndexAsync()
         {
-
+           
             var user = await _userManager.GetUserAsync(User);
-       
             IQueryable<Basket> basket = _db.Basket.Include(a => a.GameKey).ThenInclude(g => g.AllGames).Include(u => u.User);
             IQueryable<Cheque> cheque = _db.Cheque.Include(a => a.Basket);
+
+            var TotalPrise = _db.Basket.Include(a => a.GameKey).ThenInclude(g => g.AllGames).Include(u => u.User).Sum(fp => fp.finalPrice);
+
             UserProfilViewModel viewModel = new UserProfilViewModel
             {
                basket = basket.ToList(),
                cheque = cheque.ToList(),
-               identityUser = user
-            };
+               identityUser = user,
+               totalPrice = TotalPrise
+              
+        };
+           
+
+
             return View(viewModel);
         }
     }

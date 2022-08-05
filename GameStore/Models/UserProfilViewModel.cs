@@ -17,5 +17,7 @@ namespace GameStore.Models
         public IEnumerable<Cheque> cheque { get; set; }
         public  IdentityUser identityUser { get; set; }
 
+        public int totalPrice { get; set; } 
+
     }
 }
