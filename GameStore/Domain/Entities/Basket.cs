@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +11,7 @@ namespace GameStore.Domain.Entities
 {
     public class Basket
     {
+
         [Required]
         public int id { get; set; }
 
@@ -25,13 +27,12 @@ namespace GameStore.Domain.Entities
 
 
 
-        public GameKey GameKey { get; set; }
-        public int GameKeyid { get; set; }
+        public AllGames AllGames { get; set; }
+        public int AllGamesid { get; set; }
 
         public IdentityUser User { get; set; }
         public string UserId { get; set; }
 
-        public IList<Cheque> Cheque { get; set; }
 
 
     }

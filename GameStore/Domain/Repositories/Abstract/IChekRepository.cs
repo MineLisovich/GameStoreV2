@@ -6,11 +6,11 @@ using GameStore.Domain.Entities;
 
 namespace GameStore.Domain.Repositories.Abstract
 {
-    public interface IChequeRepository
+    public interface IChekRepository
     {
-        IQueryable<Cheque> GetCheque();
-        Cheque GetChequeByid(int id);
-        void SaveCheque(Cheque entity);
-        void DeleteCheque(int id);
+        IQueryable<Chek> GetChek();
+        Chek GetChekByid(int id);
+        void SaveChek(Chek entity);
+        void DeleteChek(int id);
     }
 }

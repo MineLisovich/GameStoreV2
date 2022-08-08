@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GameStore.Migrations
 {
-    public partial class mig4 : Migration
+    public partial class mig5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -238,6 +238,34 @@ namespace GameStore.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Basket",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    amount = table.Column<int>(nullable: false),
+                    finalPrice = table.Column<int>(nullable: false),
+                    AllGamesid = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Basket", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Basket_AllGames_AllGamesid",
+                        column: x => x.AllGamesid,
+                        principalTable: "AllGames",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Basket_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GameKey",
                 columns: table => new
                 {
@@ -279,58 +307,32 @@ namespace GameStore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Basket",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    amount = table.Column<int>(nullable: false),
-                    finalPrice = table.Column<int>(nullable: false),
-                    GameKeyid = table.Column<int>(nullable: false),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Basket", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Basket_GameKey_GameKeyid",
-                        column: x => x.GameKeyid,
-                        principalTable: "GameKey",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Basket_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cheque",
+                name: "Chek",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     dateAddedCheque = table.Column<DateTime>(nullable: false),
-                    Basketid = table.Column<int>(nullable: false),
-                    GameKeyid = table.Column<int>(nullable: true)
+                    UserId = table.Column<string>(nullable: false),
+                    nameGame = table.Column<string>(nullable: false),
+                    priceGame = table.Column<int>(nullable: false),
+                    GameKeyid = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cheque", x => x.id);
+                    table.PrimaryKey("PK_Chek", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Cheque_Basket_Basketid",
-                        column: x => x.Basketid,
-                        principalTable: "Basket",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Cheque_GameKey_GameKeyid",
+                        name: "FK_Chek_GameKey_GameKeyid",
                         column: x => x.GameKeyid,
                         principalTable: "GameKey",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Chek_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -338,8 +340,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "602", "0a9051a9-03b6-4878-ba81-09d709b5d831", "user", "USER" },
-                    { "601", "705f06ac-4275-4f82-8b4b-63c1c0b21917", "admin", "ADMIN" }
+                    { "602", "15712359-7b06-4abc-807c-7ce264838058", "user", "USER" },
+                    { "601", "7900fa17-d1c3-4e63-a858-11f6f0659e6f", "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -347,8 +349,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "702", 0, "18d69232-fae4-480c-8ced-c1f4560f90d5", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAEN9mEW+cvVlFUMwHVvEnOEhSi5dCzUh2kNz3A18k2ADu9H/SSHdsZlY+IOwW/xSqfg==", null, false, "", false, "Stepashka" },
-                    { "701", 0, "e58de454-d2b5-44da-bddd-b77acb843bfa", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEDrTAfxKRYEZI9MHsFYMRtLSBVd+3Xb/O88XBIUflX7qEgXpUu/uHWKc/JxtlhiXew==", null, false, "", false, "deeLimpay" }
+                    { "702", 0, "824557a9-27c9-4a3b-9ee3-33c4c078d41b", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAEKE0i2bzY6BBBpA3UAyoTUX2bOu9l7e2YycE0o7AlH5RFvWLTXhOpfDgFGX9BpYuwQ==", null, false, "", false, "Stepashka" },
+                    { "701", 0, "f59538e3-b9c1-4a09-a530-586009be4c32", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEDHaYsLBJY2edSBD3GYgZrBP1q0ew7rF/+g8GeKCazvoZxpy2WUZPAQ/Ckdc2zHVog==", null, false, "", false, "deeLimpay" }
                 });
 
             migrationBuilder.InsertData(
@@ -422,6 +424,11 @@ namespace GameStore.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Basket",
+                columns: new[] { "id", "AllGamesid", "UserId", "amount", "finalPrice" },
+                values: new object[] { 801, 401, "702", 1, 3 });
+
+            migrationBuilder.InsertData(
                 table: "GameKey",
                 columns: new[] { "id", "AllGamesid", "Key_game" },
                 values: new object[] { 901, 401, "XXXX-XXXX-XXXX" });
@@ -432,14 +439,9 @@ namespace GameStore.Migrations
                 values: new object[] { 501, 401, 3, "name1.png" });
 
             migrationBuilder.InsertData(
-                table: "Basket",
-                columns: new[] { "id", "GameKeyid", "UserId", "amount", "finalPrice" },
-                values: new object[] { 801, 901, "702", 1, 3 });
-
-            migrationBuilder.InsertData(
-                table: "Cheque",
-                columns: new[] { "id", "Basketid", "GameKeyid", "dateAddedCheque" },
-                values: new object[] { 1001, 801, null, new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                table: "Chek",
+                columns: new[] { "id", "GameKeyid", "UserId", "dateAddedCheque", "nameGame", "priceGame" },
+                values: new object[] { 1001, 901, "702", new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cyberpunk 2077", 24 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AllGames_Developersid",
@@ -496,9 +498,9 @@ namespace GameStore.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Basket_GameKeyid",
+                name: "IX_Basket_AllGamesid",
                 table: "Basket",
-                column: "GameKeyid");
+                column: "AllGamesid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Basket_UserId",
@@ -506,14 +508,14 @@ namespace GameStore.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cheque_Basketid",
-                table: "Cheque",
-                column: "Basketid");
+                name: "IX_Chek_GameKeyid",
+                table: "Chek",
+                column: "GameKeyid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cheque_GameKeyid",
-                table: "Cheque",
-                column: "GameKeyid");
+                name: "IX_Chek_UserId",
+                table: "Chek",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GameKey_AllGamesid",
@@ -544,16 +546,16 @@ namespace GameStore.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Cheque");
+                name: "Basket");
+
+            migrationBuilder.DropTable(
+                name: "Chek");
 
             migrationBuilder.DropTable(
                 name: "Shares");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Basket");
 
             migrationBuilder.DropTable(
                 name: "GameKey");

@@ -14,7 +14,7 @@ namespace GameStore.Models
     public class UserProfilViewModel
     {
         public IEnumerable<Basket> basket { get; set; }
-        public IEnumerable<Cheque> cheque { get; set; }
+        public IEnumerable<Chek> Chek { get; set; }
         public  IdentityUser identityUser { get; set; }
 
         public int totalPrice { get; set; } 

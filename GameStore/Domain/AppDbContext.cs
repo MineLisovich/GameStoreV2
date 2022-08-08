@@ -24,7 +24,7 @@ namespace GameStore.Domain
         public DbSet<Platforms> Platforms { get; set; }
         public DbSet<Shares> Shares { get; set; }
         public DbSet<GameKey> GameKey { get; set; }
-        public DbSet<Cheque> Cheque { get; set; }
+        public DbSet<Chek> Chek { get; set; }
        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -364,18 +364,22 @@ namespace GameStore.Domain
             modelBuilder.Entity<Basket>().HasData(new Basket
             {
                 id = 801,
-                GameKeyid = 901,
+                AllGamesid = 401,
                 UserId = "702",
                 amount = 1,
                 finalPrice = 3
             });
 
-            //Заполение таблицы Cheque
-            modelBuilder.Entity<Cheque>().HasData(new Cheque
+            //Заполение таблицы Chek
+            modelBuilder.Entity<Chek>().HasData(new Chek
             {
                 id = 1001,
                 dateAddedCheque = new DateTime(2022, 07, 29),
-                Basketid = 801
+                UserId = "702",
+                nameGame = "Cyberpunk 2077",
+                GameKeyid = 901,
+                priceGame = 24,
+                
             });
         }
 

@@ -8,18 +8,22 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.Entities
 {
-    public class Cheque
+    public class Chek
     {
         [Required]
         public int id { get; set; }
         [Required]
         public DateTime dateAddedCheque { get; set; }
 
-        public Basket Basket { get; set; }
-        public int Basketid { get; set; }
-
-
-
-
+        public IdentityUser User { get; set; }
+        [Required]
+        public string UserId { get; set; }
+        [Required]
+        public string nameGame { get; set; }
+        [Required]
+        public int priceGame { get; set; }
+        [Required]
+        public GameKey GameKey { get; set; }
+        public int GameKeyid { get; set; }
     }
 }

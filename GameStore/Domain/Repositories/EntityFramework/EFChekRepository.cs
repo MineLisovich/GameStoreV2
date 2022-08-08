@@ -9,23 +9,23 @@ using GameStore.Domain.Repositories.Abstract;
 
 namespace GameStore.Domain.Repositories.EntityFramework
 {
-    public class EFChequeRepository : IChequeRepository
+    public class EFChekRepository : IChekRepository
     {
         private readonly AppDbContext context;
-        public EFChequeRepository(AppDbContext context)
+        public EFChekRepository(AppDbContext context)
         {
             this.context = context;
         }
-        public IQueryable<Cheque> GetCheque()
+        public IQueryable<Chek> GetChek()
         {
-            return context.Cheque;
+            return context.Chek;
         }
-        public Cheque GetChequeByid(int id)
+        public Chek GetChekByid(int id)
         {
-            return context.Cheque.FirstOrDefault(x => x.id == id);
+            return context.Chek.FirstOrDefault(x => x.id == id);
         }
 
-        public void SaveCheque(Cheque entity)
+        public void SaveChek(Chek entity)
         {
             if (entity.id == default)
             {
@@ -38,9 +38,9 @@ namespace GameStore.Domain.Repositories.EntityFramework
             }
             context.SaveChanges();
         }
-        public void DeleteCheque(int id)
+        public void DeleteChek(int id)
         {
-            context.Cheque.Remove(new Cheque() { id = id });
+            context.Chek.Remove(new Chek() { id = id });
             context.SaveChanges();
         }
     }

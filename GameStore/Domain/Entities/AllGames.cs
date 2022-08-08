@@ -61,7 +61,7 @@ namespace GameStore.Domain.Entities
         public Platforms Platforms { get; set; }
         public int Platformsid { get; set; } 
         public IList<Shares> Shares { get; set; }
-
+        public IList<Basket> Baskets { get; set; }
         public IList<GameKey> GameKeys { get; set; }
 
         

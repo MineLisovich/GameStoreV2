@@ -23,7 +23,7 @@
                          @foreach (var obj in Model.basket.Where(g => g.UserId == @Model.identityUser.Id ))
                        {
                         <tr>
-                            <td>@obj.GameKey.AllGames.nameGame</td>
+                            <td>@obj.AllGames.nameGame</td>
                             <td>@obj.amount</td>
                             <td>@obj.finalPrice</td>
                             <td> <a class="control_buttons"asp-area="User" asp-controller="Basket" asp-action="Delete" asp-route-id=@obj.id >Удалить</a></td>
@@ -62,7 +62,7 @@
              
                 <!--ТАБЛИЦА ИСТОРИЯ ПОКУПОК-->
                 <div class="HederBasket">История покупок:</div>
-        @if (Model.cheque.Where(g => g.Basket.UserId == @Model.identityUser.Id).Count() > 0)
+        @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() > 0)
         {
             <table class="tableBasket">
                     <thead>
@@ -75,12 +75,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach (var obj in Model.cheque.Where(g => g.Basket.UserId == @Model.identityUser.Id))
+                    @foreach (var obj in Model.Chek.Where(g => g.UserId == @Model.identityUser.Id))
                     {
                         <tr>
-                            <td>@obj.Basket.GameKey.AllGames.nameGame</td>
-                            <td>@obj.Basket.finalPrice</td>
-                            <td>@obj.Basket.GameKey.Key_game</td>
+                            <td>@obj.nameGame</td>
+                            <td>@obj.priceGame</td>
+                            <td>@obj.GameKey.Key_game</td>
                             <td>@obj.dateAddedCheque</td>
                             <td> <a class="control_buttons"asp-area="User" asp-controller="" asp-action="" asp-route-id=@obj.id >Чек</a></td>
                         </tr>
@@ -88,7 +88,7 @@
                     </tbody>
                 </table>
         }
-        @if (Model.cheque.Where(g => g.Basket.UserId == @Model.identityUser.Id).Count() == 0)
+        @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() == 0)
         {
                    <!--ЕСЛИ ТАБЛИЦА ИСТОРИЯ ПОКУПОК БУДЕТ ПУСТА-->
                 <table class="tableBasket">
