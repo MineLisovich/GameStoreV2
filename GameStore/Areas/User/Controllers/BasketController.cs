@@ -40,21 +40,26 @@ namespace GameStore.Areas.User.Controllers
             return RedirectToAction(nameof(Index), nameof(HomeController).CutController());
         }
         [HttpGet]
-        public IActionResult Add(Basket model,int id)
+        public async Task<IActionResult> Add(int id)
         {
-            var allGames = id == default ? new AllGames() : dataManager.AllGames.GetAllGamesByid(id);
-
-            model.AllGamesid = allGames.id;
-            model.amount = 1;
-            model.finalPrice = 22;
-            model.UserId = "702";
-
-            if (model.AllGamesid != 0)
-            {
-                dataManager.Basket.SaveBasket(model);
-                return RedirectToAction("Index", "Home");
-            }
+            var user = await _userManager.GetUserAsync(User);
+            var allgames = _db.AllGames.FirstOrDefault(a => a.id == id);
            
+                Basket model = new Basket()
+                {
+                    AllGamesid = allgames.id,
+                    amount = 1,
+                    finalPrice = allgames.price,
+                    UserId = user.Id
+                };
+
+                if (model.AllGamesid != 0 && model.UserId != null)
+                {
+                    dataManager.Basket.SaveBasket(model);
+                    return RedirectToAction("Index", "Home");
+                }
+         
+        
             return View(model);
         }
     }

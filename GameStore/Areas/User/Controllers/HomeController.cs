@@ -38,7 +38,7 @@ namespace GameStore.Areas.User.Controllers
             IQueryable<Basket> basket = _db.Basket.Include(g => g.AllGames).Include(u => u.User);
             IQueryable<Chek> cheque = _db.Chek.Include(a => a.User).Include(g=>g.GameKey);
 
-            var TotalPrise = _db.Basket.Include(g => g.AllGames).Include(u => u.User).Sum(fp => fp.finalPrice);
+            var TotalPrise = _db.Basket.Include(g => g.AllGames).Include(u => u.User).Where(us=>us.UserId == user.Id).Sum(fp => fp.finalPrice);
 
             UserProfilViewModel viewModel = new UserProfilViewModel
             {

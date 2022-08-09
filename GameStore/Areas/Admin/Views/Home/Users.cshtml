@@ -12,14 +12,14 @@
                 <input name="name" class="form-control" placeholder="Введите логин пользователя"/>
             </div>
         </form>
-            <table>
+            <table class="tableBasket">
                <thead>
-                 <tr class = "tableDev">
-                    <td class = "tableDev"><b>ID:</b></td>
-                    <td class = "tableDev"><b>Логин:</b></td>
-                    <td class = "tableDev"><b>Email:</b></td>
+                 <tr>
+                    <td><b>ID:</b></td>
+                    <td><b>Логин:</b></td>
+                    <td><b>Email:</b></td>
                     
-                    <td class = "tableDev"><b>Управление</b></td>
+                    <td><b>Управление</b></td>
                  </tr>
              </thead>
              <tbody> 
@@ -28,14 +28,14 @@
                  @foreach (var obj in Model.user)
                  {
                      <form asp-area="Admin" asp-controller="Users" asp-action="Delete" asp-route-id="@obj.Id" method="post">
-                     <tr class = "tableDev">
-                         <td class = "tableDev">@obj.Id</td>
-                         <td class = "tableDev">@obj.UserName</td>
-                         <td class = "tableDev">@obj.Email</td>
+                     <tr>
+                         <td>@obj.Id</td>
+                         <td>@obj.UserName</td>
+                         <td>@obj.Email</td>
                         
-                         <td class = "tableDev">
+                         <td>
                              <a class="control_buttons"asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id=@obj.Id >Изменить</a>
-                             <button class="control_buttons" type="submit" value="Удалить" >Удалить</button>
+                             <button class="control_buttons" type="submit" value="Удалить" >Удалить</button> 
                              
                          </td>
                      </tr>

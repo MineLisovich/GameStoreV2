@@ -720,14 +720,26 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
     border: 1px solid #ddd;
     padding: 10px;
 }
-input[type="submit"], button[type=submit] {
+input[type="submit"] {
     background: none repeat scroll 0 0 #5a88ca;
     border: medium none;
     color: #fff;
     padding: 11px 20px;
     text-transform: uppercase;
 }
-input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
+button[type=submit] {
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 6px 25px;
+    text-align: center;
+    width: 120px;
+    height: 40px;
+    margin: 10px;
+}
+input[type="submit"]:hover, button[type=submit]:hover {
+    background-color: #222
+}
 .single-sidebar input[type="text"] {
     margin-bottom: 10px;
     width: 100%;
@@ -831,6 +843,7 @@ form.cart {
 }
 .product-inner-category {
     margin-bottom: 30px;
+    display:block;
 }
 .product-tab {
     border-bottom: 1px solid #ddd;
@@ -1277,8 +1290,8 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     .login__form .forget_pass {
         font-size: 15px;
         color: #000000;
-        display: inline-block;
-        position: absolute;
+        
+       
         right: 60px;
         bottom: 12px;
     }
@@ -1384,7 +1397,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     border: medium none;
     color: #fff;
     padding: 6px 25px;
-    display: block;
+   display:inline-block;
     text-align:center;
     width: 120px;
     height:40px;

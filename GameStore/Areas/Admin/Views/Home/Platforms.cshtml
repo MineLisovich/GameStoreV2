@@ -13,12 +13,12 @@
                 <input name="name" class="form-control" placeholder="Введите наименование платформы"/>
             </div>
         </form>
-            <table>
+            <table class="tableBasket">
                <thead>
-                 <tr class = "tableDev">
-                    <td class = "tableDev"><b>ID:</b></td>
-                    <td class = "tableDev"><b>Наименование:</b></td>
-                    <td class = "tableDev"><b>Управление</b></td>
+                 <tr>
+                    <td><b>ID:</b></td>
+                    <td><b>Наименование:</b></td>
+                    <td><b>Управление</b></td>
                  </tr>
              </thead>
              <tbody> 
@@ -26,10 +26,10 @@
              {
                  @foreach (var obj in Model.platforms)
                  {
-                     <tr class = "tableDev">
-                         <td class = "tableDev">@obj.id</td>
-                         <td class = "tableDev">@obj.namePlatform</td>
-                         <td class = "tableDev">
+                     <tr>
+                         <td>@obj.id</td>
+                         <td>@obj.namePlatform</td>
+                         <td>
                              <a class="control_buttons"asp-area="Admin" asp-controller="Platforms" asp-action="Edit" asp-route-id=@obj.id >Изменить</a>
                              <a class="control_buttons"asp-area="Admin" asp-controller="Platforms" asp-action="Delete" asp-route-id=@obj.id >Удалить</a>
                          </td>

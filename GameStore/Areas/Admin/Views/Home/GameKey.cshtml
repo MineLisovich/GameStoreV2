@@ -13,13 +13,13 @@
                 <input name="name" class="form-control" placeholder="Введите наименование игры"/>
             </div>
         </form>
-            <table>
+            <table class="tableBasket">
                <thead>
-                 <tr class = "tableDev">
-                    <td class = "tableDev"><b>ID:</b></td>
-                    <td class = "tableDev"><b>ID игры:</b></td>
-                    <td class = "tableDev"><b>Наименование игры:</b></td>
-                    <td class = "tableDev"><b>Ключ от игры:</b></td>
+                 <tr>
+                    <td><b>ID:</b></td>
+                    <td><b>ID игры:</b></td>
+                    <td><b>Наименование игры:</b></td>
+                    <td><b>Ключ от игры:</b></td>
                  </tr>
              </thead>
              <tbody> 
@@ -27,13 +27,13 @@
              {
                  @foreach (var obj in Model.gameKey)
                  {
-                     <tr class = "tableDev">
-                         <td class = "tableDev">@obj.id</td>
-                         <td class = "tableDev">@obj.AllGamesid</td>
-                         <td class = "tableDev">@obj.AllGames.nameGame</td>
-                         <td class = "tableDev">@obj.Key_game</td>
+                     <tr>
+                         <td>@obj.id</td>
+                         <td>@obj.AllGamesid</td>
+                         <td>@obj.AllGames.nameGame</td>
+                         <td>@obj.Key_game</td>
 
-                         <td class = "tableDev">
+                         <td>
                              <a class="control_buttons"asp-area="Admin" asp-controller="GameKey" asp-action="Edit" asp-route-id=@obj.id >Изменить</a>
                              <a class="control_buttons"asp-area="Admin" asp-controller="GameKey" asp-action="Delete" asp-route-id=@obj.id >Удалить</a>
                          </td>

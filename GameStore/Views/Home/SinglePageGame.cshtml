@@ -19,22 +19,16 @@
                                     <div class="product-inner-price">
                                         <ins>@Model.price BYN</ins>
                                     </div>    
-                                    
-                                    <form action="" class="cart">
                                         <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                            <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@Model.id  class="add_to_cart_button" >В корзину</a>
                                         </div>
-                                        <button class="add_to_cart_button" type="submit">Добавить в корзину</button>
-                                    </form>   
-                                    
-                                    <div class="product-inner-category">
-                                         <p class="descriptionInfo"><b>Жанр:</b> @Model.Ganres.nameGanres</p>
-                                         <p class="descriptionInfo"><b>Разработчик:</b> @Model.Developers.nameDeveloper </p>
-                                         <p class="descriptionInfo"><b>Дата выхода:</b>@Model.releaseDate </p>  
-                                       
-                                         <p class="descriptionInfo"><b>Платформа:</b> @Model.Platforms.namePlatform</p>
-                                    </div> 
                         </div>
+                             <div class="product-inner-category">
+                                 <p class="descriptionInfo"><b>Жанр:</b> @Model.Ganres.nameGanres</p>
+                                 <p class="descriptionInfo"><b>Разработчик:</b> @Model.Developers.nameDeveloper </p>
+                                 <p class="descriptionInfo"><b>Дата выхода:</b>@Model.releaseDate </p>       
+                                 <p class="descriptionInfo"><b>Платформа:</b> @Model.Platforms.namePlatform</p>
+                             </div> 
                         <div  class="">
                             <h2>Описание:</h2>  
                              <p> @Model.fullDescriptionGame</p>

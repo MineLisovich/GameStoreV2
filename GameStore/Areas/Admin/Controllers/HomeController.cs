@@ -145,10 +145,19 @@ namespace GameStore.Areas.Admin.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Basket()
+        public IActionResult Basket(string name)
         {
-            var basket = _db.Basket.Include(g=>g.AllGames).Include(u => u.User);
-            return View(basket.ToList());   
+            IQueryable<Basket> baskets = _db.Basket.Include(g=>g.AllGames).Include(u => u.User);
+            if (!String.IsNullOrEmpty(name))
+            {
+                baskets = baskets.Where(u => u.User.UserName.Contains(name));
+            }
+            BasketViewModel viewModel = new BasketViewModel
+            {
+                Basket = baskets,
+                Name = name
+            };
+            return View(viewModel);   
         }
      
     }

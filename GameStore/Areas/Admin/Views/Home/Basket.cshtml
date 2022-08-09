@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GameStore.Domain.Entities.Basket>
+﻿@model GameStore.Models.BasketViewModel
 <div class="container">
   
          
@@ -6,31 +6,35 @@
          <div class = "single-shop-product">
               <h1>Корзина пользователей</h1>
          </div>
-            
-            <table>
+          <form method="get">
+            <div class="form-group">
+                <input name="name" class="form-control" placeholder="Введите логин пользователя"/>
+            </div>
+         </form>
+            <table class="tableBasket">
                <thead>
-                 <tr class = "tableDev">
-                    <td class = "tableDev"><b>ID:</b></td> 
-                    <td class = "tableDev"><b>Наименование игры:</b></td>
+                 <tr>
+                    <td><b>ID:</b></td> 
+                    <td><b>Наименование игры:</b></td>
                     
-                    <td class = "tableDev"><b>ID Пользователя:</b></td>
-                    <td class = "tableDev"><b>Пользователь</b></td>
-                    <td class = "tableDev"><b>Количество</b></td>
-                    <td class = "tableDev"><b>Цена</b></td>
+                    <td><b>ID Пользователя:</b></td>
+                    <td><b>Пользователь</b></td>
+                    <td><b>Количество</b></td>
+                    <td><b>Цена</b></td>
                  </tr>
              </thead>
              <tbody> 
-             @if (Model.Count() > 0)
+             @if (Model.Basket.Count() > 0)
              {
-                 @foreach (var obj in Model)
+                 @foreach (var obj in Model.Basket)
                  {
-                     <tr class = "tableDev">
-                         <td class = "tableDev">@obj.id</td>
-                         <td class = "tableDev">@obj.AllGames.nameGame</td>
-                         <td class = "tableDev">@obj.UserId</td>
-                         <td class = "tableDev">@obj.User.UserName</td>
-                         <td class = "tableDev">@obj.amount</td>
-                         <td class = "tableDev">@obj.finalPrice</td>      
+                     <tr>
+                         <td>@obj.id</td>
+                         <td>@obj.AllGames.nameGame</td>
+                         <td>@obj.UserId</td>
+                         <td>@obj.User.UserName</td>
+                         <td>@obj.amount</td>
+                         <td>@obj.finalPrice</td>      
                      </tr>
                  }
              }          
