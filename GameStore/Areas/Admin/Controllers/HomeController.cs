@@ -159,6 +159,21 @@ namespace GameStore.Areas.Admin.Controllers
             };
             return View(viewModel);   
         }
+
+        public IActionResult Order(string name)
+        {
+            IQueryable<Chek> order = _db.Chek.Include(u => u.User).Include(g=>g.GameKey);
+            if (!String.IsNullOrEmpty(name))
+            { 
+                order = order.Where(u => u.User.UserName.Contains(name));
+            }
+            OrdersViewModel viewModel = new OrdersViewModel
+            {
+                Chek = order,
+                Name = name
+            };
+            return View(viewModel);
+        }
      
     }
 }

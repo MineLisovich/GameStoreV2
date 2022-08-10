@@ -15,7 +15,7 @@
 								@obj.AllGames.nameGame
 							</h2>
 							<h4 class="caption subtitle">@obj.AllGames.Ganres.nameGanres</h4>
-							<a class="caption button-radius" href="#"><span class="icon"></span>Купи сейчас от @obj.discountPrice BYN вместо <del>@obj.AllGames.price</del> BYN</a>
+							<a class="caption button-radius" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.AllGames.id><span class="icon"></span>Купи сейчас от @obj.discountPrice BYN вместо <del>@obj.AllGames.price</del> BYN</a>
 						</div>
 					</li>
                 

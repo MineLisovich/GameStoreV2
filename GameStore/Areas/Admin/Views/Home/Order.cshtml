@@ -1,0 +1,42 @@
+﻿@model GameStore.Models.OrdersViewModel
+<div class="container">
+  
+         
+         
+         <div class = "single-shop-product">
+              <h1>Корзина пользователей</h1>
+         </div>
+          <form method="get">
+            <div class="form-group">
+                <input name="name" class="form-control" placeholder="Введите логин пользователя"/>
+            </div>
+         </form>
+            <table class="tableBasket">
+               <thead>
+                 <tr>
+                    <td><b>ID:</b></td> 
+                    <td><b>Дата покупки:</b></td>
+                    <td><b>Пользователь:</b></td>
+                    <td><b>Игра:</b></td>
+                    <td><b>Цена:</b></td>
+                    <td><b>Ключ от игры:</b></td>
+                 </tr>
+             </thead>
+             <tbody> 
+             @if (Model.Chek.Count() > 0)
+             {
+                 @foreach (var obj in Model.Chek)
+                 {
+                     <tr>
+                         <td>@obj.id</td>
+                         <td>@obj.dateAddedCheque</td>
+                         <td>@obj.User.UserName</td>
+                         <td>@obj.nameGame</td>
+                         <td>@obj.priceGame</td>
+                         <td>@obj.GameKey.Key_game</td>      
+                     </tr>
+                 }
+             }          
+            </tbody>
+            </table>
+ </div>

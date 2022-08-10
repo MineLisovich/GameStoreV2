@@ -67,13 +67,16 @@ namespace GameStore.Controllers
             platforms.Insert(0, new Platforms { namePlatform = "Платформа", id = 0 });
             developers.Insert(0, new Developers { nameDeveloper = "Разработчик", id = 0 });
 
+            IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
+
             AllGamesViewModel viewModel = new AllGamesViewModel
             {
                 allGames = allgames.ToList(),
                 GanresList = new SelectList(ganres,"id","nameGanres"),
                 PlatfomsList = new SelectList(platforms,"id", "namePlatform"),
                 DevelopersList = new SelectList(developers,"id", "nameDeveloper"),
-                Name = name
+                Name = name,
+                shares = shares.ToList()
             };
             return View(viewModel);
         }
