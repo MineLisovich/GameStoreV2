@@ -9,6 +9,7 @@ using GameStore.Domain.Entities;
 using GameStore.Models;
 using GameStore.Domain.Repositories.EntityFramework;
 using GameStore.Domain.Repositories;
+using GameStore.Service;
 
 namespace GameStore.Controllers
 {
@@ -50,9 +51,16 @@ namespace GameStore.Controllers
                 var resultRole = await userManager.AddToRoleAsync(user, "USER");
                 if (result.Succeeded)
                 {
-                    // установка куки
-                    await signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    // генерация токена для пользователя 
+                    var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.Action(
+                        "ConfirmEmail",
+                        "Account",
+                        new {User = user.Id, code = code},
+                        protocol: HttpContext.Request.Scheme);
+                    EmailService emailService = new EmailService();
+                    await emailService.SendEmailAsync(model.Email, "Confirm your account", $"Подтвердите регистрацию, перейдя по ссылке: <a href = '{callbackUrl}'>link</a>");
+                    return RedirectToAction("ConfirmEmail", "Home");
                 }
                 else
                 {
@@ -64,7 +72,31 @@ namespace GameStore.Controllers
             }
             return View(model);
         }
-
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string User, string code)
+        {
+            if (User == null || code == null)
+            {
+                return Content("Ошибка подтверждения почты, напишите письмо с проблемой на почту deelimpay@mail.ru");
+            }
+            var userid = await userManager.FindByIdAsync(User);
+            if (userid == null) 
+            {
+                return Content("Ошибка подтверждения почты, напишите письмо с проблемой на почту deelimpay@mail.ru");
+            } 
+                
+            var result = await userManager.ConfirmEmailAsync(userid, code);
+            if (result.Succeeded)
+            {
+                // установка куки
+                await signInManager.SignInAsync(userid, false);
+                return RedirectToAction("Index", "Home");
+            }
+            else {
+                return Content("Ошибка подтверждения почты, напишите письмо с проблемой на почту deelimpay@mail.ru");
+            }
+        }
 
         [AllowAnonymous]
         public IActionResult Login(string returnUrl)
@@ -79,9 +111,15 @@ namespace GameStore.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 IdentityUser user = await userManager.FindByNameAsync(model.UserName);
                 if (user != null)
                 {
+                    if (!await userManager.IsEmailConfirmedAsync(user))
+                    {
+                        ModelState.AddModelError(string.Empty, "Вы не подтвердили свой email");
+                        return RedirectToAction("ConfirmEmail", "Home");
+                    }
                     await signInManager.SignOutAsync();
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, false);
                     if (result.Succeeded)

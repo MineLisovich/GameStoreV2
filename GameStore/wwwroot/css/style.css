@@ -733,7 +733,7 @@ button[type=submit] {
     color: #fff;
     padding: 6px 25px;
     text-align: center;
-    width: 120px;
+    width: 160px;
     height: 40px;
     margin: 10px;
 }
@@ -1301,6 +1301,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     color:red;
     padding:40px;
 }
+
 /*---------------------
   FQA PAGE
 -----------------------*/

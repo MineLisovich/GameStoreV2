@@ -41,6 +41,7 @@ namespace GameStore
             services.AddTransient<IChekRepository, EFChekRepository>();
             //services.AddTransient<IUsersRepository, EFUsersRepository>();
             services.AddTransient<DataManager>();
+            services.AddTransient<EmailService>();
    
 
 

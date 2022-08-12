@@ -41,7 +41,7 @@ namespace GameStore.Controllers
       
         public IActionResult AllGame(string name, int? ganre, int? platfoms, int? developres)
         {
-            IQueryable<AllGames> allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
+            IQueryable<AllGames> allgames =  _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
             if (ganre != null && ganre!=0)
             {
                 allgames = allgames.Where(g=>g.Ganresid==ganre);
@@ -136,6 +136,9 @@ namespace GameStore.Controllers
             var ganres = dataManager.Ganres.GetGanresByid(allGames.Ganresid);
             return View(allGames);
         }
-
+        public IActionResult ConfirmEmail()
+        { 
+            return View();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace GameStore.Models
         public string UserName { get; set; }
         [Required(ErrorMessage = "Не указан Пароль")]
         [UIHint("passowrd")]
+        [DataType(DataType.Password)]
         public string PasswordHash { get; set; }
         [Required(ErrorMessage = "Не указан Email")]
         public string Email { get; set; }
