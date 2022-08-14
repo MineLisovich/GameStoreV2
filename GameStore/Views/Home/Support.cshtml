@@ -1,4 +1,5 @@
-﻿    <!-- FQA area -->  
+﻿    @model GameStore.Models.FeedbackViewModel
+<!-- FQA area -->  
         <div class="container">
                 <h1 class = "suph1"><u><b>Часто задаваемые вопросы:</b></u></h1>
                 <div class="questions">
@@ -24,16 +25,13 @@
     <!--Feedback area-->
     <div class="container">
         <h1 class = "suph1"><u><b>Задать свой вопрос:</b></u></h1>
-        <form action = "#" id="feedback_form" class="feedback_form">
+        <form asp-controller = "Home" asp-action="Support" method="post" id="feedback_form" class="feedback_form">
               <div class ="input_feedback_item">
-                <input type="text" placeholder="Укажите своё Имя">
-              </div>
-              <div class ="input_feedback_item">
-                <input type="text" placeholder="Укажите свой Email">
+                <input asp-for="user_email" type="text" placeholder="Укажите свой Email">
                
               </div>
               <div class ="input_feedback_item">
-                  <textarea id ="formMessage" name ="Message" class="input_feedback_item" placeholder="Задайте вопрос"></textarea>
+                  <textarea asp-for="message" id ="formMessage" name ="Message" class="input_feedback_item" placeholder="Задайте вопрос"></textarea>
               </div>
             <button type ="submit" class="form__button">Отправить</button>
         </form>

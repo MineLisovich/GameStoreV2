@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System;
+using GameStore.Service;
 
 namespace GameStore.Controllers
 {
@@ -80,10 +81,22 @@ namespace GameStore.Controllers
             };
             return View(viewModel);
         }
-    
+        [HttpGet]
         public IActionResult Support()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task <IActionResult> Support(FeedbackViewModel model)
+        {
+            EmailService emailService = new EmailService();
+          
+            if (model.user_email != null || model.message != null)
+            {
+                await emailService.SendEmailAsync("deelimpay@mail.ru", model.user_email, model.message);
+                return View("MessageSent"); 
+            }
+            return View(model);
         }
 
 
