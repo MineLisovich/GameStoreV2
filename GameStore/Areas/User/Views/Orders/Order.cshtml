@@ -1,0 +1,7 @@
+﻿  <div class="PaymentArea">
+                    <div class="finalPrise">Итого: @Model.totalPrice BYN</div>  
+ </div>
+
+<form asp-controller ="Orders" asp-action = "Payment" method="post">
+    <button type="submit">Оплатить</button>
+</form>

@@ -36,7 +36,7 @@
                 </table>
                 <div class="PaymentArea">
                     <div class="finalPrise">Итого: @Model.totalPrice BYN</div>
-                    <a class="add_to_cart_button">Оплатить</a>
+                    <a asp-controller="Orders" asp-action="Order" class="add_to_cart_button">Оплатить</a>
                 </div>
         }
         @if (Model.basket.Where(g => g.UserId == @Model.identityUser.Id ).Count() == 0)
