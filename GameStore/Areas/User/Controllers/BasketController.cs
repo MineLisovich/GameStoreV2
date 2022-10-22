@@ -48,7 +48,6 @@ namespace GameStore.Areas.User.Controllers
                 Basket model = new Basket()
                 {
                     AllGamesid = allgames.id,
-                    amount = 1,
                     finalPrice = allgames.price,
                     UserId = user.Id
                 };

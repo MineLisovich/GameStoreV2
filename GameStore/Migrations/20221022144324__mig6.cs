@@ -246,7 +246,6 @@ namespace GameStore.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    amount = table.Column<int>(nullable: false),
                     finalPrice = table.Column<int>(nullable: false),
                     AllGamesid = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true)
@@ -343,8 +342,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "602", "ca3ddebb-0ce3-4f10-ac2a-f2cf9a5aa174", "user", "USER" },
-                    { "601", "66008a9f-bd46-48f5-a448-3b378e1912eb", "admin", "ADMIN" }
+                    { "602", "f28918de-a195-442e-bc8b-cfa6c89a384a", "user", "USER" },
+                    { "601", "07459139-df17-4d3d-81ea-9246435eee54", "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -352,8 +351,8 @@ namespace GameStore.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "702", 0, "ab0a18aa-ab61-472e-9f02-b62a181688a8", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAEM0xUXNF4/aCBFxeA4H8oA2+ia3w2j9WBYgxNUYfLmBvzX0RQ1E+1LppRsBOGl5HRw==", null, false, "", false, "Stepashka" },
-                    { "701", 0, "cf57e231-a5d1-4c29-aaf2-b106fca5f8dc", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEPfiOzMHSzN5Xuo44Dwq3VKoe82QHXuEKC7exhNDGjBh/xBbH4yxaB+GpjWBeeOvFg==", null, false, "", false, "deeLimpay" }
+                    { "702", 0, "62a4edcc-4c40-4a17-992e-c158d4d5fa86", "stepa@gmail.com", true, false, null, "stepa@gmail.com", "Stepashka", "AQAAAAEAACcQAAAAELTLTwBLS9Dt74v22ksstJSLttCQMnWaSBcPmaRT1843impkq47kM3liLRwFcYpukg==", null, false, "", false, "Stepashka" },
+                    { "701", 0, "22f2ad2c-3295-4a9f-b041-ed82d9dbaa57", "deeLimpay@mail.ru", true, false, null, "deeLimpay@mail.ru", "deeLimpay", "AQAAAAEAACcQAAAAEICMFd5qn1WJ6750PASuIdBPvafefYMtn8Ieuo/b3TcP8fv4y2CSFE1zATwwM0eNeQ==", null, false, "", false, "deeLimpay" }
                 });
 
             migrationBuilder.InsertData(
@@ -428,8 +427,8 @@ namespace GameStore.Migrations
 
             migrationBuilder.InsertData(
                 table: "Basket",
-                columns: new[] { "id", "AllGamesid", "UserId", "amount", "finalPrice" },
-                values: new object[] { 801, 401, "702", 1, 3 });
+                columns: new[] { "id", "AllGamesid", "UserId", "finalPrice" },
+                values: new object[] { 801, 401, "702", 3 });
 
             migrationBuilder.InsertData(
                 table: "GameKey",

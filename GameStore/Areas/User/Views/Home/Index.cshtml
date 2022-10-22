@@ -1,114 +1,64 @@
 ﻿@model GameStore.Models.UserProfilViewModel
 <!--Profile and basket area-->
-    <div class="single-product-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-          
-                <div class="UserNameProfile">Профиль: @Model.identityUser.UserName</div>
-                <div class="HederBasket">Корзина:</div>
-
-        @if (Model.basket.Where(g => g.UserId == @Model.identityUser.Id ).Count() > 0)
-        {
-             <table class="tableBasket">
-                    <thead>
-                        <tr>
-                            <th>Наименование игры</th>
-                            <th>Количество</th>
-                            <th>Цена(BYN)</th> 
-                            <th>Удалить из корзины</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                         @foreach (var obj in Model.basket.Where(g => g.UserId == @Model.identityUser.Id ))
-                       {
-                        <tr>
-                            <td>@obj.AllGames.nameGame</td>
-                            <td>@obj.amount</td>
-                            <td>@obj.finalPrice</td>
-                            <td> <a class="control_buttons"asp-area="User" asp-controller="Basket" asp-action="Delete" asp-route-id=@obj.id >Удалить</a></td>
-                        </tr>
-
-                       }
-                  
-                        
-                    </tbody>
-                </table>
-                <div class="PaymentArea">
-                    <div class="finalPrise">Итого: @Model.totalPrice BYN</div>
-                    <a asp-controller="Orders" asp-action="Order" class="add_to_cart_button">Оплатить</a>
-                </div>
-        }
-        @if (Model.basket.Where(g => g.UserId == @Model.identityUser.Id ).Count() == 0)
-        {
-                <!--ЕСЛИ ТАБЛИЦА КОРЗИНА БУДЕТ ПУСТА-->
-                <table class="tableBasket">
-                    <thead>
-                        <tr>
-                            <th>Наименование игры</th>
-                            <th>Количество</th>
-                            <th>Цена(BYN)</th> 
-                            <th>Удалить из корзины</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="4"><p class="EmptyBasket">КОРЗИНА ВСЁ ЕЩЁ ПУСТА :(</p></td>
-                        </tr>
-                    </tbody>
-                </table>   
-        }
-
-             
-                <!--ТАБЛИЦА ИСТОРИЯ ПОКУПОК-->
-                <div class="HederBasket">История покупок:</div>
-        @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() > 0)
+<div class="container">
+    <div class="NewProfileArea">
+        <div class="UserMenu">
+            <ul>
+                <li>@Model.identityUser.UserName</li>
+                <li><a asp-area="user" asp-controller="Orders" asp-action="MyOrders">Мои покупки</a></li>
+                <li><a asp-area="user" asp-controller="Users" asp-action="Edit" asp-route-id=@Model.identityUser.Id>Изменить персональные данные</a></li>
+                <li><a asp-area ="" asp-controller="Account" asp-action="ForgotPassword">Изменить пароль</a></li>
+                <li><a asp-area="" asp-controller="Account" asp-action="Logout">Выход</a></li>
+            </ul>
+        </div>
+        <div class="HederBasket">Корзина:</div>
+        @if (Model.basket.Where(g => g.UserId == @Model.identityUser.Id).Count() > 0)
         {
             <table class="tableBasket">
-                    <thead>
-                        <tr>
-                            <th>Наименование игры</th>
-                            <th>Цена(BYN)</th> 
-                            <th>Ключ от игры</th> 
-                            <th>Дата покупки</th> 
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach (var obj in Model.Chek.Where(g => g.UserId == @Model.identityUser.Id))
+                <thead>
+                    <tr>
+                        <th>Наименование игры</th>
+                        <th>Цена</th>
+                        <th>Удалить из корзины</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model.basket.Where(g => g.UserId == @Model.identityUser.Id))
                     {
                         <tr>
-                            <td>@obj.nameGame</td>
-                            <td>@obj.priceGame</td>
-                            <td>@obj.GameKey.Key_game</td>
-                            <td>@obj.dateAddedCheque</td>
-                           
+                            <td>@obj.AllGames.nameGame</td>
+                            <td>@obj.finalPrice</td>
+                            <td> <a class="control_buttons" asp-area="User" asp-controller="Basket" asp-action="Delete" asp-route-id=@obj.id>Удалить</a></td>
                         </tr>
+
                     }
-                    </tbody>
-                </table>
-        }
-        @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() == 0)
-        {
-                   <!--ЕСЛИ ТАБЛИЦА ИСТОРИЯ ПОКУПОК БУДЕТ ПУСТА-->
-                <table class="tableBasket">
-                    <thead>
-                        <tr>
-                            <th>Наименование игры</th>
-                            <th>Цена(BYN)</th> 
-                            <th>Ключ от игры</th> 
-                            <th>Дата покупки</th> 
-                            <th>Подробная информация</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="5"><p class="EmptyBasket">НЕТ ПОКУПОК :(</p></td>
-                        </tr>
-                    </tbody>
-                </table>
-        }
-         
+                </tbody>
+            </table>
+            <div class="PaymentArea">
+                <div class="finalPrise">Итого: @Model.totalPrice BYN</div>
+                <a asp-controller="Orders" asp-action="Order" class="add_to_cart_button">Оплатить</a>
         </div>
+        }
+        <!--ЕСЛИ ТАБЛИЦА КОРЗИНА БУДЕТ ПУСТА-->
+        @if (Model.basket.Where(g => g.UserId == @Model.identityUser.Id).Count() == 0)
+        {
+            <!--ЕСЛИ ТАБЛИЦА КОРЗИНА БУДЕТ ПУСТА-->
+            <table class="tableBasket">
+                <thead>
+                    <tr>
+                        <th>Наименование игры</th>
+                        <th>Цена(BYN)</th>
+                        <th>Удалить из корзины</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3"><p class="EmptyBasket">КОРЗИНА ВСЁ ЕЩЁ ПУСТА :(</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+
     </div>
-    <!--End Profile and basket area-->
+</div>
+<!--End Profile and basket area-->

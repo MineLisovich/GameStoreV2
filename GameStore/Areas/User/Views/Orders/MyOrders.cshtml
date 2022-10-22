@@ -1,0 +1,67 @@
+﻿@model GameStore.Models.UserProfilViewModel
+<!--Profile and basket area-->
+<div class="container">
+    <div class="NewProfileArea">
+
+
+        <div class="UserMenu">
+            <ul>
+                <li>@Model.identityUser.UserName</li>
+                <li><a asp-area="user" asp-controller="Home" asp-action="Index">Моя корзина</a></li>
+                <li><a asp-area="user" asp-controller="Users" asp-action="Edit" asp-route-id=@Model.identityUser.Id>Изменить персональные данные</a></li>
+                <li><a asp-area="" asp-controller="Account" asp-action="ForgotPassword">Изменить пароль</a></li>
+                <li><a asp-area="" asp-controller="Account" asp-action="Logout">Выход</a></li>
+            </ul>
+        </div>
+        <!--ТАБЛИЦА ИСТОРИЯ ПОКУПОК-->
+        <div class="HederBasket">Мои покупки:</div>
+        @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() > 0)
+        {
+            <table class="tableBasket">
+                <thead>
+                    <tr>
+                        <th>Наименование игры</th>
+                        <th>Цена(BYN)</th>
+                        <th>Ключ от игры</th>
+                        <th>Дата покупки</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model.Chek.Where(g => g.UserId == @Model.identityUser.Id))
+                    {
+                        <tr>
+                            <td>@obj.nameGame</td>
+                            <td>@obj.priceGame</td>
+                            <td>@obj.GameKey.Key_game</td>
+                            <td>@obj.dateAddedCheque</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() == 0)
+        {
+            <!--ЕСЛИ ТАБЛИЦА ИСТОРИЯ ПОКУПОК БУДЕТ ПУСТА-->
+            <table class="tableBasket">
+                <thead>
+                    <tr>
+                        <th>Наименование игры</th>
+                        <th>Цена(BYN)</th>
+                        <th>Ключ от игры</th>
+                        <th>Дата покупки</th>
+                        <th>Подробная информация</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5"><p class="EmptyBasket">НЕТ ПОКУПОК :(</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+<!--End Profile and basket area-->

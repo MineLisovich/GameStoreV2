@@ -15,9 +15,6 @@ namespace GameStore.Domain.Entities
         [Required]
         public int id { get; set; }
 
-        [Required]
-        public int amount { get; set; }
-
 
         [Required]
         public int finalPrice { get; set; }

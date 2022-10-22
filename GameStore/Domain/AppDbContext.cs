@@ -382,7 +382,6 @@ namespace GameStore.Domain
                 id = 801,
                 AllGamesid = 401,
                 UserId = "702",
-                amount = 1,
                 finalPrice = 3
             });
 

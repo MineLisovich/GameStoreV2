@@ -97,7 +97,29 @@ namespace GameStore.Areas.User.Controllers
                 _db.Basket.Remove(basket1);
             }
             _db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return View("OrderSucceeded");
+        }
+        public async Task<IActionResult> MyOrders()
+        {
+
+            var user = await _userManager.GetUserAsync(User);
+            IQueryable<Basket> basket = _db.Basket.Include(g => g.AllGames).Include(u => u.User);
+            IQueryable<Chek> cheque = _db.Chek.Include(a => a.User).Include(g => g.GameKey);
+
+            var TotalPrise = _db.Basket.Include(g => g.AllGames).Include(u => u.User).Where(us => us.UserId == user.Id).Sum(fp => fp.finalPrice);
+
+            UserProfilViewModel viewModel = new UserProfilViewModel
+            {
+                basket = basket.ToList(),
+                Chek = cheque.ToList(),
+                identityUser = user,
+                totalPrice = TotalPrise
+
+            };
+
+
+
+            return View(viewModel);
         }
 
     }

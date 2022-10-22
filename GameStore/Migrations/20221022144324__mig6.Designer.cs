@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221022091356__mig6")]
+    [Migration("20221022144324__mig6")]
     partial class _mig6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -231,9 +231,6 @@ namespace GameStore.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("amount")
-                        .HasColumnType("int");
-
                     b.Property<int>("finalPrice")
                         .HasColumnType("int");
 
@@ -251,7 +248,6 @@ namespace GameStore.Migrations
                             id = 801,
                             AllGamesid = 401,
                             UserId = "702",
-                            amount = 1,
                             finalPrice = 3
                         });
                 });
@@ -585,14 +581,14 @@ namespace GameStore.Migrations
                         new
                         {
                             Id = "601",
-                            ConcurrencyStamp = "66008a9f-bd46-48f5-a448-3b378e1912eb",
+                            ConcurrencyStamp = "07459139-df17-4d3d-81ea-9246435eee54",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "602",
-                            ConcurrencyStamp = "ca3ddebb-0ce3-4f10-ac2a-f2cf9a5aa174",
+                            ConcurrencyStamp = "f28918de-a195-442e-bc8b-cfa6c89a384a",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -691,13 +687,13 @@ namespace GameStore.Migrations
                         {
                             Id = "701",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cf57e231-a5d1-4c29-aaf2-b106fca5f8dc",
+                            ConcurrencyStamp = "22f2ad2c-3295-4a9f-b041-ed82d9dbaa57",
                             Email = "deeLimpay@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "deeLimpay@mail.ru",
                             NormalizedUserName = "deeLimpay",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPfiOzMHSzN5Xuo44Dwq3VKoe82QHXuEKC7exhNDGjBh/xBbH4yxaB+GpjWBeeOvFg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEICMFd5qn1WJ6750PASuIdBPvafefYMtn8Ieuo/b3TcP8fv4y2CSFE1zATwwM0eNeQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -707,13 +703,13 @@ namespace GameStore.Migrations
                         {
                             Id = "702",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ab0a18aa-ab61-472e-9f02-b62a181688a8",
+                            ConcurrencyStamp = "62a4edcc-4c40-4a17-992e-c158d4d5fa86",
                             Email = "stepa@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "stepa@gmail.com",
                             NormalizedUserName = "Stepashka",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM0xUXNF4/aCBFxeA4H8oA2+ia3w2j9WBYgxNUYfLmBvzX0RQ1E+1LppRsBOGl5HRw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELTLTwBLS9Dt74v22ksstJSLttCQMnWaSBcPmaRT1843impkq47kM3liLRwFcYpukg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
