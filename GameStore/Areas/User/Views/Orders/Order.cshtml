@@ -1,7 +1,25 @@
-﻿  <div class="PaymentArea">
-                    <div class="finalPrise">Итого: @Model.totalPrice BYN</div>  
- </div>
+﻿
 
-<form asp-controller ="Orders" asp-action = "Payment" method="post">
-    <button type="submit">Оплатить</button>
-</form>
+<!--payment area-->
+<div class="container">
+    <div class="cardArea">
+        <div class="NumderCardArea">
+            <p class="LableNuberCard">Номер карты:</p>
+            <input class="InputNumderCard" type="number" placeholder="5555 5555 5555 5555" />
+        </div>
+        <div class="CardTermAndCVC_Area">
+            <p class="LableCardTerm">Действительна до:</p>
+            <input class="InputCardTerm" type="text" placeholder="07/23" />
+            <p class="LableCVC">CVC:</p>
+            <input class="InputCVC" type="password" maxlength="3" />
+        </div>
+    </div>
+    <div class="PaymentArea">
+        <div class="price">Итого: @Model.totalPrice BYN</div>
+    </div>
+
+    <form asp-controller="Orders" asp-action="Payment" method="post">
+        <button type="submit">Оплатить</button>
+    </form>
+</div>
+<!-- end payment area-->

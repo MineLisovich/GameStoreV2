@@ -26,21 +26,35 @@ namespace GameStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CPU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Developersid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GameWeight")
                         .HasColumnType("int");
 
                     b.Property<int>("Ganresid")
                         .HasColumnType("int");
 
+                    b.Property<string>("OS")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Platformsid")
                         .HasColumnType("int");
 
                     b.Property<string>("Poster")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("amount")
+                    b.Property<int>("RAM")
                         .HasColumnType("int");
+
+                    b.Property<string>("VRAM")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("dateAddedSite")
                         .HasColumnType("datetime2");
@@ -49,12 +63,7 @@ namespace GameStore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("fullDescriptionGame")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("linkTrailerGame")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nameGame")
@@ -68,19 +77,15 @@ namespace GameStore.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("screenshotGame_1")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("screenshotGame_2")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("screenshotGame_3")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("screenshotGame_4")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -97,14 +102,17 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 401,
+                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
                             Developersid = 201,
+                            GameWeight = 14,
                             Ganresid = 101,
+                            OS = "Windows 10 64 bit",
                             Platformsid = 301,
                             Poster = "2077.png",
-                            amount = 29,
+                            RAM = 8,
+                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = " Cyberpunk 2077 — компьютерная игра в жанре экшен в открытом мире, разработанная и изданная польской студией CD Projekt. Действие игры происходит в 2077 году в Найт-Сити, вымышленном североамериканском городе из вселенной Cyberpunk.",
-                            fullDescriptionGame = "Тут будет полное описание игры Cyberpunk",
                             linkTrailerGame = "aSrFWinrkeQ",
                             nameGame = "Cyberpunk 2077",
                             price = 34,
@@ -117,14 +125,17 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 402,
+                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
                             Developersid = 201,
+                            GameWeight = 14,
                             Ganresid = 101,
+                            OS = "Windows 10 64 bit",
                             Platformsid = 301,
                             Poster = "GTA5.png",
-                            amount = 10,
+                            RAM = 8,
+                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "GTA V — компьютерная игра в жанре action-adventure с открытым миром, разработанная компанией Rockstar North и изданная компанией Rockstar Games.",
-                            fullDescriptionGame = "Тут будет полное описание игры GTAV",
                             linkTrailerGame = "QkkoHAzjnUs",
                             nameGame = "Grand Theft Auto V",
                             price = 25,
@@ -137,14 +148,17 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 403,
+                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
                             Developersid = 201,
+                            GameWeight = 14,
                             Ganresid = 101,
+                            OS = "Windows 10 64 bit",
                             Platformsid = 301,
                             Poster = "Valheim.png",
-                            amount = 4,
+                            RAM = 8,
+                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "Valheim — компьютерная игра в жанре симулятора выживания в открытом мире, разрабатываемая шведской компанией Iron Gate и изданная компанией Coffee Stain.",
-                            fullDescriptionGame = "Тут будет полное описание игры Valheim",
                             linkTrailerGame = "5mHRJ1KFe20",
                             nameGame = "Valheim",
                             price = 10,
@@ -157,14 +171,17 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 404,
+                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
                             Developersid = 201,
+                            GameWeight = 14,
                             Ganresid = 101,
+                            OS = "Windows 10 64 bit",
                             Platformsid = 301,
                             Poster = "Assassin1.png",
-                            amount = 22,
+                            RAM = 8,
+                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
                             dateAddedSite = new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.",
-                            fullDescriptionGame = "Тут будет полное описание игры Assassin1",
                             linkTrailerGame = "RjQ6ZtyXoA0",
                             nameGame = "Assassin’s Creed",
                             price = 13,
@@ -177,14 +194,17 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 405,
+                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
                             Developersid = 201,
+                            GameWeight = 14,
                             Ganresid = 101,
+                            OS = "Windows 10 64 bit",
                             Platformsid = 301,
                             Poster = "Fallout76.png",
-                            amount = 10,
+                            RAM = 8,
+                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
                             dateAddedSite = new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            descriptionG = "Fallout 76 — многопользовательская компьютерная игра в жанре Action/RPG, разработанная американской студией Bethesda Game Studios и выпущенная Bethesda Softworks.",
-                            fullDescriptionGame = "События игры происходят в 2102 году в Западной Виргинии. Игрок — житель Убежища 76 (Резидент), проспавший выход на поверхность. Находя голозаписи Смотрительницы Убежища, которая покинула его раньше всех, игрок понимает, что над регионом нависла опасность в виде горелых — людей, заражённых инфекцией, превращающихся со временем в неподвижные статуи, которые, распадаясь, разносят заразу, заражая как и других существ, так и людей. Как выясняется, источник той болезни — зверожоги. Это мутировавшие драконоподобные летучие мыши, обитавшие под землёй. По мере продвижения по сюжету и выполнению квестов игрок создаёт вакцину против чумы зверожогов. Далее Резиденту предстоит проникнуть в хорошо спрятанный бункер «Анклава» — бывшего правительства США. Там ему встречается МОДУС — суперкомпьютер, который убил всех членов Анклава в качестве мести за попытку уничтожить его. МОДУС рассказывает о ядерных ракетах и как их запустить. Игрок завладевает кодами запуска и, проведя бомбардировку главного разлома, откуда вылезают зверожоги, сталкивается с ещё более страшной угрозой — маткой зверожогов. В тяжёлом бою её удаётся убить, и зверожоги, оставшись без главы, разлетаются подобно муравьям, оставшимся без королевы.",
+                            descriptionG = "События игры происходят в 2102 году в Западной Виргинии. Игрок — житель Убежища 76 (Резидент), проспавший выход на поверхность. Находя голозаписи Смотрительницы Убежища, которая покинула его раньше всех, игрок понимает, что над регионом нависла опасность в виде горелых — людей, заражённых инфекцией, превращающихся со временем в неподвижные статуи, которые, распадаясь, разносят заразу, заражая как и других существ, так и людей. Как выясняется, источник той болезни — зверожоги. Это мутировавшие драконоподобные летучие мыши, обитавшие под землёй. По мере продвижения по сюжету и выполнению квестов игрок создаёт вакцину против чумы зверожогов. Далее Резиденту предстоит проникнуть в хорошо спрятанный бункер «Анклава» — бывшего правительства США. Там ему встречается МОДУС — суперкомпьютер, который убил всех членов Анклава в качестве мести за попытку уничтожить его. МОДУС рассказывает о ядерных ракетах и как их запустить. Игрок завладевает кодами запуска и, проведя бомбардировку главного разлома, откуда вылезают зверожоги, сталкивается с ещё более страшной угрозой — маткой зверожогов. В тяжёлом бою её удаётся убить, и зверожоги, оставшись без главы, разлетаются подобно муравьям, оставшимся без королевы.",
                             linkTrailerGame = "RjQ6ZtyXoA0",
                             nameGame = "Fallout 76",
                             price = 55,
@@ -563,14 +583,14 @@ namespace GameStore.Migrations
                         new
                         {
                             Id = "601",
-                            ConcurrencyStamp = "7900fa17-d1c3-4e63-a858-11f6f0659e6f",
+                            ConcurrencyStamp = "66008a9f-bd46-48f5-a448-3b378e1912eb",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "602",
-                            ConcurrencyStamp = "15712359-7b06-4abc-807c-7ce264838058",
+                            ConcurrencyStamp = "ca3ddebb-0ce3-4f10-ac2a-f2cf9a5aa174",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -669,13 +689,13 @@ namespace GameStore.Migrations
                         {
                             Id = "701",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f59538e3-b9c1-4a09-a530-586009be4c32",
+                            ConcurrencyStamp = "cf57e231-a5d1-4c29-aaf2-b106fca5f8dc",
                             Email = "deeLimpay@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "deeLimpay@mail.ru",
                             NormalizedUserName = "deeLimpay",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDHaYsLBJY2edSBD3GYgZrBP1q0ew7rF/+g8GeKCazvoZxpy2WUZPAQ/Ckdc2zHVog==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPfiOzMHSzN5Xuo44Dwq3VKoe82QHXuEKC7exhNDGjBh/xBbH4yxaB+GpjWBeeOvFg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -685,13 +705,13 @@ namespace GameStore.Migrations
                         {
                             Id = "702",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "824557a9-27c9-4a3b-9ee3-33c4c078d41b",
+                            ConcurrencyStamp = "ab0a18aa-ab61-472e-9f02-b62a181688a8",
                             Email = "stepa@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "stepa@gmail.com",
                             NormalizedUserName = "Stepashka",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKE0i2bzY6BBBpA3UAyoTUX2bOu9l7e2YycE0o7AlH5RFvWLTXhOpfDgFGX9BpYuwQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM0xUXNF4/aCBFxeA4H8oA2+ia3w2j9WBYgxNUYfLmBvzX0RQ1E+1LppRsBOGl5HRw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

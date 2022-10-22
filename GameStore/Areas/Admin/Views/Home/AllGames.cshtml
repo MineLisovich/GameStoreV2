@@ -26,7 +26,6 @@
                        <b>Разработчик:</b>@obj.Developers.nameDeveloper<br>
                        <b>Дата выхода:</b>@obj.releaseDate<br>
                        <b>Цена:</b> @obj.price BYN<br> 
-                       <b>Количество копий игры:</b> @obj.amount <br>
                        <b>Платформа:</b> @obj.Platforms.namePlatform <br>
                        <b>Наименование картинки:</b> @obj.Poster<br>
                        <b>Дата добавление на сайт:</b>@obj.dateAddedSite<br>  
@@ -34,8 +33,12 @@
                        <b>Имя скриншота игры2:</b>@obj.screenshotGame_2<br>
                        <b>Имя скриншота игры3:</b>@obj.screenshotGame_3<br>
                        <b>Имя скриншота игры4:</b>@obj.screenshotGame_4<br>
-                       <b>Полное описание:</b> @obj.fullDescriptionGame<br>
                        <b>Сокр. ссылка на ютуб:</b> @obj.linkTrailerGame<br>
+                       <b>OS:</b> @obj.OS<br>
+                       <b>CPU:</b> @obj.CPU<br>
+                       <b>RAM:</b> @obj.RAM Gb<br>
+                       <b>VRAM:</b> @obj.VRAM<br>
+                       <b>Место на диске:</b> @obj.GameWeight Gb<br>
                         <div class="product-option-shop">
                             <a class="control_buttons"asp-area="Admin" asp-controller="AllGames" asp-action="Edit" asp-route-id=@obj.id >Изменить</a>
                             <a class="control_buttons"asp-area="Admin" asp-controller="AllGames" asp-action="Delete" asp-route-id=@obj.id >Удалить</a>

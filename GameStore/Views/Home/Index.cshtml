@@ -81,13 +81,9 @@
                             <img src="~/images/product/@obj.Poster"  alt="" />
                             <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.id >@obj.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                <p class="descriptionInfo"><b>Жанр:</b> @obj.Ganres.nameGanres</p>
-                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.Developers.nameDeveloper </p>
-                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.releaseDate </p>        
-                                <p class="descriptionInfo"><b>Описание:</b> @obj.descriptionG</p>
-                                <p class="descriptionInfo"><b>Платформа:</b> @obj.Platforms.namePlatform</p>
-                                   
-                            </div>
+                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, активация:@obj.Platforms.namePlatform</p>
+
+                                </div>
                             <div class="product-wid-price">
                                 <ins>@obj.price BYN</ins>
                                  <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id  class="add_to_cart_button" >В корзину</a>
@@ -113,13 +109,8 @@
                             <img src="~/images/product/@obj.Poster"  alt="" />
                             <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.id >@obj.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                <p class="descriptionInfo"><b>Жанр:</b> @obj.Ganres.nameGanres</p>
-                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.Developers.nameDeveloper </p>
-                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.releaseDate </p>  
-                                <p class="descriptionInfo"><b>Описание:</b> @obj.descriptionG</p>
-                                <p class="descriptionInfo"><b>Платформа:</b> @obj.Platforms.namePlatform</p>
-                                   
-                            </div>
+                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, активация:@obj.Platforms.namePlatform</p>
+                                </div>
                             <div class="product-wid-price">
                                 <ins>@obj.price BYN</ins>
                                  <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id  class="add_to_cart_button" >В корзину</a> 
@@ -147,13 +138,8 @@
                             <img src="~/images/product/@obj.Poster"  alt="" />
                             <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.id >@obj.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                <p class="descriptionInfo"><b>Жанр:</b> @obj.Ganres.nameGanres</p>
-                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.Developers.nameDeveloper </p>
-                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.releaseDate </p>  
-                                <p class="descriptionInfo"><b>Описание:</b> @obj.descriptionG</p>
-                                <p class="descriptionInfo"><b>Платформа:</b> @obj.Platforms.namePlatform</p>
-                                   
-                            </div>
+                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, активация:@obj.Platforms.namePlatform</p>
+                                </div>
                             <div class="product-wid-price">
                                 <ins>@obj.price BYN</ins>
                                 <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id  class="add_to_cart_button" >В корзину</a>

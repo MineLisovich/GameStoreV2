@@ -98,13 +98,14 @@ namespace GameStore
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseStaticFiles();
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("Admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");

@@ -826,10 +826,10 @@ input[type="submit"]:hover, button[type=submit]:hover {
     float: left;
     margin-right: 15px;
 }
-.quantity input[type="number"] {
-    border: 1px solid #5a88ca;
-    padding: 5px;
-    width: 50px;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 .add_to_cart_button {
     background: none repeat scroll 0 0 #5a88ca;
@@ -1471,3 +1471,221 @@ Style Profile page
     align-items: center;
     color: rgba(0,0,0,0.5);
 }
+/*jkjk*/
+.cardArea {
+    background-color: #8797ad8a;
+    margin-top: 10px;
+    width: 450px;
+    height: 285px;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: block;
+    align-items: center;
+}
+
+
+.NumderCardArea {
+    margin-top: 40px;
+}
+
+.LableNuberCard {
+    margin-left: 35px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.InputNumderCard {
+    border: 1px solid rgb(180, 179, 179);
+    font-size: 25px;
+    margin-left: 24px;
+    border-radius: 12px;
+    width: 400px;
+}
+
+.CardTermAndCVC_Area {
+    margin-top: 10px;
+}
+
+.LableCardTerm {
+    margin-left: 35px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.InputCardTerm {
+    border: 1px solid rgb(180, 179, 179);
+    font-size: 15px;
+    margin-left: 24px;
+    border-radius: 12px;
+    width: 70px;
+}
+
+.LableCVC {
+    margin-left: 350px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.InputCVC {
+    border: 1px solid rgb(180, 179, 179);
+    font-size: 15px;
+    margin-left: 340px;
+    border-radius: 12px;
+    width: 70px;
+  
+}
+.price {
+    margin-right: 1000px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+/**/
+.login_social {
+    align-items: center;
+    margin-left: 16%;
+}
+.login_social p{
+   margin-left:22%;
+    font-size:20px;
+}
+.login_social a {
+    background: none repeat scroll 0 0 #5a88ca;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    text-align: center;
+    width: 40px;
+    border: 1px solid #5a88ca;
+}
+
+    .login_social a:hover {
+        background-color: #222;
+        border-color: #666
+    }
+
+.login_social {
+    margin-top: 20px
+}
+
+/*new style single page*/
+.singlPageArea {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: center;
+}
+
+.PosterGame image {
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+@media (max-width:500px) {
+    .singlPageArea {
+        display: inline;
+    }
+
+    .PosterGame image {
+        text-align: left;
+    }
+}
+
+.GameInfoArea {
+    width: 100%;
+}
+
+.HederInfoGame {
+    width: 100%;
+}
+
+    .HederInfoGame h1 {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .HederInfoGame p {
+        font-size: 16px;
+        font-style: italic;
+    }
+
+.price {
+    margin-bottom: 10px;
+}
+
+    .price > ins {
+        color: #5a88ca;
+        font-weight: 700;
+        margin-right: 10px;
+        text-decoration: none;
+        font-size: 24px;
+    }
+
+.description p {
+    text-align: justify;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0;
+}
+
+    .video iframe {
+        display: inline-block;
+        white-space: normal;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+@media (max-width:500px) {
+    .video {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: auto;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 0;
+    }
+
+        .video iframe {
+            width: 100%;
+            display: inline-block;
+            white-space: normal;
+            vertical-align: middle;
+            text-align: left;
+        }
+}
+
+.system_requirements {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .system_requirements h2 {
+        text-decoration: underline;
+    }
+
+    .system_requirements p {
+        padding: 0;
+        margin: 0;
+        font-size: 15px;
+    }

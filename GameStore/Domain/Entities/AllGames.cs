@@ -28,27 +28,34 @@ namespace GameStore.Domain.Entities
         [Required(ErrorMessage = "Введите Стоимость игры")]
         public int price { get; set; }
 
-        [Required(ErrorMessage = "Введите Количество копий игры")]
-        public int amount { get; set; }
-
-        [Required(ErrorMessage = "Введите Имя картинки")]
+      
         public string Poster { get; set; }
 
         [Required]
         public DateTime dateAddedSite { get; set; }
 
-        [Required(ErrorMessage ="Введите Имя скриншота игры")]
+       
         public string screenshotGame_1 { get; set; }
-        [Required(ErrorMessage = "Введите Имя скриншота игры")]
+        
         public string screenshotGame_2 { get; set; }
-        [Required(ErrorMessage = "Введите Имя скриншота игры")]
+       
         public string screenshotGame_3 { get; set; }
-        [Required(ErrorMessage = "Введите Имя скриншота игры")]
+      
         public string screenshotGame_4 { get; set; }
-        [Required(ErrorMessage = "Введите полное описание игры")]
-        public string fullDescriptionGame { get; set; }
-        [Required(ErrorMessage = "Введите сокращённую youtube ссылку на трейлер игры")]
         public string linkTrailerGame { get; set; }
+
+        [Required (ErrorMessage = "Введите рекомендуемую ОС")]
+        public string OS { get; set; }
+        [Required (ErrorMessage ="Введите рекомендуемый процессор CPU")]
+        public string CPU { get; set; }
+        [Required (ErrorMessage ="Введите рекомендуемое количество памяти ОЗУ")]
+        public int RAM { get; set; }
+
+        [Required (ErrorMessage ="Введите рекомендуемую видеокарту")]
+        public string VRAM { get; set; }
+
+        [Required (ErrorMessage ="Введите сколько будет занимать игра место на диске")]
+        public int GameWeight { get; set; }
 
 
 

@@ -39,16 +39,11 @@
             </select>
             </div>
             <div class="form-group">
-                <label asp-for="price" class="control-label">Цена за одну копию игры</label>
+                <label asp-for="price" class="control-label">Цена</label>
                 <input asp-for="price" class="form-control" />
                 <span asp-validation-for="price" class="text-danger"></span>
             </div>
-              <div class="form-group">
-                <label asp-for="amount" class="control-label"> Количество поступивших копий игры</label>
-                <input asp-for="amount" class="form-control" />
-                <span asp-validation-for="amount" class="text-danger"></span>
-           </div>
-         
+           
 
             <div class="form-group">
                 <label class="control-label">Выберите файл постера</label>
@@ -61,11 +56,7 @@
                 <span asp-validation-for="Poster" class="text-danger"></span>
             </div>
 
-              <div class="form-group">
-                <label asp-for="dateAddedSite" class="control-label">Дата добавления на сайт</label>
-                <input type="date" value="today" asp-for="dateAddedSite" class="form-control" />
-                <span asp-validation-for="dateAddedSite" class="text-danger"></span>
-            </div>
+             
             <div class="form-group">
                 <label class="control-label">Платформа</label>
               
@@ -116,17 +107,37 @@
                 <input asp-for="screenshotGame_4" class="form-control" />
                 <span asp-validation-for="screenshotGame_4" class="text-danger"></span>
             </div>
-             <div class="form-group">
-                <label asp-for="fullDescriptionGame" class="control-label">Полное описание игры</label>
-                <textarea asp-for="fullDescriptionGame" class="form-control"></textarea>
-                <span asp-validation-for="fullDescriptionGame" class="text-danger"></span>
-            </div>
-          
+
               <div class="form-group">
                 <label asp-for="linkTrailerGame" class="control-label">Введите сокращённую youtube ссылку на трейлер игры</label>
                 <input asp-for="linkTrailerGame" class="form-control" />
                 <span asp-validation-for="linkTrailerGame" class="text-danger"></span>
             </div>
+        <div class="form-group">
+            <label asp-for="OS" class="control-label">Введите рекомендуемую ОС</label>
+            <input asp-for="OS" class="form-control" />
+            <span asp-validation-for="OS" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CPU" class="control-label">Введите рекомендуемый процессор CPU</label>
+            <input asp-for="CPU" class="form-control" />
+            <span asp-validation-for="CPU" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RAM" class="control-label">Введите рекомендуемое количество памяти ОЗУ</label>
+            <input asp-for="RAM" class="form-control" />
+            <span asp-validation-for="RAM" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="VRAM" class="control-label">Введите рекомендуемую видеокарту</label>
+            <input asp-for="VRAM" class="form-control" />
+            <span asp-validation-for="VRAM" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="GameWeight" class="control-label">Введите сколько будет занимать игра место на диске</label>
+            <input asp-for="GameWeight" class="form-control" />
+            <span asp-validation-for="GameWeight" class="text-danger"></span>
+        </div>
             <div class="form-group">
                 <input type="submit" value="Принять" class="btn btn-primary" />
             </div>

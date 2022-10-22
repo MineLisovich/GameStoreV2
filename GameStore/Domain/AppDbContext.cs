@@ -189,7 +189,6 @@ namespace GameStore.Domain
                 releaseDate = new DateTime(2020, 12, 10),
                 Developersid = 201,
                 price = 34,
-                amount = 29,
                 Poster = "2077.png",
                 dateAddedSite = new DateTime(2022, 03, 03),
                 Platformsid = 301,
@@ -197,8 +196,12 @@ namespace GameStore.Domain
                 screenshotGame_2 = "Cyberpunk_screenshotGame_2.png",
                 screenshotGame_3 = "Cyberpunk_screenshotGame_3.png",
                 screenshotGame_4 = "Cyberpunk_screenshotGame_4.png",
-                fullDescriptionGame = "Тут будет полное описание игры Cyberpunk",
-                linkTrailerGame= "aSrFWinrkeQ"
+                linkTrailerGame= "aSrFWinrkeQ",
+                OS = "Windows 10 64 bit",
+                CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
+                RAM = 8,
+                VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                GameWeight = 14
             }); 
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {
@@ -209,16 +212,19 @@ namespace GameStore.Domain
                 releaseDate = new DateTime(2013, 12, 17),
                 Developersid = 201,
                 price = 25,
-                amount = 10,
                 Poster = "GTA5.png",
                 dateAddedSite = new DateTime(2022, 03, 03),
                 Platformsid = 301,
                 screenshotGame_1 = "GTAV_screenshotGame_1.png",
                 screenshotGame_2 = "GTAV_screenshotGame_2.png",
                 screenshotGame_3 = "GTAV_screenshotGame_3.png",
-                screenshotGame_4 = "GTAV_screenshotGame_4.png",
-                fullDescriptionGame = "Тут будет полное описание игры GTAV",
-                linkTrailerGame = "QkkoHAzjnUs"
+                screenshotGame_4 = "GTAV_screenshotGame_4.png",               
+                linkTrailerGame = "QkkoHAzjnUs",
+                OS = "Windows 10 64 bit",
+                CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
+                RAM = 8,
+                VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                GameWeight = 14
             });
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {
@@ -229,7 +235,6 @@ namespace GameStore.Domain
                 releaseDate = new DateTime(2021, 02, 02),
                 Developersid = 201,
                 price = 10,
-                amount = 4,
                 Poster = "Valheim.png",
                 dateAddedSite = new DateTime(2022, 03, 03),
                 Platformsid = 301,
@@ -237,8 +242,12 @@ namespace GameStore.Domain
                 screenshotGame_2 = "Valheim_screenshotGame_2.png",
                 screenshotGame_3 = "Valheim_screenshotGame_3.png",
                 screenshotGame_4 = "Valheim_screenshotGame_4.png",
-                fullDescriptionGame = "Тут будет полное описание игры Valheim",
-                linkTrailerGame = "5mHRJ1KFe20"
+                linkTrailerGame = "5mHRJ1KFe20",
+                OS = "Windows 10 64 bit",
+                CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
+                RAM = 8,
+                VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                GameWeight = 14
             });
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {
@@ -248,8 +257,7 @@ namespace GameStore.Domain
                 descriptionG = "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.",
                 releaseDate = new DateTime(2007, 11, 13),
                 Developersid = 201,
-                price = 13,
-                amount = 22,
+                price = 13,  
                 Poster = "Assassin1.png",
                 dateAddedSite = new DateTime(2022, 04, 03),
                 Platformsid = 301,
@@ -257,8 +265,13 @@ namespace GameStore.Domain
                 screenshotGame_2 = "Assassin1_screenshotGame_2.png",
                 screenshotGame_3 = "Assassin1_screenshotGame_3.png",
                 screenshotGame_4 = "Assassin1_screenshotGame_4.png",
-                fullDescriptionGame = "Тут будет полное описание игры Assassin1",
-                linkTrailerGame = "RjQ6ZtyXoA0"
+                linkTrailerGame = "RjQ6ZtyXoA0",
+                OS = "Windows 10 64 bit",
+                CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
+                RAM = 8,
+                VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                GameWeight = 14
+
             });
 
             modelBuilder.Entity<AllGames>().HasData(new AllGames
@@ -266,11 +279,10 @@ namespace GameStore.Domain
                 id = 405,
                 nameGame = "Fallout 76",
                 Ganresid = 101,
-                descriptionG = "Fallout 76 — многопользовательская компьютерная игра в жанре Action/RPG, разработанная американской студией Bethesda Game Studios и выпущенная Bethesda Softworks.",
+                descriptionG = "События игры происходят в 2102 году в Западной Виргинии. Игрок — житель Убежища 76 (Резидент), проспавший выход на поверхность. Находя голозаписи Смотрительницы Убежища, которая покинула его раньше всех, игрок понимает, что над регионом нависла опасность в виде горелых — людей, заражённых инфекцией, превращающихся со временем в неподвижные статуи, которые, распадаясь, разносят заразу, заражая как и других существ, так и людей. Как выясняется, источник той болезни — зверожоги. Это мутировавшие драконоподобные летучие мыши, обитавшие под землёй. По мере продвижения по сюжету и выполнению квестов игрок создаёт вакцину против чумы зверожогов. Далее Резиденту предстоит проникнуть в хорошо спрятанный бункер «Анклава» — бывшего правительства США. Там ему встречается МОДУС — суперкомпьютер, который убил всех членов Анклава в качестве мести за попытку уничтожить его. МОДУС рассказывает о ядерных ракетах и как их запустить. Игрок завладевает кодами запуска и, проведя бомбардировку главного разлома, откуда вылезают зверожоги, сталкивается с ещё более страшной угрозой — маткой зверожогов. В тяжёлом бою её удаётся убить, и зверожоги, оставшись без главы, разлетаются подобно муравьям, оставшимся без королевы.",
                 releaseDate = new DateTime(2018, 10, 23),
                 Developersid = 201,
                 price = 55,
-                amount = 10,
                 Poster = "Fallout76.png",
                 dateAddedSite = new DateTime(2022, 04, 03),
                 Platformsid = 301,
@@ -278,8 +290,12 @@ namespace GameStore.Domain
                 screenshotGame_2 = "Fallout76Screenshot_2.png",
                 screenshotGame_3 = "Fallout76Screenshot_3.png",
                 screenshotGame_4 = "Fallout76Screenshot_4.png",
-                fullDescriptionGame = "События игры происходят в 2102 году в Западной Виргинии. Игрок — житель Убежища 76 (Резидент), проспавший выход на поверхность. Находя голозаписи Смотрительницы Убежища, которая покинула его раньше всех, игрок понимает, что над регионом нависла опасность в виде горелых — людей, заражённых инфекцией, превращающихся со временем в неподвижные статуи, которые, распадаясь, разносят заразу, заражая как и других существ, так и людей. Как выясняется, источник той болезни — зверожоги. Это мутировавшие драконоподобные летучие мыши, обитавшие под землёй. По мере продвижения по сюжету и выполнению квестов игрок создаёт вакцину против чумы зверожогов. Далее Резиденту предстоит проникнуть в хорошо спрятанный бункер «Анклава» — бывшего правительства США. Там ему встречается МОДУС — суперкомпьютер, который убил всех членов Анклава в качестве мести за попытку уничтожить его. МОДУС рассказывает о ядерных ракетах и как их запустить. Игрок завладевает кодами запуска и, проведя бомбардировку главного разлома, откуда вылезают зверожоги, сталкивается с ещё более страшной угрозой — маткой зверожогов. В тяжёлом бою её удаётся убить, и зверожоги, оставшись без главы, разлетаются подобно муравьям, оставшимся без королевы.",
-                linkTrailerGame = "RjQ6ZtyXoA0"
+                linkTrailerGame = "RjQ6ZtyXoA0",
+                OS = "Windows 10 64 bit",
+                CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
+                RAM = 8,
+                VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                GameWeight = 14
             });
 
             //Заполение таблицы Shares
