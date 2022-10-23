@@ -1632,28 +1632,47 @@ z-index: 999;}
         text-align: justify;
     }
 
-    .button_filter {
-        width: 100px;
-        height: 50px;
+/**/
+    .sort_form {
+        width: 100%;
     }
+        .sort_form select {
+            width: 26%;
+            height: 35px;
+            border-radius: 5px;
+            opacity: 1
+        }
 
+
+
+        .sort_form button.button_filter {
+            width: auto;
+            height: 50px;
+        }
+
+@media (max-width:991px) {
     .sort_form {
         width: 100%;
     }
 
-    .selectList {
-        width: 25%;
-        height: 35px;
-        border-radius: 5px;
-        opacity: 1
-    }
-
-    .button_filter {
-        width: 100%;
-        height: 50px;
-    }
+        .sort_form select {
+            width: 100%;
+            height: 35px;
+            margin-top:10px;
+            border-radius: 5px;
+            opacity: 1
+        }
 
 
+
+        .sort_form button.button_filter {
+            width: 100%;
+            height: 50px;
+            margin:0;
+            padding:0;
+            margin-top:10px;
+        }
+}
 
 
     /*---------------------
@@ -1793,6 +1812,58 @@ Style Profile page
         align-items: center;
     }
 
+    @media (max-width:542px) {
+        .cardArea {
+            background-color: #8797ad8a;
+            margin-top: 10px;
+            margin-right: 10px;
+            width: 100%;
+            height: 285px;
+            border: 1px solid black;
+            border-radius: 25px;
+            display: block;
+            align-items: center;
+        }
+
+        .InputNumderCard {
+            border: 1px solid rgb(180, 179, 179);
+            font-size: 20px;
+            margin-left: 24px;
+            border-radius: 12px;
+            width: 85%;
+        }
+
+        .LableCardTerm {
+            font-size: 13px;
+            font-weight: bold;
+            padding: 0px;
+            margin-bottom: 0px;
+        }
+
+        .InputCardTerm {
+            border: 1px solid rgb(180, 179, 179);
+            font-size: 15px;
+            border-radius: 12px;
+            width: 70px;
+        }
+
+        .LableCVC {
+            font-size: 78px;
+            font-weight: bold;
+            padding: 0px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+        }
+
+        .InputCVC {
+            border: 1px solid rgb(180, 179, 179);
+            font-size: 15px;
+            margin-left: 0px;
+            border-radius: 12px;
+            width: 70px;
+        }
+    }
+
 
     .NumderCardArea {
         margin-top: 40px;
@@ -1806,13 +1877,7 @@ Style Profile page
         margin-bottom: 0px;
     }
 
-    .InputNumderCard {
-        border: 1px solid rgb(180, 179, 179);
-        font-size: 25px;
-        margin-left: 24px;
-        border-radius: 12px;
-        width: 400px;
-    }
+
 
     .CardTermAndCVC_Area {
         margin-top: 10px;
@@ -1835,7 +1900,7 @@ Style Profile page
     }
 
     .LableCVC {
-        margin-left: 350px;
+        margin-left: 24px;
         font-size: 13px;
         font-weight: bold;
         padding: 0px;
@@ -1845,7 +1910,7 @@ Style Profile page
     .InputCVC {
         border: 1px solid rgb(180, 179, 179);
         font-size: 15px;
-        margin-left: 340px;
+        margin-left: 24px;
         border-radius: 12px;
         width: 70px;
     }
