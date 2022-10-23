@@ -2,6 +2,21 @@
     <div class="mainmenu-area">
         <div class="container">
             <div class="row">
+            <div class="dropdownMenu">
+                <button class="dropbtnMenu">Меню   <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                <div class="dropdownMenu-content">
+                    <a asp-area="admin" asp-controller="Home" asp-action="Index">Главная</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="AllGames">AllGames</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="GameKey">GameKey</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="Developers">Developers</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="Ganres">Ganres</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="Platforms">Platforms</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="Shares">Shares</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="Users">Users</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="Basket">Baskets</a>
+                    <a asp-area="admin" asp-controller="Home" asp-action="Order">Orders</a>
+                </div>
+            </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a asp-area="admin" asp-controller="Home" asp-action="Index">Главная</a></li>
