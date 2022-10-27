@@ -35,15 +35,14 @@ namespace GameStore.Areas.User.Controllers
         {
            
             var user = await _userManager.GetUserAsync(User);
-            IQueryable<Basket> basket = _db.Basket.Include(g => g.AllGames).Include(u => u.User);
-            IQueryable<Chek> cheque = _db.Chek.Include(a => a.User).Include(g=>g.GameKey);
+            IQueryable<Basket> basket = _db.Basket.Include(u => u.User).Include(g => g.AllGames).ThenInclude(p=>p.Platforms);
+            
 
             var TotalPrise = _db.Basket.Include(g => g.AllGames).Include(u => u.User).Where(us=>us.UserId == user.Id).Sum(fp => fp.finalPrice);
 
             UserProfilViewModel viewModel = new UserProfilViewModel
             {
                basket = basket.ToList(),
-                Chek = cheque.ToList(),
                identityUser = user,
                totalPrice = TotalPrise
               

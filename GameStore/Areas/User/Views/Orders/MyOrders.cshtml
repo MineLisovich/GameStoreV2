@@ -17,49 +17,29 @@
         <div class="HederBasket">Мои покупки:</div>
         @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() > 0)
         {
-            <table class="tableBasket">
-                <thead>
-                    <tr>
-                        <th>Наименование игры</th>
-                        <th>Цена(BYN)</th>
-                        <th>Ключ от игры</th>
-                        <th>Дата покупки</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var obj in Model.Chek.Where(g => g.UserId == @Model.identityUser.Id))
-                    {
-                        <tr>
-                            <td>@obj.nameGame</td>
-                            <td>@obj.priceGame</td>
-                            <td>@obj.GameKey.Key_game</td>
-                            <td>@obj.dateAddedCheque</td>
+            @foreach (var obj in Model.Chek.Where(g => g.UserId == @Model.identityUser.Id))
+            {
+                <div class="basketArea">
+                    <div class="imgBastet">
+                        <img width="150px" height="200px" src="~/images/product/@obj.GameKey.AllGames.Poster">
+                    </div>
+                    <div class="bastet_info">
+                        <h1>@obj.nameGame</h1>
+                        <p>Ключ: @obj.GameKey.Key_game</p>
+                        <p>Дата покупки: @obj.dateAddedCheque</p>
+                        <p>Активация: @obj.GameKey.AllGames.Platforms.namePlatform</p>
+                    </div>
+                </div>
+            }
 
-                        </tr>
-                    }
-                </tbody>
-            </table>
         }
         @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() == 0)
         {
             <!--ЕСЛИ ТАБЛИЦА ИСТОРИЯ ПОКУПОК БУДЕТ ПУСТА-->
-            <table class="tableBasket">
-                <thead>
-                    <tr>
-                        <th>Наименование игры</th>
-                        <th>Цена(BYN)</th>
-                        <th>Ключ от игры</th>
-                        <th>Дата покупки</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="4"><p class="EmptyBasket">НЕТ ПОКУПОК :(</p></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="basketArea">
+                <p class="EmptyBasket">Вы ещё ничего не покупали :(</p>
+            </div>
         }
     </div>
 </div>

@@ -14,26 +14,25 @@
         <div class="HederBasket">Корзина:</div>
         @if (Model.basket.Where(g => g.UserId == @Model.identityUser.Id).Count() > 0)
         {
-            <table class="tableBasket">
-                <thead>
-                    <tr>
-                        <th>Наименование игры</th>
-                        <th>Цена</th>
-                        <th>Удалить из корзины</th>
-                    </tr>
-                </thead>
-                <tbody>
+            
                     @foreach (var obj in Model.basket.Where(g => g.UserId == @Model.identityUser.Id))
                     {
-                        <tr>
-                            <td>@obj.AllGames.nameGame</td>
-                            <td>@obj.finalPrice</td>
-                            <td> <a asp-area="User" asp-controller="Basket" asp-action="Delete" asp-route-id=@obj.id>Удалить</a></td>
-                        </tr>
+                <div class="basketArea">
+                    <div class="imgBastet">
+                        <img width="150px" height="200px" src="~/images/product/@obj.AllGames.Poster">
+                    </div>
+                    <div class="bastet_info">
+                        <h1>@obj.AllGames.nameGame</h1>
+                        <p>@obj.finalPrice BYN</p>
+                        <p>Активация: @obj.AllGames.Platforms.namePlatform</p>
+                    </div>
+                    <div class="href_del">
+                        <a asp-area="User" asp-controller="Basket" asp-action="Delete" asp-route-id=@obj.id>Удалить</a>
+                    </div>
+                </div> 
 
                     }
-                </tbody>
-            </table>
+            
             <div class="PaymentArea">
                 <div class="finalPrise">Итого: @Model.totalPrice BYN</div>
                 <a asp-controller="Orders" asp-action="Order" class="add_to_cart_button">Оплатить</a>
@@ -42,21 +41,10 @@
         <!--ЕСЛИ ТАБЛИЦА КОРЗИНА БУДЕТ ПУСТА-->
         @if (Model.basket.Where(g => g.UserId == @Model.identityUser.Id).Count() == 0)
         {
-            <!--ЕСЛИ ТАБЛИЦА КОРЗИНА БУДЕТ ПУСТА-->
-            <table class="tableBasket">
-                <thead>
-                    <tr>
-                        <th>Наименование игры</th>
-                        <th>Цена(BYN)</th>
-                        <th>Удалить из корзины</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="3"><p class="EmptyBasket">КОРЗИНА ВСЁ ЕЩЁ ПУСТА :(</p></td>
-                    </tr>
-                </tbody>
-            </table>
+            <!--ЕСЛИ  КОРЗИНА БУДЕТ ПУСТА-->
+            <div class="basketArea">
+                <p class="EmptyBasket">КОРЗИНА ВСЁ ЕЩЁ ПУСТА :(</p>
+            </div>
         }
 
     </div>

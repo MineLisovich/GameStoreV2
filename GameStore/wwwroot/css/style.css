@@ -1744,61 +1744,126 @@ Style Profile page
         .tableBasket tbody tr:nth-child(even) {
             background: #5a89ca8a;
         }
+.PaymentArea {
+    text-align: right;
+}
 
-    .PaymentArea {
-        text-align: right;
+    .PaymentArea a {
+        margin-bottom: 20px;
     }
 
-    .finalPrise {
+.finalPrise {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.EmptyBasket {
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+    align-items: center;
+    color: rgba(0,0,0,0.5);
+    margin-left: auto;
+    margin-right: auto;
+}
+/*New style Profile*/
+.NewProfileArea {
+    width: 100%;
+}
+
+.UserMenu {
+    width: auto;
+}
+
+    .UserMenu ul {
+        list-style: none;
+        padding: 0;
+        border: 1px solid rgba(0,0,0, .2);
+    }
+
+    .UserMenu li {
+        overflow: hidden;
+        padding: 6px 10px;
         font-size: 20px;
-        font-weight: bold;
-        text-decoration: underline;
     }
 
-    .EmptyBasket {
-        text-align: center;
-        font-style: italic;
-        font-size: 30px;
-        align-items: center;
-        color: rgba(0,0,0,0.5);
-    }
-
-    .NewProfileArea {
-        width: 100%;
-    }
-
-    .UserMenu {
-        width: auto;
-    }
-
-        .UserMenu ul {
-            list-style: none;
-            padding: 0;
-            border: 1px solid rgba(0,0,0, .2);
+        .UserMenu li:first-child {
+            font-weight: bold;
+            padding: 15px 0 10px 15px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0, .2);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            color: #ffffff;
+            background-color: #5a88ca;
+            font-size: 24px;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0, .2);
         }
 
-        .UserMenu li {
-            overflow: hidden;
-            padding: 6px 10px;
-            font-size: 20px;
-        }
-
-            .UserMenu li:first-child {
-                font-weight: bold;
-                padding: 15px 0 10px 15px;
-                margin-bottom: 10px;
-                border-bottom: 1px solid rgba(0,0,0, .2);
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-                color: #ffffff;
-                background-color: #5a88ca;
-                font-size: 24px;
-                box-shadow: 0 10px 20px -5px rgba(0,0,0, .2);
+            .UserMenu li:first-child:before {
+                margin-right: 10px;
             }
 
-                .UserMenu li:first-child:before {
-                    margin-right: 10px;
-                }
+.basketArea {
+    width: 55%;
+    display: flex;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0, .2);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.bastet_info {
+    margin-left: 10px;
+}
+
+    .bastet_info p {
+        font-size: 17px;
+    }
+
+.href_del {
+    text-align: right;
+    margin-left: 40px;
+}
+
+
+    .href_del a {
+        text-align: right;
+        font-size: 25px;
+    }
+
+@media (max-width:1200px) {
+    .basketArea {
+        width: 100%;
+        display: block;
+        box-shadow: 0 10px 20px -5px rgba(0,0,0, .2);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .bastet_info {
+        margin-left: 10px;
+    }
+
+        .bastet_info p {
+            font-size: 17px;
+        }
+
+    .href_del {
+        text-align: right;
+        margin-left: 40px;
+    }
+
+
+        .href_del a {
+            text-align: right;
+            font-size: 25px;
+            margin-right: 10px;
+        }
+}
+
 
     /*jkjk*/
     .cardArea {
