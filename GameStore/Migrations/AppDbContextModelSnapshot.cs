@@ -63,6 +63,10 @@ namespace GameStore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("features")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("linkTrailerGame")
                         .HasColumnType("nvarchar(max)");
 
@@ -103,16 +107,17 @@ namespace GameStore.Migrations
                         {
                             id = 401,
                             CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
-                            Developersid = 201,
-                            GameWeight = 14,
-                            Ganresid = 101,
+                            Developersid = 214,
+                            GameWeight = 80,
+                            Ganresid = 103,
                             OS = "Windows 10 64 bit",
                             Platformsid = 301,
                             Poster = "2077.png",
                             RAM = 8,
-                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                            VRAM = "Nvidia GeForce GTX 1660 GP 6GB GDDR6",
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            descriptionG = " Cyberpunk 2077 — компьютерная игра в жанре экшен в открытом мире, разработанная и изданная польской студией CD Projekt. Действие игры происходит в 2077 году в Найт-Сити, вымышленном североамериканском городе из вселенной Cyberpunk.",
+                            descriptionG = "Cyberpunk 2077 — приключенческая ролевая игра, действие которой происходит в мегаполисе Найт-Сити, где власть, роскошь и модификации тела ценятся выше всего. Вы играете за V, наёмника в поисках устройства, позволяющего обрести бессмертие. Вы сможете менять киберимпланты, навыки и стиль игры своего персонажа, исследуя открытый мир, где ваши поступки влияют на ход сюжета и всё, что вас окружает.",
+                            features = "Для  нескольких игроков / Для одного игрока",
                             linkTrailerGame = "aSrFWinrkeQ",
                             nameGame = "Cyberpunk 2077",
                             price = 34,
@@ -125,20 +130,21 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 402,
-                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
-                            Developersid = 201,
-                            GameWeight = 14,
+                            CPU = "Intel® Core™ 2 Q6600 / AMD Phenom 9850",
+                            Developersid = 205,
+                            GameWeight = 110,
                             Ganresid = 101,
-                            OS = "Windows 10 64 bit",
-                            Platformsid = 301,
+                            OS = "Windows 7 64 bit / Windows 10 64 bit",
+                            Platformsid = 304,
                             Poster = "GTA5.png",
-                            RAM = 8,
-                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                            RAM = 4,
+                            VRAM = "NVIDIA® 9800 GT / AMD HD 4870",
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            descriptionG = "GTA V — компьютерная игра в жанре action-adventure с открытым миром, разработанная компанией Rockstar North и изданная компанией Rockstar Games.",
+                            descriptionG = "Действие игры происходит в вымышленном штате Сан-Андреас, прообразом которого послужила Южная Калифорния. Сюжет в однопользовательском режиме строится вокруг приключений троих грабителей, устраивающих всё более дерзкие ограбления и противостоящих как организованной преступности, так и правоохранительным ведомствам. В процессе игры игрок управляет выбранным персонажем в режиме от первого или от третьего лица; персонаж может свободно передвигаться по обширному миру игры как пешком, так и на автомобилях и других видах транспорта. Особенностью Grand Theft Auto V по сравнению с другими играми серии является возможность переключаться между персонажами в любой момент, как во время выполнения заданий, так и вне их. Многие задания игры связаны с ограблениями и угоном автомобилей; при этом игровой персонаж может участвовать в перестрелках и погонях. Grand Theft Auto Online представляет собой встроенный многопользовательский онлайн-режим, поддерживающий до 30 игроков одновременно — для них предлагаются как кооперативные, так и соревновательные задания.",
+                            features = "Для  нескольких игроков / Для одного игрока",
                             linkTrailerGame = "QkkoHAzjnUs",
                             nameGame = "Grand Theft Auto V",
-                            price = 25,
+                            price = 67,
                             releaseDate = new DateTime(2013, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             screenshotGame_1 = "GTAV_screenshotGame_1.png",
                             screenshotGame_2 = "GTAV_screenshotGame_2.png",
@@ -148,20 +154,21 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 403,
-                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
-                            Developersid = 201,
-                            GameWeight = 14,
-                            Ganresid = 101,
-                            OS = "Windows 10 64 bit",
+                            CPU = "2.6 GHz Quad Core or similar",
+                            Developersid = 215,
+                            GameWeight = 2,
+                            Ganresid = 103,
+                            OS = "Windows 7 64 bit",
                             Platformsid = 301,
                             Poster = "Valheim.png",
                             RAM = 8,
-                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                            VRAM = "GeForce GTX 950 or Radeon HD 7970",
                             dateAddedSite = new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            descriptionG = "Valheim — компьютерная игра в жанре симулятора выживания в открытом мире, разрабатываемая шведской компанией Iron Gate и изданная компанией Coffee Stain.",
+                            descriptionG = "Вальхейм — это игра, в которой вам предстоит исследовать огромный фэнтезийный мир, пропитанный скандинавской мифологией и культурой викингов. Ваше приключение начнется в самом сердце Вальхейма, месте довольно спокойном. Но берегитесь, ведь чем дальше вы будете продвигаться, тем опаснее будет становиться мир вокруг. К счастью, по пути вас будут ждать не только опасности — вы также будете чаще находить ценные материалы, которые весьма пригодятся для создания смертоносного оружия и крепкой брони. Возводите крепости и заставы по всему миру! А со временем постройте несокрушимый драккар и отправьтесь покорять бескрайние океаны в поиске чужестранных земель... Но постарайтесь не заплыть слишком далеко...",
+                            features = "Для  нескольких игроков",
                             linkTrailerGame = "5mHRJ1KFe20",
                             nameGame = "Valheim",
-                            price = 10,
+                            price = 25,
                             releaseDate = new DateTime(2021, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             screenshotGame_1 = "Valheim_screenshotGame_1.png",
                             screenshotGame_2 = "Valheim_screenshotGame_2.png",
@@ -171,17 +178,18 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 404,
-                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
-                            Developersid = 201,
-                            GameWeight = 14,
+                            CPU = "Dual core (Intel Pentium D или лучше)",
+                            Developersid = 206,
+                            GameWeight = 16,
                             Ganresid = 101,
-                            OS = "Windows 10 64 bit",
-                            Platformsid = 301,
+                            OS = "Windows XP/Vista / Windows 7",
+                            Platformsid = 306,
                             Poster = "Assassin1.png",
-                            RAM = 8,
-                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                            RAM = 2,
+                            VRAM = "256MB с поддержкой Shader Model 3.0 или выше",
                             dateAddedSite = new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "Действие игры разворачивается во времена Третьего крестового похода, а именно в 1191 году. В настоящем времени бармена Дезмонда Майлса, главного героя, похищает корпорация «Абстерго», которая с помощью Анимуса, машины для извлечения генетической памяти, хочет найти артефакт Первой Цивилизации. В курс дела Дезмонда вводят учёный Уоррен Видик и его ассистентка Люси Стиллман. Они рассказывают ему, что он является потомком ассасина Альтаира ибн-Ла-Ахада, который обнаружил артефакт, и через него хотят узнать местонахождение артефакта.",
+                            features = "Для одного игрока",
                             linkTrailerGame = "RjQ6ZtyXoA0",
                             nameGame = "Assassin’s Creed",
                             price = 13,
@@ -194,20 +202,21 @@ namespace GameStore.Migrations
                         new
                         {
                             id = 405,
-                            CPU = "Intel Core i5-11400F or AMD Ryzen 5 5600X",
+                            CPU = "Intel Core i5-6600K",
                             Developersid = 201,
-                            GameWeight = 14,
-                            Ganresid = 101,
-                            OS = "Windows 10 64 bit",
+                            GameWeight = 60,
+                            Ganresid = 103,
+                            OS = "Windows 7/8/8.1/10",
                             Platformsid = 301,
                             Poster = "Fallout76.png",
                             RAM = 8,
-                            VRAM = "Nvidia GeForce GTX 1650 GP 4GB GDDR6",
+                            VRAM = "NVIDIA GeForce GTX 780",
                             dateAddedSite = new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             descriptionG = "События игры происходят в 2102 году в Западной Виргинии. Игрок — житель Убежища 76 (Резидент), проспавший выход на поверхность. Находя голозаписи Смотрительницы Убежища, которая покинула его раньше всех, игрок понимает, что над регионом нависла опасность в виде горелых — людей, заражённых инфекцией, превращающихся со временем в неподвижные статуи, которые, распадаясь, разносят заразу, заражая как и других существ, так и людей. Как выясняется, источник той болезни — зверожоги. Это мутировавшие драконоподобные летучие мыши, обитавшие под землёй. По мере продвижения по сюжету и выполнению квестов игрок создаёт вакцину против чумы зверожогов. Далее Резиденту предстоит проникнуть в хорошо спрятанный бункер «Анклава» — бывшего правительства США. Там ему встречается МОДУС — суперкомпьютер, который убил всех членов Анклава в качестве мести за попытку уничтожить его. МОДУС рассказывает о ядерных ракетах и как их запустить. Игрок завладевает кодами запуска и, проведя бомбардировку главного разлома, откуда вылезают зверожоги, сталкивается с ещё более страшной угрозой — маткой зверожогов. В тяжёлом бою её удаётся убить, и зверожоги, оставшись без главы, разлетаются подобно муравьям, оставшимся без королевы.",
-                            linkTrailerGame = "RjQ6ZtyXoA0",
+                            features = "Для  нескольких игроков",
+                            linkTrailerGame = "EtiVOmFiWA0",
                             nameGame = "Fallout 76",
-                            price = 55,
+                            price = 70,
                             releaseDate = new DateTime(2018, 10, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             screenshotGame_1 = "Fallout76Screenshot_1.png",
                             screenshotGame_2 = "Fallout76Screenshot_2.png",
@@ -544,8 +553,8 @@ namespace GameStore.Migrations
                         {
                             id = 501,
                             AllGamesid = 401,
-                            discountPrice = 3,
-                            nameImageSlider = "name1.png"
+                            discountPrice = 30,
+                            nameImageSlider = "2077.png"
                         });
                 });
 
@@ -579,14 +588,14 @@ namespace GameStore.Migrations
                         new
                         {
                             Id = "601",
-                            ConcurrencyStamp = "07459139-df17-4d3d-81ea-9246435eee54",
+                            ConcurrencyStamp = "98bd7ab4-2b04-49b6-a1d7-a3d0f619ee3c",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "602",
-                            ConcurrencyStamp = "f28918de-a195-442e-bc8b-cfa6c89a384a",
+                            ConcurrencyStamp = "b902dd0d-749c-4bd0-ad23-dfdf71405bff",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -685,13 +694,13 @@ namespace GameStore.Migrations
                         {
                             Id = "701",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "22f2ad2c-3295-4a9f-b041-ed82d9dbaa57",
+                            ConcurrencyStamp = "f51f861c-b156-4666-8c6d-3fccab6d9b46",
                             Email = "deeLimpay@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "deeLimpay@mail.ru",
                             NormalizedUserName = "deeLimpay",
-                            PasswordHash = "AQAAAAEAACcQAAAAEICMFd5qn1WJ6750PASuIdBPvafefYMtn8Ieuo/b3TcP8fv4y2CSFE1zATwwM0eNeQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIz6Po+BBCCJSjIsdG8pekE+yHSWTM/+A1K9A7K/2dXF+g3wVhkjDyMmx9PQ0ZusRw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -701,13 +710,13 @@ namespace GameStore.Migrations
                         {
                             Id = "702",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62a4edcc-4c40-4a17-992e-c158d4d5fa86",
+                            ConcurrencyStamp = "0ac23a8c-327f-44b9-9945-cedb13f9878a",
                             Email = "stepa@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "stepa@gmail.com",
                             NormalizedUserName = "Stepashka",
-                            PasswordHash = "AQAAAAEAACcQAAAAELTLTwBLS9Dt74v22ksstJSLttCQMnWaSBcPmaRT1843impkq47kM3liLRwFcYpukg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGBTyUTV2rH5t1x3aUuOYnTCf8bsOr19aApfRl7tUmY/36J+Pw/zikV4hZ/RkW0vBQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

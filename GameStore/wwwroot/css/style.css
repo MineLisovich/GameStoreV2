@@ -2063,6 +2063,45 @@ Style Profile page
             vertical-align: middle;
             text-align: left;
         }
+.commentsArea {
+    width: 100%;
+    display: block;
+}
+
+    .commentsArea textarea {
+        width: 100%;
+        height: 80px;
+        resize: none;
+    }
+    .commentsArea button {
+        margin: 0;
+    }
+
+    .comments {
+        width: 100%;
+        margin-top: 10px;
+        background-color: #f7f7f7e8;
+        box-shadow: 0 10px 20px -5px rgba(0,0,0, .2);
+    }
+
+    .comments h4.HederUser {
+        font-size: 23px;
+        margin-left: 10px;
+        padding-top: 10px;
+    }
+
+    .comments p.commentsUser {
+        font-size: 17px;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+
+    .comments p.dataComments {
+        text-align: right;
+        margin-right: 20px;
+        font-size: 17px;
+    }
+
 
     @media (max-width:500px) {
         .video {

@@ -20,6 +20,7 @@ namespace GameStore.Domain
 
         public IChekRepository Chek { get; set; }   
        // public IUsersRepository Users { get; set; }
+    
 
         public DataManager (IAllGamesRepository AllGamesRepository, IBasketRepository BasketRepository, IDevelopersRepository DevelopersRepository,
             IGanresRepository GanresRepository, IPlatformsRepository PlatformsRepository, ISharesRepository SharesRepository, 
@@ -32,8 +33,8 @@ namespace GameStore.Domain
             Platforms = PlatformsRepository;
             Shares = SharesRepository;
             GameKey = GameKeyRepository;
-            Chek = ChequeRepository;  
-           // Users = UsersRepository;
+            Chek = ChequeRepository;
+            // Users = UsersRepository;
 
         }
     }

@@ -28,6 +28,7 @@ namespace GameStore.Domain.Entities
         [Required(ErrorMessage = "Введите Стоимость игры")]
         public int price { get; set; }
 
+
       
         public string Poster { get; set; }
 
@@ -56,6 +57,9 @@ namespace GameStore.Domain.Entities
 
         [Required (ErrorMessage ="Введите сколько будет занимать игра место на диске")]
         public int GameWeight { get; set; }
+
+        [Required(ErrorMessage = "Введите особенности игры (одиночная игра, кооп, и тд...)")]
+        public string features { get; set; }
 
 
 
