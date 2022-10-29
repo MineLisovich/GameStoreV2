@@ -1,16 +1,43 @@
 ﻿<div class="container">
-<h1><b>ЗАМЕТКИ</b></h1>
-<h3>Размер картинок для постера игр:195px на 240px</h3>
-<h3>Размер картинок для слайдера на главном экране:1163px на 165px</h3>
-<h3>Размер картинок для скриншотов игры:1280px на 720px</h3>
 
-    <a asp-area="admin" asp-controller="Home" asp-action="AllGames">AllGames</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="GameKey">GameKey</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="Developers">Developers</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="Ganres">Ganres</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="Platforms">Platforms</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="Shares">Shares</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="Users">Users</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="Basket">Baskets</a>
-    <a asp-area="admin" asp-controller="Home" asp-action="Order">Orders</a>
+    <div class="AdminIndexArea">
+        <ul>
+            <h1>Основные таблицы:</h1>
+            <li>
+                <b>Таблица <a asp-area="admin" asp-controller="Home" asp-action="AllGames">Игры</a></b>
+                <ul>
+                    <li>Особенности редактирования таблицы:</li>
+                    <li>1. Для добавление новой игры нужно выбрать картинку, а потом вписать в поле наименование этой картинки с расширением .png (Пример: картинка1.png)</li>
+                    <li>2. Если все нужные картинки для игры уже лежат в нужной папке, то достаточно вписать в поле только наименование картинки</li>
+                    <li>3. При редактировании игры нужно заново указать дату выхода</li>
+                    <li>4. Размер картинок для постера игр: 195px на 240px</li>
+                    <li>5. Размер картинок для скриншотов игры: 1280px на 720px</li>
+                </ul>
+            </li>
+            <li><b>Таблица  <a asp-area="admin" asp-controller="Home" asp-action="GameKey">Ключи от игр</a></li></b>
+            <li>
+                <b>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Shares">Акции</a></b>
+                <ul>
+                    <li>Особенности таблицы:</li>
+                    <li>1. По аналогии с таблицей "Игры", если картинка находится в папке, то указываем только имя картинки, если картинки нет в папке, то выбираем картинку и указываем её имя</li>
+                    <li>2. Размер картинок: 1163px на 165px</li>
+                </ul>
+            </li>
+            <li><b>Таблица  <a asp-area="admin" asp-controller="Home" asp-action="Developers">Разработчики</a></li></b>
+            <li><b>Таблица  <a asp-area="admin" asp-controller="Home" asp-action="Ganres">Жанры</a></li></b>
+            <li><b>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Platforms">Платформы</a></li></b>
+        </ul>
+        <ul>
+            <h1>Управление пользователями:</h1>
+            <li>
+                <b>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Users">Пользователи</a></b>
+                <ul>
+                    <li>Особенности редактирования таблицы:</li>
+                    <li>1. Для добавление нового пользователя нужно указать его роль, для этого в поле нужно прописать id роли, а потом наименование роли</li>
+                </ul>
+            </li>
+            <li><b>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Basket">Корзина пользователей</a></li></b>
+            <li><b>Таблица  <a asp-area="admin" asp-controller="Home" asp-action="Order">Покупки пользователей</a></li></b>
+        </ul>
+    </div>
  </div>
