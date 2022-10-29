@@ -46,7 +46,7 @@
            
 
             <div class="form-group">
-                <label class="control-label">Выберите файл постера</label>
+            <label class="control-label">Выберите файл постера (Размер картинок для постера игр:195px на 240px)</label>
                 <input name="imageFile" id="imageFile" type="file" class="form-control" accept=".png" />
             </div>
 
@@ -68,7 +68,7 @@
             </select>
             </div>
             <div class="form-group">
-                <label class="control-label">Выберите файл скриншота игры</label>
+            <label class="control-label">Выберите файл скриншота игры (Размер картинок для скриншотов игры:1280px на 720px)</label>
                 <input name="screenshotGame1" id="screenshotGame1" type="file" class="form-control" accept=".png" />
             </div>
 
@@ -78,7 +78,7 @@
                 <span asp-validation-for="screenshotGame_1" class="text-danger"></span>
             </div>
                  <div class="form-group">
-                <label class="control-label">Выберите файл скриншота игры</label>
+            <label class="control-label">Выберите файл скриншота игры (Размер картинок для скриншотов игры:1280px на 720px)</label>
                 <input name="screenshotGame2" id="screenshotGame2" type="file" class="form-control" accept=".png" />
             </div>
 
@@ -88,7 +88,7 @@
                 <span asp-validation-for="screenshotGame_2" class="text-danger"></span>
             </div>
                  <div class="form-group">
-                <label class="control-label">Выберите файл скриншота игры</label>
+            <label class="control-label">Выберите файл скриншота игры (Размер картинок для скриншотов игры:1280px на 720px)</label>
                 <input name="screenshotGame3" id="screenshotGame3" type="file" class="form-control" accept=".png" />
             </div>
 
@@ -98,7 +98,7 @@
                 <span asp-validation-for="screenshotGame_3" class="text-danger"></span>
             </div>
                  <div class="form-group">
-                <label class="control-label">Выберите файл скриншота игры</label>
+            <label class="control-label">Выберите файл скриншота игры (Размер картинок для скриншотов игры:1280px на 720px)</label>
                 <input name="screenshotGame4" id="screenshotGame4" type="file" class="form-control" accept=".png" />
             </div>
 
@@ -137,6 +137,11 @@
             <label asp-for="GameWeight" class="control-label">Введите сколько будет занимать игра место на диске</label>
             <input asp-for="GameWeight" class="form-control" />
             <span asp-validation-for="GameWeight" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="features" class="control-label">Введите особенности игры (Для одного игрока, для нескольких игрок и тд)</label>
+            <input asp-for="features" class="form-control" />
+            <span asp-validation-for="features" class="text-danger"></span>
         </div>
             <div class="form-group">
                 <input type="submit" value="Принять" class="btn btn-primary" />
