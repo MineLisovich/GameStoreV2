@@ -81,11 +81,21 @@
                             <img src="~/images/product/@obj.Poster"  alt="" />
                             <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.id >@obj.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, активация:@obj.Platforms.namePlatform</p>
+                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper</p>
 
                                 </div>
                             <div class="product-wid-price">
-                                <ins>@obj.price BYN</ins>
+                                    @if (Model.shares.Where(s => s.AllGamesid == obj.id).Count() > 0)
+                                    {
+                                        @foreach (var sh in Model.shares.Where(s => s.AllGamesid == obj.id))
+                                        {
+                                            <ins>@sh.discountPrice BYN</ins> <del>@obj.price BYN</del>
+                                        }
+                                    }
+                                    @if (Model.shares.Where(s => s.AllGamesid == obj.id).Count() == 0)
+                                    {
+                                        <ins>@obj.price BYN</ins>
+                                    }
                                  <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id  class="add_to_cart_button" >В корзину</a>
                             </div>                            
                             </div>               
@@ -109,10 +119,20 @@
                             <img src="~/images/product/@obj.Poster"  alt="" />
                             <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.id >@obj.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, активация:@obj.Platforms.namePlatform</p>
+                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper</p>
                                 </div>
                             <div class="product-wid-price">
-                                <ins>@obj.price BYN</ins>
+                                    @if (Model.shares.Where(s => s.AllGamesid == obj.id).Count() > 0)
+                                    {
+                                        @foreach (var sh in Model.shares.Where(s => s.AllGamesid == obj.id))
+                                        {
+                                            <ins>@sh.discountPrice BYN</ins> <del>@obj.price BYN</del>
+                                        }
+                                    }
+                                    @if (Model.shares.Where(s => s.AllGamesid == obj.id).Count() == 0)
+                                    {
+                                        <ins>@obj.price BYN</ins>
+                                    }
                                  <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id  class="add_to_cart_button" >В корзину</a> 
                             </div>                            
                             </div>                   
@@ -138,10 +158,20 @@
                             <img src="~/images/product/@obj.Poster"  alt="" />
                             <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.id >@obj.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, активация:@obj.Platforms.namePlatform</p>
+                                    <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper</p>
                                 </div>
                             <div class="product-wid-price">
-                                <ins>@obj.price BYN</ins>
+                                    @if (Model.shares.Where(s => s.AllGamesid == obj.id).Count() > 0)
+                                    {
+                                        @foreach (var sh in Model.shares.Where(s => s.AllGamesid == obj.id))
+                                        {
+                                            <ins>@sh.discountPrice BYN</ins> <del>@obj.price BYN</del>
+                                        }
+                                    }
+                                    @if (Model.shares.Where(s => s.AllGamesid == obj.id).Count() == 0)
+                                    {
+                                        <ins>@obj.price BYN</ins>
+                                    }
                                 <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id  class="add_to_cart_button" >В корзину</a>
                             </div>                            
                             </div>                

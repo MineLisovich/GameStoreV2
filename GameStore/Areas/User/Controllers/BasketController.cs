@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace GameStore.Areas.User.Controllers
 {
@@ -42,23 +44,43 @@ namespace GameStore.Areas.User.Controllers
         [HttpGet]
         public async Task<IActionResult> Add(int id)
         {
+            Basket model = new Basket();
             var user = await _userManager.GetUserAsync(User);
             var allgames = _db.AllGames.FirstOrDefault(a => a.id == id);
-           
-                Basket model = new Basket()
+            var shares = _db.Shares.Where(s=>s.AllGamesid==id).ToList();
+
+            foreach (var sh in shares)
+            {
+                if (sh.AllGamesid == allgames.id)
                 {
-                    AllGamesid = allgames.id,
-                    finalPrice = allgames.price,
-                    UserId = user.Id
-                };
+
+                    model.AllGamesid = allgames.id;
+                    model.finalPrice = sh.discountPrice;
+                    model.UserId = user.Id;
+
+                    if (model.AllGamesid != 0 && model.UserId != null)
+                    {
+                        dataManager.Basket.SaveBasket(model);
+                        return RedirectToAction("Index", "Home");
+                    }
+                }           
+            }
+            if (shares.Count()==0)
+            {
+
+
+                model.AllGamesid = allgames.id;
+                model.finalPrice = allgames.price;
+                model.UserId = user.Id;
 
                 if (model.AllGamesid != 0 && model.UserId != null)
                 {
                     dataManager.Basket.SaveBasket(model);
                     return RedirectToAction("Index", "Home");
                 }
-         
-        
+            }
+
+
             return View(model);
         }
     }

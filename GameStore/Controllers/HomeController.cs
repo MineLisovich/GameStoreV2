@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System;
 using GameStore.Service;
+using Microsoft.CodeAnalysis;
+using System.Xml.Linq;
 
 namespace GameStore.Controllers
 {
@@ -102,23 +104,22 @@ namespace GameStore.Controllers
 
         public IActionResult Shares(string name, int? ganre, int? platfoms, int? developres)
         {
-            IQueryable<AllGames> allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
             IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
             if (ganre != null && ganre != 0)
             {
-                allgames = allgames.Where(g => g.Ganresid == ganre);
+                shares = shares.Where(g => g.AllGames.Ganresid == ganre);
             }
             if (platfoms != null && platfoms != 0)
             {
-                allgames = allgames.Where(p => p.Platformsid == platfoms);
+                shares = shares.Where(p => p.AllGames.Platformsid == platfoms);
             }
             if (developres != null && developres != 0)
             {
-                allgames = allgames.Where(d => d.Developersid == developres);
+                shares = shares.Where(d => d.AllGames.Developersid == developres);
             }
             if (!String.IsNullOrEmpty(name))
             {
-                allgames = allgames.Where(a => a.nameGame.Contains(name));
+                shares = shares.Where(a => a.AllGames.nameGame.Contains(name));
             }
 
 
@@ -131,7 +132,7 @@ namespace GameStore.Controllers
 
             AllGamesViewModel viewModel = new AllGamesViewModel
             {
-                allGames = allgames.ToList(),
+
                 shares = shares.ToList(),
                 GanresList = new SelectList(ganres, "id", "nameGanres"),
                 PlatfomsList = new SelectList(platforms, "id", "namePlatform"),
@@ -143,11 +144,14 @@ namespace GameStore.Controllers
         [HttpGet]
         public IActionResult SinglePageGame(int id)
         {
-            var allGames = id == default ? new AllGames() : dataManager.AllGames.GetAllGamesByid(id);
-            var developers = dataManager.Developers.GetDevelopersByid(allGames.Developersid);
-            var platforms = dataManager.Platforms.GetPlatformsByid(allGames.Platformsid);
-            var ganres = dataManager.Ganres.GetGanresByid(allGames.Ganresid);
-            return View(allGames);
+            IQueryable<AllGames> allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms).Where(i=>i.id == id);
+            IQueryable<Shares> shares = _db.Shares.Where(s=>s.AllGamesid == id);
+            AllGamesViewModel viewModel = new AllGamesViewModel
+            {
+                allGames = allgames.ToList(),
+                shares = shares.ToList(),
+            };
+            return View(viewModel);
         }
         public IActionResult ConfirmEmail()
         { 

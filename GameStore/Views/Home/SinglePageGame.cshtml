@@ -1,62 +1,133 @@
-﻿@model GameStore.Domain.Entities.AllGames
+﻿@model  GameStore.Models.AllGamesViewModel
 <!--Area Sigle Page-->
 <div class="container">
     <div class="singlPageArea">
 
-        <div class="GameInfoArea">
-            <div class="HederInfoGame">
-                <h1>@Model.nameGame</h1>
-                <p>@Model.Ganres.nameGanres, @Model.Developers.nameDeveloper, @Model.releaseDate, активация:@Model.Platforms.namePlatform</p>
-            </div>
-            <div class="PosterGame">
-                <img src="~/images/product/@Model.Poster" alt="" /> 
-            </div>
-            @Model.features
-            <div class="price">
-                <ins>@Model.price BYN</ins>
-            </div>
-            <div class="quantity">
-                <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@Model.id class="add_to_cart_button">В корзину</a>
-            </div>
+        @if (Model.allGames.Count()>0 && Model.shares.Count()==0)
+        {
+            @foreach (var obj in Model.allGames)
+            {
 
-            <div class="description">
-                <p>
-                    @Model.descriptionG
-                </p>
-            </div>
-        </div>
-        <br>
-        <div class="slider-area">
-            <!-- Slider -->
-            <div class="block-slider block-slider4">
-                <ul class="" id="bxslider-home4">
-                    <li>
-                        <img src="~/images/product/screenshotGame/@Model.screenshotGame_1" alt="screenshotGame_1" />
-                    </li>
-                    <li>
-                        <img src="~/images/product/screenshotGame/@Model.screenshotGame_2" alt="screenshotGame_2" />
-                    </li>
-                    <li>
-                        <img src="~/images/product/screenshotGame/@Model.screenshotGame_3" alt="screenshotGame_3" />
-                    </li>
-                    <li>
-                        <img src="~/images/product/screenshotGame/@Model.screenshotGame_4" alt="screenshotGame_4" />
-                    </li>
-                </ul>
-            </div>
-        </div>
+                <div class="GameInfoArea">
+                    <div class="HederInfoGame">
+                        <h1>@obj.nameGame</h1>
+                        <p>@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, @obj.releaseDate, активация:@obj.Platforms.namePlatform</p>
+                    </div>
+                    <div class="PosterGame">
+                        <img src="~/images/product/@obj.Poster" alt="" />
+                    </div>
+                    @obj.features
+                    <div class="price">
+                        <ins>@obj.price BYN</ins>
+                    </div>
+                    <div class="quantity">
+                        <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id class="add_to_cart_button">В корзину</a>
+                    </div>
 
-        <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.linkTrailerGame" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="system_requirements">
-            <h2>Системные требования:</h2>
-            <p>ОС: <i>@Model.OS</i></p>
-            <p>Процессор: <i>@Model.CPU </i></p>
-            <p>Оперативная память: <i>@Model.RAM GB </i></p>
-            <p>Видеокарта: <i>@Model.VRAM</i></p>
-            <p>Место на диске: <i>@Model.GameWeight GB</i></p>
-        </div>
+                    <div class="description">
+                        <p>
+                            @obj.descriptionG
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="slider-area">
+                    <!-- Slider -->
+                    <div class="block-slider block-slider4">
+                        <ul class="" id="bxslider-home4">
+                            <li>
+                                <img src="~/images/product/screenshotGame/@obj.screenshotGame_1" alt="screenshotGame_1" />
+                            </li>
+                            <li>
+                                <img src="~/images/product/screenshotGame/@obj.screenshotGame_2" alt="screenshotGame_2" />
+                            </li>
+                            <li>
+                                <img src="~/images/product/screenshotGame/@obj.screenshotGame_3" alt="screenshotGame_3" />
+                            </li>
+                            <li>
+                                <img src="~/images/product/screenshotGame/@obj.screenshotGame_4" alt="screenshotGame_4" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/@obj.linkTrailerGame" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="system_requirements">
+                    <h2>Системные требования:</h2>
+                    <p>ОС: <i>@obj.OS</i></p>
+                    <p>Процессор: <i>@obj.CPU </i></p>
+                    <p>Оперативная память: <i>@obj.RAM GB </i></p>
+                    <p>Видеокарта: <i>@obj.VRAM</i></p>
+                    <p>Место на диске: <i>@obj.GameWeight GB</i></p>
+                </div>
+            }
+        }
+        @if (Model.allGames.Count()>0 && Model.shares.Count()>0)
+        {
+            @foreach (var obj in Model.allGames)
+            {
+                @foreach (var sh in Model.shares)
+                {
+                    <div class="GameInfoArea">
+                        <div class="HederInfoGame">
+                            <h1>@obj.nameGame</h1>
+                            <p>@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, @obj.releaseDate, активация:@obj.Platforms.namePlatform</p>
+                        </div>
+                        <div class="PosterGame">
+                            <img src="~/images/product/@obj.Poster" alt="" />
+                        </div>
+                        @obj.features
+                        <div class="price">
+                            <ins>@sh.discountPrice BYN</ins> <br> <del>@obj.price BYN</del>
+                        </div>
+                        <div class="quantity">
+                            <a asp-area="User" asp-controller="Basket" asp-action="Add" asp-route-id=@obj.id class="add_to_cart_button">В корзину</a>
+                        </div>
+
+                        <div class="description">
+                            <p>
+                                @obj.descriptionG
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="slider-area">
+                        <!-- Slider -->
+                        <div class="block-slider block-slider4">
+                            <ul class="" id="bxslider-home4">
+                                <li>
+                                    <img src="~/images/product/screenshotGame/@obj.screenshotGame_1" alt="screenshotGame_1" />
+                                </li>
+                                <li>
+                                    <img src="~/images/product/screenshotGame/@obj.screenshotGame_2" alt="screenshotGame_2" />
+                                </li>
+                                <li>
+                                    <img src="~/images/product/screenshotGame/@obj.screenshotGame_3" alt="screenshotGame_3" />
+                                </li>
+                                <li>
+                                    <img src="~/images/product/screenshotGame/@obj.screenshotGame_4" alt="screenshotGame_4" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/@obj.linkTrailerGame" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="system_requirements">
+                        <h2>Системные требования:</h2>
+                        <p>ОС: <i>@obj.OS</i></p>
+                        <p>Процессор: <i>@obj.CPU </i></p>
+                        <p>Оперативная память: <i>@obj.RAM GB </i></p>
+                        <p>Видеокарта: <i>@obj.VRAM</i></p>
+                        <p>Место на диске: <i>@obj.GameWeight GB</i></p>
+                    </div>
+                }
+            }
+        }
+
     </div>
 </div>
 <!--End Area single player-->

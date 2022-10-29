@@ -17,8 +17,20 @@
     
     <!-- single-product-area -->
     <div class="single-product-area">
-        <div class="zigzag-bottom"></div>
         <div class="container">
+        <form method="get">
+            <div class="form-group">
+                <input name="name" class="form-control" placeholder="Поиск" />
+            </div>
+        </form>
+        <form method="get" class="sort_form">
+
+            <select name="ganre" asp-items="Model.GanresList"> </select>
+            <select name="platfoms" asp-items="Model.PlatfomsList"></select>
+            <select name="developres" asp-items="Model.DevelopersList"></select>
+            <button type="submit" class="button_filter">Фильтровать</button>
+
+        </form>
         <div class="row">
                 <!-- начала цикла -->
            @if (Model.shares.Count() > 0)
@@ -33,12 +45,7 @@
                             </div>
                            <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.AllGames.id >@obj.AllGames.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                <p class="descriptionInfo"><b>Жанр:</b> @obj.AllGames.Ganres.nameGanres</p>
-                                <p class="descriptionInfo"><b>Разработчик:</b> @obj.AllGames.Developers.nameDeveloper </p>
-                                <p class="descriptionInfo"><b>Дата выхода:</b>@obj.AllGames.releaseDate </p>  
-                                <p class="descriptionInfo"><b>Описание:</b> @obj.AllGames.descriptionG</p>
-                                <p class="descriptionInfo"><b>Платформа:</b> @obj.AllGames.Platforms.namePlatform</p>
-                                   
+                                 <p class="descriptionInfo">@obj.AllGames.Ganres.nameGanres, @obj.AllGames.Developers.nameDeveloper</p>    
                             </div>
                             <div class="product-carousel-price">
                               <ins>@obj.discountPrice BYN</ins> <del>@obj.AllGames.price BYN</del>

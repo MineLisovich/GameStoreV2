@@ -42,8 +42,7 @@
               
                 @foreach (var obj in Model.allGames)
                 {
-                    
-     
+
 
                     <div class="col-md-3 col-sm-6">
                         <div class="single-shop-product">
@@ -52,10 +51,21 @@
                             </div>
                            <h2><a class="product-name" asp-controller="Home" asp-action="SinglePageGame" asp-route-id=@obj.id >@obj.nameGame</a></h2>
                             <div class="product-wid-rating">
-                                <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper, активация:@obj.Platforms.namePlatform</p>
+                                <p class="descriptionInfo">@obj.Ganres.nameGanres, @obj.Developers.nameDeveloper</p>
                             </div>
                             <div class="product-carousel-price">
-                              <ins>@obj.price BYN</ins>
+                                @if (Model.shares.Where(s=>s.AllGamesid == obj.id).Count()>0)
+                                {
+                                    @foreach (var sh in Model.shares.Where(s=>s.AllGamesid==obj.id))
+                                    {
+                                        <ins>@sh.discountPrice BYN</ins> <del>@obj.price BYN</del>
+                                    }
+                                }
+                                @if (Model.shares.Where(s => s.AllGamesid == obj.id).Count() == 0) {
+                                    <ins>@obj.price BYN</ins>
+                                }
+                                    
+                                
                             </div>  
 
                             <div class="product-option-shop">
