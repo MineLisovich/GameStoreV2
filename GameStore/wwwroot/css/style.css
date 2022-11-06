@@ -1865,128 +1865,7 @@ Style Profile page
 }
 
 
-    /*jkjk*/
-    .cardArea {
-        background-color: #8797ad8a;
-        margin-top: 10px;
-        width: 450px;
-        height: 285px;
-        border: 1px solid black;
-        border-radius: 25px;
-        display: block;
-        align-items: center;
-    }
-
-    @media (max-width:542px) {
-        .cardArea {
-            background-color: #8797ad8a;
-            margin-top: 10px;
-            margin-right: 10px;
-            width: 100%;
-            height: 285px;
-            border: 1px solid black;
-            border-radius: 25px;
-            display: block;
-            align-items: center;
-        }
-
-        .InputNumderCard {
-            border: 1px solid rgb(180, 179, 179);
-            font-size: 20px;
-            margin-left: 24px;
-            border-radius: 12px;
-            width: 85%;
-        }
-
-        .LableCardTerm {
-            font-size: 13px;
-            font-weight: bold;
-            padding: 0px;
-            margin-bottom: 0px;
-        }
-
-        .InputCardTerm {
-            border: 1px solid rgb(180, 179, 179);
-            font-size: 15px;
-            border-radius: 12px;
-            width: 70px;
-        }
-
-        .LableCVC {
-            font-size: 78px;
-            font-weight: bold;
-            padding: 0px;
-            margin-left: 0px;
-            margin-bottom: 0px;
-        }
-
-        .InputCVC {
-            border: 1px solid rgb(180, 179, 179);
-            font-size: 15px;
-            margin-left: 0px;
-            border-radius: 12px;
-            width: 70px;
-        }
-    }
-
-
-    .NumderCardArea {
-        margin-top: 40px;
-    }
-
-    .LableNuberCard {
-        margin-left: 35px;
-        font-size: 13px;
-        font-weight: bold;
-        padding: 0px;
-        margin-bottom: 0px;
-    }
-
-
-
-    .CardTermAndCVC_Area {
-        margin-top: 10px;
-    }
-
-    .LableCardTerm {
-        margin-left: 35px;
-        font-size: 13px;
-        font-weight: bold;
-        padding: 0px;
-        margin-bottom: 0px;
-    }
-
-    .InputCardTerm {
-        border: 1px solid rgb(180, 179, 179);
-        font-size: 15px;
-        margin-left: 24px;
-        border-radius: 12px;
-        width: 70px;
-    }
-
-    .LableCVC {
-        margin-left: 24px;
-        font-size: 13px;
-        font-weight: bold;
-        padding: 0px;
-        margin-bottom: 0px;
-    }
-
-    .InputCVC {
-        border: 1px solid rgb(180, 179, 179);
-        font-size: 15px;
-        margin-left: 24px;
-        border-radius: 12px;
-        width: 70px;
-    }
-
-    .price {
-        margin-right: 1000px;
-        margin-top: 10px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
+   
 
     /*new style single page*/
     .singlPageArea {
@@ -2213,3 +2092,317 @@ Style Profile page
         list-style-type: none;
         margin-top: 10px;
     }
+/*new stule payment area*/
+.paymentArea {
+    margin-top: 40px;
+    width: 100%;
+    height: 800px;
+}
+
+.paymentMethodArea {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .paymentMethodArea h2 {
+        text-align: center;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+.paymentMethod {
+    width: 100%;
+   
+    display: flex;
+}
+
+@media (max-width:993px) {
+
+    .paymentMethod {
+        width: 100%;
+        height: 5000px;
+        display: block;
+    }
+}
+
+@media (max-width:993px) {
+    .paymentMethod {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+      
+    }
+
+        .paymentMethod div.dropmethod {
+            margin-bottom: 80px;
+        }
+}
+
+.method {
+    width: 200px;
+    height: 170px;
+    border: 1px solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 19px;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+}
+
+.card {
+    width: 100%;
+}
+
+.cardArea {
+    background-color: #8797ad8a;
+    margin-top: 10px;
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.NumderCardArea {
+    margin-top: 40px;
+}
+
+.LableNuberCard {
+    margin-left: 35px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.InputNumderCard {
+    border: 1px solid rgb(180, 179, 179);
+    font-size: 25px;
+    margin-left: 24px;
+    border-radius: 12px;
+    width: 400px;
+}
+
+.CardTermAndCVC_Area {
+    margin-top: 10px;
+}
+
+.LableCardTerm {
+    margin-left: 35px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.InputCardTerm {
+    border: 1px solid rgb(180, 179, 179);
+    font-size: 15px;
+    margin-left: 24px;
+    border-radius: 12px;
+    width: 70px;
+}
+
+.LableCVC {
+    margin-left: 350px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.InputCVC {
+    border: 1px solid rgb(180, 179, 179);
+    font-size: 15px;
+    margin-left: 340px;
+    border-radius: 12px;
+    width: 70px;
+}
+
+.price {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+    .price p {
+        font-size: 23px;
+        font-weight: bold;
+    }
+
+@media (max-width:583px) {
+    .cardArea {
+        background-color: #8797ad8a;
+        margin-top: 10px;
+        width: 280px;
+        height: 270px;
+        border: 1px solid black;
+        border-radius: 25px;
+        display: block;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .NumderCardArea {
+        margin-top: 20px;
+    }
+
+    .LableNuberCard {
+        margin-left: 15px;
+        font-size: 13px;
+        font-weight: bold;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+
+    .InputNumderCard {
+        border: 1px solid rgb(180, 179, 179);
+        font-size: 15px;
+        margin-left: 12px;
+        border-radius: 12px;
+        width: 200px;
+    }
+
+    .CardTermAndCVC_Area {
+        margin-top: 10px;
+    }
+
+    .LableCardTerm {
+        margin-left: 15px;
+        font-size: 13px;
+        font-weight: bold;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+
+    .InputCardTerm {
+        border: 1px solid rgb(180, 179, 179);
+        font-size: 7px;
+        margin-left: 12px;
+        border-radius: 12px;
+        width: 70px;
+    }
+
+    .LableCVC {
+        margin-left: 175px;
+        font-size: 13px;
+        font-weight: bold;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+
+    .InputCVC {
+        border: 1px solid rgb(180, 179, 179);
+        font-size: 7px;
+        margin-left: 175px;
+        border-radius: 12px;
+        width: 70px;
+    }
+
+    .price {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+        .price p {
+            font-size: 23px;
+            font-weight: bold;
+        }
+}
+
+/* Стиль Выпадающей Кнопки */
+.dropbtnmet {
+    width: 200px;
+    height: 170px;
+    border: 1px solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 19px;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+}
+
+/* контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropmethod {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Выпадающей контент (по умолчанию скрыт) */
+.dropdownmeth-content {
+    display: none;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+@media (max-width:993px) {
+    .dropdownmeth-content {
+        display: none;
+        width: 100%;
+       
+    }
+}
+
+/* Показать выпадающее меню при наведении */
+.dropmethod:hover .dropdownmeth-content {
+    display: block;
+}
+
+/* Изменить цвет фона выпадающего кнопка при отображении выпадающего списка */
+.dropmethod:hover .dropbtnmet {
+    background-color: #3e8e41;
+}
+
+.dropdownmethIO-content {
+    display: none;
+   
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+@media (max-width:993px) {
+    .dropdownmethIO-content {
+        display: none;
+        position: sticky;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+/* Показать выпадающее меню при наведении */
+.dropmethod:hover .dropdownmethIO-content {
+    display: block;
+}
+
+.dropdownmethIO-content button[type = "submit"] {
+    width: 90%;
+}
+
+.dropdownmethIO-content input[type = "text"] {
+    width: 100%;
+}
