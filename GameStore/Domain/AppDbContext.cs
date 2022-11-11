@@ -204,7 +204,7 @@ namespace GameStore.Domain
                 RAM = 8,
                 VRAM = "Nvidia GeForce GTX 1660 GP 6GB GDDR6",
                 GameWeight = 80,
-                features = "Для  нескольких игроков / Для одного игрока"
+                features = "Для одного игрока"
             }); 
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {

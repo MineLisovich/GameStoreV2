@@ -1909,17 +1909,17 @@ Style Profile page
             font-style: italic;
         }
 
-    .price {
-        margin-bottom: 10px;
-    }
+.price {
+    margin-bottom: 10px;
+}
 
-        .price > ins {
-            color: #5a88ca;
-            font-weight: 700;
-            margin-right: 10px;
-            text-decoration: none;
-            font-size: 24px;
-        }
+    .price > ins {
+        color: #5a88ca;
+        font-weight: 700;
+        margin-right: 10px;
+        text-decoration: none;
+        font-size: 24px;
+    }
 
     .description p {
         text-align: justify;
