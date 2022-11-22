@@ -12,6 +12,8 @@ namespace GameStore.Models
         public SelectList PlatfomsList { get; set; }
         public SelectList DevelopersList { get; set; }
         public string Name { get; set; }
+        public int from { get; set; }
+        public int before { get; set; }
         public IEnumerable<Shares> shares { get; set; }  
  
     }

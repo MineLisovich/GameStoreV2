@@ -42,7 +42,7 @@ namespace GameStore.Controllers
         }
        
       
-        public IActionResult AllGame(string name, int? ganre, int? platfoms, int? developres)
+        public IActionResult AllGame(string name, int? ganre, int? platfoms, int? developres, int price_from, int price_before)
         {
             IQueryable<AllGames> allgames =  _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
             if (ganre != null && ganre!=0)
@@ -61,8 +61,18 @@ namespace GameStore.Controllers
             {
                 allgames = allgames.Where(a => a.nameGame.Contains(name));
             }
-
-
+            if (price_from != 0  && price_before != 0)
+            {
+                allgames = allgames.Where(p => p.price <= price_before && p.price >= price_from);
+            }
+            if (price_from > 0 && price_before == 0)
+            {
+                allgames = allgames.Where(p =>  p.price >= price_from);
+            }
+            if (price_from == 0  && price_before > 0)
+            {
+                allgames = allgames.Where(p => p.price <= price_before);
+            }
             List<Ganres> ganres = _db.Ganres.ToList();
             List<Platforms> platforms = _db.Platforms.ToList();
             List<Developers> developers = _db.Developers.ToList();
@@ -79,7 +89,9 @@ namespace GameStore.Controllers
                 PlatfomsList = new SelectList(platforms,"id", "namePlatform"),
                 DevelopersList = new SelectList(developers,"id", "nameDeveloper"),
                 Name = name,
-                shares = shares.ToList()
+                shares = shares.ToList(),
+                from = price_from,
+                before = price_before
             };
             return View(viewModel);
         }
@@ -102,7 +114,7 @@ namespace GameStore.Controllers
         }
 
 
-        public IActionResult Shares(string name, int? ganre, int? platfoms, int? developres)
+        public IActionResult Shares(string name, int? ganre, int? platfoms, int? developres, int price_from, int price_before)
         {
             IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
             if (ganre != null && ganre != 0)
@@ -121,7 +133,18 @@ namespace GameStore.Controllers
             {
                 shares = shares.Where(a => a.AllGames.nameGame.Contains(name));
             }
-
+            if (price_from != 0 && price_before != 0)
+            {
+                shares = shares.Where(p => p.discountPrice <= price_before && p.discountPrice >= price_from);
+            }
+            if (price_from > 0 && price_before == 0)
+            {
+                shares = shares.Where(p => p.discountPrice >= price_from);
+            }
+            if (price_from == 0 && price_before > 0)
+            {
+                shares = shares.Where(p => p.discountPrice <= price_before);
+            }
 
             List<Ganres> ganres = _db.Ganres.ToList();
             List<Platforms> platforms = _db.Platforms.ToList();
@@ -137,7 +160,9 @@ namespace GameStore.Controllers
                 GanresList = new SelectList(ganres, "id", "nameGanres"),
                 PlatfomsList = new SelectList(platforms, "id", "namePlatform"),
                 DevelopersList = new SelectList(developers, "id", "nameDeveloper"),
-                Name = name
+                Name = name,
+                from = price_from,
+                before = price_before
             };
             return View(viewModel);
         }

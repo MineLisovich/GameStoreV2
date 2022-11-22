@@ -29,6 +29,9 @@
             <select name="ganre" asp-items="Model.GanresList"> </select>  
             <select name ="platfoms" asp-items="Model.PlatfomsList"></select>
             <select name ="developres" asp-items ="Model.DevelopersList"></select>
+            <label>Цена:</label>
+            <input name="price_from" type="number" placeholder="от" />
+            <input name="price_before" type="number" placeholder="до" />
             <button type="submit" class="button_filter">Фильтровать</button>
 
         </form>
