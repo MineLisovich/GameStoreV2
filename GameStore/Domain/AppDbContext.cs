@@ -228,7 +228,7 @@ namespace GameStore.Domain
                 RAM = 4,
                 VRAM = "NVIDIA® 9800 GT / AMD HD 4870",
                 GameWeight = 110,
-                features = "Для  нескольких игроков / Для одного игрока"
+                features = "Для нескольких игроков / Для одного игрока"
             });
             modelBuilder.Entity<AllGames>().HasData(new AllGames
             {
@@ -252,7 +252,7 @@ namespace GameStore.Domain
                 RAM = 8,
                 VRAM = "GeForce GTX 950 or Radeon HD 7970",
                 GameWeight = 2,
-                features = "Для  нескольких игроков"
+                features = "Для нескольких игроков"
 
             });
             modelBuilder.Entity<AllGames>().HasData(new AllGames
@@ -303,9 +303,249 @@ namespace GameStore.Domain
                 RAM = 8,
                 VRAM = "NVIDIA GeForce GTX 780",
                 GameWeight = 60,
-                features = "Для  нескольких игроков"
+                features = "Для нескольких игроков"
             });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 406,
+                nameGame = "Borderlands 3",
+                Ganresid = 103,
+                descriptionG = "Всеми любимый «шутер с базиллионами лута» возвращается, чтобы порадовать вас несметным множеством убойных стволов и новым крышесносным приключением! Вам предстоит покорить доселе не виданные миры, играя за одного из четырёх новых искателей Хранилища – нереально крутых перцев, у каждого из которых уникальные навыки, способности и модификации. Действуя в одиночку или в компании друзей, вы должны будете дать бой яростным противникам, нагрести побольше трофеев и спасти свой дом от безжалостных психопатов, возглавляющих самую опасную секту в галактике.",
+                releaseDate = new DateTime(2019, 09, 13),
+                Developersid = 210,
+                price = 70,
+                Poster = "Borderlands3.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 305,
+                screenshotGame_1 = "borderlands3_screenshot_1.png",
+                screenshotGame_2 = "borderlands3_screenshot_2.png",
+                screenshotGame_3 = "borderlands3_screenshot_3.png",
+                screenshotGame_4 = "borderlands3_screenshot_4.png",
+                linkTrailerGame = "tQj8CLKoTCs",
+                OS = "Windows 7/10 (с последней версией пакета обновлений)",
+                CPU = "AMD Ryzen™ 5 2600 (Intel i7-4770)",
+                RAM = 16,
+                VRAM = "AMD Radeon™ RX 590 (NVIDIA GeForce GTX 1060 6 ГБ)",
+                GameWeight = 75,
+                features = "Для одного игрока / Для нескольких игроков"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 407,
+                nameGame = "Ведьмак 3: Дикая Охота",
+                Ganresid = 103,
+                descriptionG = "Станьте профессиональным убийцей монстров и отправляйтесь в приключение эпических масштабов! После своего выхода игра «Ведьмак 3: Дикая Охота» (The Witcher 3: Wild Hunt) стала настоящей классикой, получив более 250 наград в номинации «Игра года». Вас ждёт более 100 часов грандиозного приключения по открытому миру, а также сюжетные расширения, которые растянутся ещё на 50 часов игры. Это издание включает в себя весь дополнительный контент: новое оружие, броню, экипировку для компаньонов, новый режим игры и побочные квесты.",
+                releaseDate = new DateTime(2014, 05, 20),
+                Developersid = 214,
+                price = 50,
+                Poster = "Witcher3.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 301,
+                screenshotGame_1 = "witcher3__screenshot_1.png",
+                screenshotGame_2 = "witcher3__screenshot_2.png",
+                screenshotGame_3 = "witcher3__screenshot_3.png",
+                screenshotGame_4 = "witcher3__screenshot_4.png",
+                linkTrailerGame = "4ndIeNusRLI",
+                OS = "64-разрядная Windows 7, 64-разрядная Windows 8 (8.1) или 64-разрядная Windows 10",
+                CPU = "Intel Core i7 3770 с частотой 3,4 ГГц / AMD FX-8350 с частотой 4 ГГц",
+                RAM = 8,
+                VRAM = "NVIDIA GPU GeForce GTX 770 / AMD GPU Radeon R9 290",
+                GameWeight = 77,
+                features = "Для одного игрока"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 408,
+                nameGame = "Red Dead Redemption 2",
+                Ganresid = 101,
+                descriptionG = "Америка, 1899 год. Артур Морган и другие подручные Датча ван дер Линде вынуждены пуститься в бега. Их банде предстоит участвовать в кражах, грабежах и перестрелках в самом сердце Америки. За ними по пятам идут федеральные агенты и лучшие в стране охотники за головами, а саму банду разрывают внутренние противоречия. Артуру предстоит выбрать, что для него важнее: его собственные идеалы или же верность людям, которые его взрастили.",
+                releaseDate = new DateTime(2019, 11, 05),
+                Developersid = 205,
+                price = 80,
+                Poster = "rdr2.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 304,
+                screenshotGame_1 = "RDR2_screenshot_1.png",
+                screenshotGame_2 = "RDR2_screenshot_2.png",
+                screenshotGame_3 = "RDR2_screenshot_3.png",
+                screenshotGame_4 = "RDR2_screenshot_4.png",
+                linkTrailerGame = "0kqEBOZaP94",
+                OS = "Windows 10 - April 2018 Update (v1803)",
+                CPU = "Intel® Core™ i7-4770K / AMD Ryzen 5 1500x",
+                RAM = 12,
+                VRAM = "Nvidia GeForce GTX 1060 6 ГБ / AMD Radeon RX 480 4 ГБ",
+                GameWeight = 150,
+                features = "Для одного игрока / Для нескольких игроков"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 409,
+                nameGame = "Tom Clancy's The Division®2",
+                Ganresid = 101,
+                descriptionG = "Вашингтон на грани катастрофы. Нашему обществу угрожает беззаконие и нестабильность, и слухи о перевороте в Капитолии только способствуют хаосу. Мы крайне нуждаемся в каждом действующем агенте группы Division — только с ними мы сможем спасти город, пока не поздно.",
+                releaseDate = new DateTime(2019, 03, 15),
+                Developersid = 206,
+                price = 40,
+                Poster = "Division2.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 306,
+                screenshotGame_1 = "thedivision2_screenshot_1.png",
+                screenshotGame_2 = "thedivision2_screenshot_2.png",
+                screenshotGame_3 = "thedivision2_screenshot_3.png",
+                screenshotGame_4 = "thedivision2_screenshot_4.png",
+                linkTrailerGame = "ssyC-QwcPug",
+                OS = "Windows 7/8/10",
+                CPU = "AMD Ryzen 5 1500X | Intel Core I7-4790",
+                RAM = 8,
+                VRAM = "AMD RX 480 NVIDIA GeForce GTX 970",
+                GameWeight = 4,
+                features = "Для нескольких игроков"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 410,
+                nameGame = "Fallout 4",
+                Ganresid = 103,
+                descriptionG = "Добро пожаловать в игру нового поколения с открытым миром! Вы — единственный выживший из убежища 111, оказавшийся в мире, разрушенном ядерной войной. Каждый миг вы сражаетесь за выживание, каждое решение может стать последним. Но именно от вас зависит судьба пустошей. Добро пожаловать домой.",
+                releaseDate = new DateTime(2015, 11, 10),
+                Developersid =201,
+                price = 50,
+                Poster = "Fallout4.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 301,
+                screenshotGame_1 = "fallout4_1.png",
+                screenshotGame_2 = "fallout4_2.png",
+                screenshotGame_3 = "fallout4_3.png",
+                screenshotGame_4 = "fallout4_4.png",
+                linkTrailerGame = "ErgtR14-MV8",
+                OS = "Windows 7/8/10/11 (необходима 64-битная ОС)",
+                CPU = "Intel Core i5-2300 2,8 ГГц/AMD Phenom II X4 945 3 ГГц",
+                RAM = 8,
+                VRAM = "NVIDIA GTX 550 Ti 2 Гб/AMD Radeon HD 7870 2 Гб",
+                GameWeight = 60,
+                features = "Для одного игрока"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 411,
+                nameGame = "The Elder Scrolls V: Skyrim",
+                Ganresid = 102,
+                descriptionG = "Эта часть, как и предыдущие три игры серии — The Elder Scrolls II: Daggerfall, The Elder Scrolls III: Morrowind и The Elder Scrolls IV: Oblivion — получила титул «Игра года» на Video Game Award 2011. Действие происходит через 200 лет после событий Oblivion. Игра была анонсирована 11 ноября 2010 года, а выпущена 11 ноября 2011 года. В игре задействован новый движок Creation Engine и обновлённая система мелких квестов Radiant Story.",
+                releaseDate = new DateTime(2016, 10, 11),
+                Developersid = 201,
+                price = 50,
+                Poster = "The_Elder_Scrolls_V_Skyrim.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 301,
+                screenshotGame_1 = "Skyrim_1.png",
+                screenshotGame_2 = "Skyrim_2.png",
+                screenshotGame_3 = "Skyrim_3.png",
+                screenshotGame_4 = "Skyrim_4.png",
+                linkTrailerGame = "JSRtYpNRoN0",
+                OS = "Windows 7/8.1/10 (64-разрядные версии)",
+                CPU = "Intel i5-2400 или AMD FX-8320",
+                RAM = 0,
+                VRAM = "NVIDIA GTX 780 (3 ГБ) AMD R9 290 (4 ГБ)",
+                GameWeight = 15,
+                features = "Для одного игрока"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 412,
+                nameGame = "Far Cry® 6",
+                Ganresid = 101,
+                descriptionG = "Добро пожаловать в Яру – тропический рай, где время словно остановилось. Диктатор Антон Кастильо намерен любой ценой вернуть былое величие нации. За ним следует его сын – Диего. Но в угнетенной стране вспыхнуло пламя революции.",
+                releaseDate = new DateTime(2021, 10, 07),
+                Developersid = 206,
+                price = 80,
+                Poster = "FarCry6_poster.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 305,
+                screenshotGame_1 = "FarCry6_1.png",
+                screenshotGame_2 = "FarCry6_2.png",
+                screenshotGame_3 = "FarCry6_3.png",
+                screenshotGame_4 = "FarCry6_4.png",
+                linkTrailerGame = "YqDpa6gHAZg",
+                OS = "Windows 10 (версия 20H1 или новее) — только 64-разрядная версия",
+                CPU = "AMD Ryzen 5 3600X с частотой 3,8 ГГц / Intel i7-7700 с частотой 3,6 ГГц или выше",
+                RAM = 16,
+                VRAM = "AMD RX VEGA 64 (8 ГБ) / NVIDIA GTX 1080 (8 ГБ) или выше",
+                GameWeight = 60,
+                features = "Для одного игрока / Для нескольких игроков"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 413,
+                nameGame = "Far Cry® 5",
+                Ganresid = 101,
+                descriptionG = "Добро пожаловать в округ Хоуп, штат Монтана, земли свободолюбцев и храбрецов, где всем заправляет секта конца света «Врата Эдема».Освободите округ Хоуп в одиночку или вместе с другим игроком. Пользуйтесь услугами наёмников и приручайте животных, чтобы уничтожить секту.",
+                releaseDate = new DateTime(2018, 03, 27),
+                Developersid = 206,
+                price = 65,
+                Poster = "Far_Cry_5.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 305,
+                screenshotGame_1 = "FarCry5_1.png",
+                screenshotGame_2 = "FarCry5_2.png",
+                screenshotGame_3 = "FarCry5_3.png",
+                screenshotGame_4 = "FarCry5_4.png",
+                linkTrailerGame = "ZCBC2kN33jw",
+                OS = "Windows 7 SP1 | Windows 8.1 | Windows 10 | Только 64-разрядные версии",
+                CPU = "Intel Core i7-4770 с частотой 3,4 ГГц | AMD Ryzen 5 1600 с частотой 3,2 ГГц или эквивалентный",
+                RAM = 8,
+                VRAM = "NVIDIA GeForce GTX 970 | AMD R9 290X",
+                GameWeight = 40,
+                features = "Для одного игрока / Для нескольких игроков"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
+                id = 414,
+                nameGame = "Assassin's Creed Origins",
+                Ganresid = 103,
+                descriptionG = "Раскройте темные тайны и забытые мифы, возвращаясь к моменту основания: Истоки Братства ассасинов. Испытайте совершенно новый способ ведения боя. Добывайте и используйте десятки видов оружия с различными характеристиками и редкостями.Плывите вниз по Нилу, раскройте тайны пирамид или сражайтесь с опасными древними группировками и дикими зверями, исследуя эту гигантскую и непредсказуемую страну.",
+                releaseDate = new DateTime(2017, 10, 26),
+                Developersid = 206,
+                price = 65,
+                Poster = "Assassin_Origins.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 306,
+                screenshotGame_1 = "Assassin_Origins_1.png",
+                screenshotGame_2 = "Assassin_Origins_2.png",
+                screenshotGame_3 = "Assassin_Origins_3.png",
+                screenshotGame_4 = "Assassin_Origins_4.png",
+                linkTrailerGame = "x_1GwlWSil4",
+                OS = "Windows 7 SP1 | Windows 8.1, Windows 10 | только 64-разрядная версия",
+                CPU = "Intel Core i5-2400s с частотой 2,5 ГГц | AMD FX-6350 с частотой 3,9 ГГц или эквивалент",
+                RAM = 8,
+                VRAM = "NVIDIA GeForce GTX 760 или AMD R9 270/2048 МБ видеопамяти с шейдерной моделью 5.0 или выше",
+                GameWeight = 42,
+                features = "Для одного игрока"
+            });
+            modelBuilder.Entity<AllGames>().HasData(new AllGames
+            {
 
+                id = 415,
+                nameGame = "Assassin's Creed Odyssey",
+                Ganresid = 103,
+                descriptionG = "Определите свою судьбу в игре Assassin's Creed® Одиссея. Пройдите путь от изгоя до живой легенды: отправьтесь в далёкое странствие, чтобы раскрыть тайны своего прошлого и изменить будущее Древней Греции. Путешествуйте по густым зелёным лесам, вулканическим островам и шумным городам — встаньте на путь открытий и встреч в мире, что погряз в войне, начатой богами и людьми.",
+                releaseDate = new DateTime(2018, 10, 05),
+                Developersid = 206,
+                price = 65,
+                Poster = "Assassins_Creed_Odyssey.png",
+                dateAddedSite = new DateTime(2022, 03, 03),
+                Platformsid = 306,
+                screenshotGame_1 = "Assassins_Creed_Odyssey_1.png",
+                screenshotGame_2 = "Assassins_Creed_Odyssey_2.png",
+                screenshotGame_3 = "Assassins_Creed_Odyssey_3.png",
+                screenshotGame_4 = "Assassins_Creed_Odyssey_4.png",
+                linkTrailerGame = "AQaSqKjbX60",
+                OS = "Windows 7 с пакетом обновления 1 (SP1), Windows 8.1, Windows 10 | Только 64-разрядные версии",
+                CPU = "Не ниже AMD FX-8350 с частотой 4 ГГц | Ryzen 5 — 1400 | Intel Core i7-3770 с частотой 3,5 ГГц",
+                RAM = 8,
+                VRAM = "AMD Radeon R9 285 | NVIDIA GeForce GTX 660 | 2 ГБ видеопамяти и Shader Model 5.0",
+                GameWeight = 46,
+                features = "Для одного игрока"
+            });
             //Заполение таблицы Shares
             modelBuilder.Entity<Shares>().HasData(new Shares
             {
@@ -314,6 +554,30 @@ namespace GameStore.Domain
                 discountPrice = 30,
                 nameImageSlider = "2077.png"
             });
+            modelBuilder.Entity<Shares>().HasData(new Shares
+            {
+                id = 502,
+                AllGamesid = 405,
+                discountPrice = 55,
+                nameImageSlider = "Fallout76.png"
+            });
+            modelBuilder.Entity<Shares>().HasData(new Shares
+            {
+                id = 503,
+                AllGamesid = 408,
+                discountPrice = 70,
+                nameImageSlider = "rdr2.png"
+            });
+            modelBuilder.Entity<Shares>().HasData(new Shares
+            {
+                id = 504,
+                AllGamesid = 407,
+                discountPrice = 30,
+                nameImageSlider = "Wicher3.png"
+            });
+
+
+
 
             //
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
@@ -375,10 +639,109 @@ namespace GameStore.Domain
             modelBuilder.Entity<GameKey>().HasData(new GameKey
             {
                 id = 901,
-                Key_game = "XXXX-XXXX-XXXX",
+                Key_game = "GHZNAZXB-ZXNHDANX-IOEJZNDG-MSHSJWUJ",
                 AllGamesid = 401
 
             });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 902,
+                Key_game = "IEUWYHDB-DKSNZMEU-XHSKDMWO-XMBADHNR",
+                AllGamesid = 402 
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 903,
+                Key_game = "ZXNEYTAB-KFBSYDBF-XHSNWDAC-DNWHDDEWE",
+                AllGamesid =403
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 904,
+                Key_game = "FJNVCDKM-KLWDEIRU-SXJNHWEG-SAJKFHJD",
+                AllGamesid =404
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 905,
+                Key_game = "GRHUSDNM-CXJNWGVD-DJNCLKWD-WEYUXZBN",
+                AllGamesid =405
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 906,
+                Key_game = "RTIOSDBN-REHJNMSAX-REUYBSXN-DSHJVBWE",
+                AllGamesid =406
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 907,
+                Key_game = "REYUCBXN-YUEWVSBA-SAHJWVBQ-OXZIQVWB",
+                AllGamesid =407
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 908,
+                Key_game = "VFBNYTWE-DSHJWQVB-DISUQWVB-KSJAEWBV",
+                AllGamesid =408
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 909,
+                Key_game = "CXBNWJHE-KFJHDHJWFEK-HWEJRF-WHKFEUJ",
+                AllGamesid =409
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 910,
+                Key_game = "WFOQEUIFHW-KWEFHJ-BEWFJH-WEFVHGJ",
+                AllGamesid =410
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 911,
+                Key_game = "FWGYURQ-FEBVWQUY-QJHFG-QYUWEBN",
+                AllGamesid =411
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 912,
+                Key_game = "GYWUI-WBKFEJ-REYUWI-BHSAJ-URYIWQE",
+                AllGamesid =412
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 913,
+                Key_game = "WIUETYR-AKFHGEW-HBJWRE-WRKQEJH",
+                AllGamesid =413
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 914,
+                Key_game = "WHEFJK-EWRBKJH-UIWYRQE-CBXZJHSD-EFWUIY",
+                AllGamesid =414
+
+            });
+            modelBuilder.Entity<GameKey>().HasData(new GameKey
+            {
+                id = 915,
+                Key_game = "RVUIEHG-0EFWIUY-WEHKFUJ-JKDSIJFSDO",
+                AllGamesid =415
+
+            });
+
 
             //Заполение таблицы Basket
             modelBuilder.Entity<Basket>().HasData(new Basket

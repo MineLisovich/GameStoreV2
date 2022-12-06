@@ -18,7 +18,7 @@
         @if (Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).Count() > 0)
         {
 
-            @foreach (var obj in Model.Chek.Where(g => g.UserId == @Model.identityUser.Id))
+            @foreach (var obj in Model.Chek.Where(g => g.UserId == @Model.identityUser.Id).OrderByDescending(d=>d.dateAddedCheque))
             {
                 <div class="basketArea">
                     <div class="imgBastet">

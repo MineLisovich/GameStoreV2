@@ -60,35 +60,40 @@ namespace GameStore.Areas.User.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var basket = _db.Basket.Include(g => g.AllGames).Include(u => u.User).Where(us => us.UserId == user.Id).ToList();
-            var gameKey = _db.GameKey.Include(all => all.AllGames).ToList();
-
-            
-           
-
             for (int i = 0; i < basket.Count(); i++)
             {
-                for (int j = 0; j < gameKey.Count(); j++)
+                var gameKey = _db.GameKey.Include(all => all.AllGames).Where(s=>s.AllGamesid == basket[i].AllGamesid).Take(1).ToList();
+                if (gameKey.Count() > 0)
                 {
 
-                    if (basket[i].AllGames.nameGame == gameKey[j].AllGames.nameGame)
+
+                    for (int j = 0; j < gameKey.Count(); j++)
                     {
 
-
-                        Chek model = new Chek()
+                        if (basket[i].AllGames.nameGame == gameKey[j].AllGames.nameGame)
                         {
-                            dateAddedCheque = DateTime.Now,
-                            UserId = basket[i].UserId,
-                            nameGame = basket[i].AllGames.nameGame,
-                            priceGame = basket[i].AllGames.price,
-                            GameKeyid = gameKey[j].id,
 
-                        };
-                        dataManager.Chek.SaveChek(model);
+
+                            Chek model = new Chek()
+                            {
+                                dateAddedCheque = DateTime.Now,
+                                UserId = basket[i].UserId,
+                                nameGame = basket[i].AllGames.nameGame,
+                                priceGame = basket[i].AllGames.price,
+                                GameKeyid = gameKey[j].id,
+
+                            };
+                            dataManager.Chek.SaveChek(model);
+                        }
+                        else
+                        {
+                            return View("OrderError");
+                        }
                     }
-                    else
-                    {
-                        return View("OrderError");
-                    }
+                }
+                else
+                {
+                    return View("OrderError");
                 }
             }
                 var query = from c in basket select c;
