@@ -2417,3 +2417,144 @@ input[type=number]::-webkit-outer-spin-button {
 .dropdownmethIO-content input[type = "text"] {
     width: 100%;
 }
+/*SUPER PUPER NEW STYLE SINGLE PAGE GAME*/
+._newSingleAreaGame {
+    width: 100%;
+    height: auto;
+   
+    display: flex;
+}
+
+._previewGame {
+    width: 20%;
+    height: 243px;
+   
+}
+
+._NameGame_and_other_info {
+    width: 100%;
+    height: auto;
+    margin-left: 20px;
+   
+}
+
+    ._NameGame_and_other_info h1 {
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    ._NameGame_and_other_info p {
+        font-style: italic;
+        font-size: 18px;
+        margin-left: 10px;
+    }
+
+    ._NameGame_and_other_info a {
+        margin-left: 10px;
+    }
+
+._priceGame {
+    display: flex;
+}
+
+    ._priceGame ins {
+        color: #5a88ca;
+        font-weight: 700;
+        font-size: 23px;
+        margin-left: 10px;
+        text-decoration: none;
+    }
+
+    ._priceGame del {
+        margin-left: 5px;
+        font-size: 15px;
+    }
+
+@media (max-width:993px) {
+    ._newSingleAreaGame {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    ._previewGame {
+        width: 100%;
+        height: auto;
+    }
+
+    ._NameGame_and_other_info {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+        ._NameGame_and_other_info h1 {
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        ._NameGame_and_other_info p {
+            font-style: italic;
+            font-size: 18px;
+        }
+
+        ._NameGame_and_other_info a {
+            margin-left: 10px;
+        }
+}
+
+._descriptionGame {
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+    ._descriptionGame h1 {
+        text-align: center;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 35px;
+        text-decoration: underline;
+        color: rgba(0, 0, 0, 0.651);
+    }
+
+    ._descriptionGame p {
+        text-align: justify;
+        font-size: 18px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+
+@media (max-width:993px) {
+    ._descriptionGame {
+        width: 100%;
+        height: auto;
+    }
+}
+
+._videoGameTriler {
+    width: 100%;
+    height: auto;
+   
+}
+
+    ._videoGameTriler iframe {
+        width: 100%;
+        height: 645px;
+    }
+
+@media (max-width:993px) {
+    ._videoGameTriler iframe {
+        width: 100%;
+        height: 345px;
+    }
+}
+
+._GameScreenShots {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 5px;
+}
