@@ -19,7 +19,7 @@ namespace GameStore.Domain.Repositories.EntityFramework
 
         public IQueryable<GameKey> GetGameKey()
         {
-            return context.GameKey;
+            return context.GameKey.Include(a => a.AllGames);
         }
 
         public GameKey GetGameKeyByid(int id)

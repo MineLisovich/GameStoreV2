@@ -19,7 +19,7 @@ namespace GameStore.Domain.Repositories.EntityFramework
 
         public IQueryable<Shares> GetShares()
         {
-            return context.Shares;
+            return context.Shares.Include(a => a.AllGames);
         }
         public Shares GetSharesByid(int id)
         {

@@ -18,7 +18,7 @@ namespace GameStore.Domain.Repositories.EntityFramework
         }
         public IQueryable<Basket> GetBasket()
         {
-            return context.Basket;
+            return context.Basket.Include(g => g.AllGames).Include(u => u.User);
         }
         public Basket GetBasketByid(int id)
         {

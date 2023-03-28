@@ -18,7 +18,7 @@ namespace GameStore.Domain.Repositories.EntityFramework
         }
         public IQueryable<Chek> GetChek()
         {
-            return context.Chek;
+            return context.Chek.Include(u => u.User).Include(g => g.GameKey);
         }
         public Chek GetChekByid(int id)
         {

@@ -18,7 +18,7 @@ namespace GameStore.Domain.Repositories.EntityFramework
         }
         public IQueryable<AllGames> GetAllGames()
         {
-            return context.AllGames;
+            return context.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms); 
         }
 
         public AllGames GetAllGamesByid(int id)

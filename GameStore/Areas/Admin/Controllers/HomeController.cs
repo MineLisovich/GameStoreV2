@@ -42,7 +42,8 @@ namespace GameStore.Areas.Admin.Controllers
         [HttpGet]
         public  IActionResult AllGames(string name)
         {
-            IQueryable<AllGames> allGames = _db.AllGames.Include(g => g.Ganres).Include(dev => dev.Developers).Include(p => p.Platforms);
+            var allGames = dataManager.AllGames.GetAllGames();
+
             if (!String.IsNullOrEmpty(name))
             {
                 allGames = allGames.Where(p => p.nameGame.Contains(name));
@@ -58,7 +59,7 @@ namespace GameStore.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Developers(string name)
         {
-            IQueryable<Developers> dev = dataManager.Developers.GetDevelopers();
+            var dev = dataManager.Developers.GetDevelopers();
             if (!String.IsNullOrEmpty(name))
             {
                 dev = dev.Where(d => d.nameDeveloper.Contains(name));
@@ -73,7 +74,7 @@ namespace GameStore.Areas.Admin.Controllers
         }
         public IActionResult Ganres(string name)
         {
-           IQueryable<Ganres> ganres = dataManager.Ganres.GetGanres();
+            var ganres = dataManager.Ganres.GetGanres();
             if (!String.IsNullOrEmpty(name))
             { 
                 ganres = ganres.Where(d => d.nameGanres.Contains(name));
@@ -87,7 +88,7 @@ namespace GameStore.Areas.Admin.Controllers
         }
         public IActionResult Platforms(string name)
         {
-           IQueryable <Platforms> platforms = dataManager.Platforms.GetPlatforms();
+          var platforms = dataManager.Platforms.GetPlatforms();
             if (!String.IsNullOrEmpty(name))
             {
                 platforms = platforms.Where(p => p.namePlatform.Contains(name));
@@ -102,7 +103,7 @@ namespace GameStore.Areas.Admin.Controllers
 
         public IActionResult Shares(string name)
         {
-            IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
+            var shares = dataManager.Shares.GetShares();
             if (!String.IsNullOrEmpty(name))
             {
                 shares = shares.Where(s => s.AllGames.nameGame.Contains(name));
@@ -132,7 +133,7 @@ namespace GameStore.Areas.Admin.Controllers
 
         public IActionResult GameKey(string name)
         {
-            IQueryable<GameKey> gameKeys = _db.GameKey.Include(a => a.AllGames);
+            var gameKeys = dataManager.GameKey.GetGameKey();
             if (!String.IsNullOrEmpty(name))
             {
                 gameKeys = gameKeys.Where(p => p.AllGames.nameGame.Contains(name));
@@ -147,7 +148,7 @@ namespace GameStore.Areas.Admin.Controllers
 
         public IActionResult Basket(string name)
         {
-            IQueryable<Basket> baskets = _db.Basket.Include(g=>g.AllGames).Include(u => u.User);
+            var baskets = dataManager.Basket.GetBasket();
             if (!String.IsNullOrEmpty(name))
             {
                 baskets = baskets.Where(u => u.User.UserName.Contains(name));
@@ -162,7 +163,7 @@ namespace GameStore.Areas.Admin.Controllers
 
         public IActionResult Order(string name)
         {
-            IQueryable<Chek> order = _db.Chek.Include(u => u.User).Include(g=>g.GameKey);
+            IQueryable<Chek> order = dataManager.Chek.GetChek();
             if (!String.IsNullOrEmpty(name))
             { 
                 order = order.Where(u => u.User.UserName.Contains(name));

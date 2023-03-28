@@ -28,10 +28,10 @@ namespace GameStore.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public  IActionResult Index()
         {
-            IQueryable<AllGames> allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
-            IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
+            var allgames =  dataManager.AllGames.GetAllGames();
+            var shares = dataManager.Shares.GetShares();
             AllGamesViewModel viewModel = new AllGamesViewModel
             {
                 allGames = allgames.ToList(),
@@ -44,7 +44,9 @@ namespace GameStore.Controllers
       
         public IActionResult AllGame(string name, int? ganre, int? platfoms, int? developres, int price_from, int price_before)
         {
-            IQueryable<AllGames> allgames =  _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms);
+            var allgames = dataManager.AllGames.GetAllGames();
+
+            // фильтрация игр
             if (ganre != null && ganre!=0)
             {
                 allgames = allgames.Where(g=>g.Ganresid==ganre);
@@ -73,14 +75,14 @@ namespace GameStore.Controllers
             {
                 allgames = allgames.Where(p => p.price <= price_before);
             }
-            List<Ganres> ganres = _db.Ganres.ToList();
-            List<Platforms> platforms = _db.Platforms.ToList();
-            List<Developers> developers = _db.Developers.ToList();
+            List<Ganres> ganres = dataManager.Ganres.GetGanres().ToList();
+            List<Platforms> platforms = dataManager.Platforms.GetPlatforms().ToList();
+            List<Developers> developers = dataManager.Developers.GetDevelopers().ToList();
             ganres.Insert(0, new Ganres { nameGanres = "Жанр", id = 0 });
             platforms.Insert(0, new Platforms { namePlatform = "Платформа", id = 0 });
             developers.Insert(0, new Developers { nameDeveloper = "Разработчик", id = 0 });
 
-            IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
+            var shares = dataManager.Shares.GetShares();
 
             AllGamesViewModel viewModel = new AllGamesViewModel
             {
@@ -116,7 +118,9 @@ namespace GameStore.Controllers
 
         public IActionResult Shares(string name, int? ganre, int? platfoms, int? developres, int price_from, int price_before)
         {
-            IQueryable<Shares> shares = _db.Shares.Include(a => a.AllGames);
+            var shares = dataManager.Shares.GetShares();
+
+            // фильтрация игр
             if (ganre != null && ganre != 0)
             {
                 shares = shares.Where(g => g.AllGames.Ganresid == ganre);
@@ -167,10 +171,10 @@ namespace GameStore.Controllers
             return View(viewModel);
         }
         [HttpGet]
-        public IActionResult SinglePageGame(int id)
+        public  IActionResult SinglePageGame(int id)
         {
-            IQueryable<AllGames> allgames = _db.AllGames.Include(g => g.Ganres).Include(d => d.Developers).Include(p => p.Platforms).Where(i=>i.id == id);
-            IQueryable<Shares> shares = _db.Shares.Where(s=>s.AllGamesid == id);
+            var allgames = dataManager.AllGames.GetAllGames();
+            var shares = dataManager.Shares.GetShares();
             AllGamesViewModel viewModel = new AllGamesViewModel
             {
                 allGames = allgames.ToList(),
